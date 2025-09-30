@@ -1,0 +1,1271 @@
+[
+  {
+    "name": "Maki & Ramen",
+    "category": "Ramen",
+    "address": "37 Leith St",
+    "rating": 4.7,
+    "review_count": 3576,
+    "status": "Open ⋅ Closes 10 pm",
+    "price_range": "4.7(3,576)"
+  },
+  {
+    "name": "Thai Express Kitchen Edinburgh",
+    "category": "Thai",
+    "address": "Leith St",
+    "rating": 4.7,
+    "review_count": 3112,
+    "status": "Open ⋅ Closes 9 pm",
+    "price_range": "4.7(3,112)"
+  },
+  {
+    "name": "John Lewis & Partners",
+    "category": "Department store",
+    "address": "60 Leith St",
+    "rating": 4.1,
+    "review_count": 2562,
+    "status": "Department store for home & fashion",
+    "price_range": "4.1(2,562)"
+  },
+  {
+    "name": "Gordon Ramsay Street Burger - Edinburgh",
+    "category": "Hamburger",
+    "address": "Fourth Floor, Saint James Square",
+    "rating": 4.4,
+    "review_count": 2530,
+    "status": "Open ⋅ Closes 10 pm",
+    "price_range": "4.4(2,530)"
+  },
+  {
+    "name": "Pho Edinburgh",
+    "category": "Vietnamese",
+    "address": "Fourth Floor, St James Quarter, Pho, St James Cres",
+    "rating": 4.6,
+    "review_count": 2370,
+    "status": "Vietnamese noodle soups & street food",
+    "price_range": "4.6(2,370)"
+  },
+  {
+    "name": "Bonnie & Wild",
+    "category": "Food court",
+    "address": "Level 4, St James Quarter",
+    "rating": 4.4,
+    "review_count": 2221,
+    "status": "Polished food hall offering global dishes",
+    "price_range": "4.4(2,221)"
+  },
+  {
+    "name": "The Real Greek - Edinburgh",
+    "category": "Greek",
+    "address": "404–406 Saint James Square",
+    "rating": 4.4,
+    "review_count": 1602,
+    "status": "Cool, contemporary Greek eatery",
+    "price_range": "4.4(1,602)"
+  },
+  {
+    "name": "Tortilla Edinburgh",
+    "category": "Mexican",
+    "address": "107 Saint James Square",
+    "rating": 4.5,
+    "review_count": 1585,
+    "status": "Open ⋅ Closes 6 pm",
+    "price_range": "4.5(1,585)"
+  },
+  {
+    "name": "Lane7 Edinburgh",
+    "category": "Bowling Alley",
+    "address": "Saint James Square",
+    "rating": 4.4,
+    "review_count": 1447,
+    "status": "Open ⋅ Closes 12 am",
+    "price_range": "4.4(1,447)"
+  },
+  {
+    "name": "The Alchemist St James Quarter",
+    "category": "Cocktail bar",
+    "address": "414 St James Cres",
+    "rating": 4.4,
+    "review_count": 1407,
+    "status": "Open ⋅ Closes 12 am",
+    "price_range": "4.4(1,407)"
+  },
+  {
+    "name": "Samsung Experience Store",
+    "category": "Electronics Retail and Repair Shop",
+    "address": "Saint James Square",
+    "rating": 4.4,
+    "review_count": 1407,
+    "status": "Brand store for cutting-edge electronics",
+    "price_range": "4.4(1,407)"
+  },
+  {
+    "name": "Black Sheep Coffee",
+    "category": "Coffee shop",
+    "address": "St James Quarter, 30 Saint James Square",
+    "rating": 4.6,
+    "review_count": 1335,
+    "status": "Open ⋅ Closes 8 pm",
+    "price_range": "4.6(1,335)"
+  },
+  {
+    "name": "iSmash",
+    "category": "Mobile phone repair shop",
+    "address": "Inside the SKY store, 1 Leith St",
+    "rating": 4.9,
+    "review_count": 1208,
+    "status": "Open ⋅ Closes 6 pm · 0131 202 8681",
+    "price_range": "4.9(1,208)"
+  },
+  {
+    "name": "Duck & Waffle",
+    "category": "Restaurant",
+    "address": "400-402 St James Cres",
+    "rating": 4.6,
+    "review_count": 1052,
+    "status": "Open ⋅ Closes 12 am",
+    "price_range": "4.6(1,052)"
+  },
+  {
+    "name": "The LEGO® Store Edinburgh",
+    "category": "Toy Shop",
+    "address": "St James Centre",
+    "rating": 4.7,
+    "review_count": 991,
+    "status": "Open ⋅ Closes 8 pm · 0131 380 5067",
+    "price_range": "4.7(991)"
+  },
+  {
+    "name": "Wingstop Edinburgh St James Quarter",
+    "category": "Chicken wings",
+    "address": "Level 1, St James Centre, C1.31, Leith Street Eats",
+    "rating": 4.4,
+    "review_count": 984,
+    "status": "Counter-serve chicken wing chain",
+    "price_range": "4.4(984)"
+  },
+  {
+    "name": "Haute Dolci Edinburgh",
+    "category": "Brunch",
+    "address": "St James Cres",
+    "rating": 4.5,
+    "review_count": 921,
+    "status": "Open ⋅ Closes 11 pm",
+    "price_range": "4.5(921)"
+  },
+  {
+    "name": "Salerno Pizza",
+    "category": "Pizza",
+    "address": "405-407 St James Cres",
+    "rating": 4.3,
+    "review_count": 910,
+    "status": "Casual pizzeria in a shopping centre",
+    "price_range": "4.3(910)"
+  },
+  {
+    "name": "St James Quarter Car Park",
+    "category": "Parking Garage",
+    "address": "St James' Pl",
+    "rating": 4.4,
+    "review_count": 844,
+    "status": "Open 24 hours · 0131 290 1113",
+    "price_range": "4.4(844)"
+  },
+  {
+    "name": "The Botanist Edinburgh",
+    "category": "Live Music",
+    "address": "1 Little King St",
+    "rating": 4.1,
+    "review_count": 770,
+    "status": "Cocktails & gastropub fare in cool venue",
+    "price_range": "4.1(770)"
+  },
+  {
+    "name": "Thérapie Clinic - Endinburgh - St.James",
+    "category": "Laser hair removal service",
+    "address": "Saint James Square",
+    "rating": 4.7,
+    "review_count": 716,
+    "status": "Open ⋅ Closes 8 pm",
+    "price_range": "4.7(716)"
+  },
+  {
+    "name": "Ka Pao Edinburgh",
+    "category": "Asian",
+    "address": "St James Cres",
+    "rating": 4.6,
+    "review_count": 607,
+    "status": "Open ⋅ Closes 10 pm",
+    "price_range": "4.6(607)"
+  },
+  {
+    "name": "German Doner Kebab (GDK)",
+    "category": "Fast food",
+    "address": "Leith St, Saint James Square",
+    "rating": 3.8,
+    "review_count": 575,
+    "status": "Open ⋅ Closes 10 pm",
+    "price_range": "3.8(575)"
+  },
+  {
+    "name": "Starbucks",
+    "category": "Coffee shop",
+    "address": "Leith St",
+    "rating": 4.0,
+    "review_count": 560,
+    "status": "Iconic Seattle-based coffeehouse chain",
+    "price_range": "4.0(560)"
+  },
+  {
+    "name": "Everyman Edinburgh",
+    "category": "Cinema",
+    "address": "Level 5, St James Quarter",
+    "rating": 4.3,
+    "review_count": 541,
+    "status": null,
+    "price_range": "4.3(541)"
+  },
+  {
+    "name": "W Edinburgh",
+    "category": "5-star hotel",
+    "address": null,
+    "rating": 4.4,
+    "review_count": 530,
+    "status": null,
+    "price_range": "4.4(530)"
+  },
+  {
+    "name": "Flight Club Edinburgh",
+    "category": "Bar",
+    "address": "300-306 Level 3, St James Quarter",
+    "rating": 4.6,
+    "review_count": 512,
+    "status": "Open ⋅ Closes 12 am",
+    "price_range": "4.6(512)"
+  },
+  {
+    "name": "itsu - Edinburgh",
+    "category": "Japanese",
+    "address": "204 St James Cres",
+    "rating": 4.0,
+    "review_count": 509,
+    "status": "Japanese sushi, noodles, rice & salads",
+    "price_range": "4.0(509)"
+  },
+  {
+    "name": "Europcar Edinburgh St James Waverley",
+    "category": "Car rental company",
+    "address": "Mall Level L1",
+    "rating": 3.8,
+    "review_count": 503,
+    "status": "Open ⋅ Closes 6 pm · 0371 384 3467",
+    "price_range": "3.8(503)"
+  },
+  {
+    "name": "ZARA",
+    "category": "Clothing Shop",
+    "address": "1 Leith St",
+    "rating": 4.0,
+    "review_count": 461,
+    "status": "On-trend apparel & accessories",
+    "price_range": "4.0(461)"
+  },
+  {
+    "name": "SUSHISAMBA Edinburgh",
+    "category": "Japanese",
+    "address": "1 Saint James Square",
+    "rating": 4.6,
+    "review_count": 459,
+    "status": "Brazilian & Japanese fusion hot spot",
+    "price_range": "4.6(459)"
+  },
+  {
+    "name": "Bubbleology St James Quarter",
+    "category": "Bubble Tea",
+    "address": "1 Leith St",
+    "rating": 4.0,
+    "review_count": 457,
+    "status": "Open ⋅ Closes 8 pm",
+    "price_range": "4.0(457)"
+  },
+  {
+    "name": "Next",
+    "category": "Clothing Shop",
+    "address": "124-130 Saint James Square",
+    "rating": 4.2,
+    "review_count": 423,
+    "status": "Open ⋅ Closes 8 pm · 0131 385 7560",
+    "price_range": "4.2(423)"
+  },
+  {
+    "name": "Lazeez Street Food - Taste of Lebanon @ St James Quarter 'حلال'",
+    "category": "Takeaway",
+    "address": "3 Little King St",
+    "rating": 4.8,
+    "review_count": 424,
+    "status": "Open ⋅ Closes 8 pm",
+    "price_range": "4.8(424)"
+  },
+  {
+    "name": "Boots Opticians",
+    "category": "Optician",
+    "address": "120 St James Cres",
+    "rating": 4.5,
+    "review_count": 390,
+    "status": "Open ⋅ Closes 8 pm · 0131 524 8070",
+    "price_range": "4.5(390)"
+  },
+  {
+    "name": "Five Guys Burgers and Fries St. James Quarter",
+    "category": "Hamburger",
+    "address": "Level 1, St James Centre, Unit C1.30, Leith Street Eats",
+    "rating": 3.9,
+    "review_count": 379,
+    "status": "Fast-food burger & fries chain",
+    "price_range": "3.9(379)"
+  },
+  {
+    "name": "Krispy Kreme Edinburgh St James Quarter",
+    "category": "Doughnuts",
+    "address": "Unit C3, 35 Saint James Square",
+    "rating": 4.4,
+    "review_count": 321,
+    "status": "Long-standing donuts & coffee chain",
+    "price_range": "4.4(321)"
+  },
+  {
+    "name": "Sky",
+    "category": "Satellite communication service",
+    "address": "St James Centre",
+    "rating": 4.7,
+    "review_count": 315,
+    "status": "Open ⋅ Closes 8 pm · 0131 546 4890",
+    "price_range": "4.7(315)"
+  },
+  {
+    "name": "Pandora",
+    "category": "Jewellery Store",
+    "address": "217 Saint James Square",
+    "rating": 4.3,
+    "review_count": 272,
+    "status": "Source for jewelry & charms",
+    "price_range": "4.3(272)"
+  },
+  {
+    "name": "H beauty Edinburgh",
+    "category": "Cosmetics shop",
+    "address": "316 -318 St James Cres",
+    "rating": 4.1,
+    "review_count": 232,
+    "status": "Open ⋅ Closes 8 pm · 0131 385 9802",
+    "price_range": "4.1(232)"
+  },
+  {
+    "name": "KOCHCHI Edinburgh",
+    "category": "Sri Lankan",
+    "address": "Bonnie and Wild Market Place, St James Quarter, 415-417 Saint James Square",
+    "rating": 4.7,
+    "review_count": 231,
+    "status": "Open ⋅ Closes 9 pm",
+    "price_range": "4.7(231)"
+  },
+  {
+    "name": "O2 Shop Edinburgh - St James",
+    "category": "Mobile Phone Shop",
+    "address": "129 Saint James Square",
+    "rating": 4.0,
+    "review_count": 191,
+    "status": "Mobile phones, contracts & accessories",
+    "price_range": "4.0(191)"
+  },
+  {
+    "name": "Roomzzz Aparthotel Edinburgh",
+    "category": "4-star hotel",
+    "address": null,
+    "rating": 4.6,
+    "review_count": 189,
+    "status": null,
+    "price_range": "4.6(189)"
+  },
+  {
+    "name": "Hotel Chocolat",
+    "category": "Chocolate shop",
+    "address": "205 Saint James Square",
+    "rating": 4.4,
+    "review_count": 183,
+    "status": "Specialist retailer of luxury chocolates",
+    "price_range": "4.4(183)"
+  },
+  {
+    "name": "W Lounge",
+    "category": "Restaurant",
+    "address": "1 Saint James Square",
+    "rating": 4.6,
+    "review_count": 169,
+    "status": "Open ⋅ Closes 12 am",
+    "price_range": "4.6(169)"
+  },
+  {
+    "name": "Boots",
+    "category": "Beauty supply store",
+    "address": "121-127 St James Cres",
+    "rating": 3.5,
+    "review_count": 134,
+    "status": "Open ⋅ Closes 8 pm · 0131 557 2632",
+    "price_range": "3.5(134)"
+  },
+  {
+    "name": "Pull&Bear",
+    "category": "Clothing Shop",
+    "address": "1 Leith St",
+    "rating": 3.3,
+    "review_count": 122,
+    "status": "Open ⋅ Closes 8 pm · 0131 380 6730",
+    "price_range": "3.3(122)"
+  },
+  {
+    "name": "Benefit Cosmetics Brow Bar Counter",
+    "category": "Waxing Hair-Removal Service",
+    "address": "St James Quarter, St James Cres",
+    "rating": 5.0,
+    "review_count": 118,
+    "status": "Beauty retailer with cosmetics & more",
+    "price_range": "5.0(118)"
+  },
+  {
+    "name": "Cala Cala",
+    "category": "Takeaway",
+    "address": "Little King St",
+    "rating": 5.0,
+    "review_count": 117,
+    "status": "Open ⋅ Closes 8 pm",
+    "price_range": "5.0(117)"
+  },
+  {
+    "name": "Bank of Scotland",
+    "category": "Bank",
+    "address": "112 St James Cres",
+    "rating": 3.2,
+    "review_count": 107,
+    "status": "Open ⋅ Closes 6 pm · 0345 721 3141",
+    "price_range": "3.2(107)"
+  },
+  {
+    "name": "EE",
+    "category": "Telecommunications service provider",
+    "address": "116 St James Cres",
+    "rating": 3.3,
+    "review_count": 103,
+    "status": "Mobile & broadband service provider",
+    "price_range": "3.3(103)"
+  },
+  {
+    "name": "BOSS Menswear Store",
+    "category": "Men's Clothes Shop",
+    "address": "Unit SU3.06, Saint James Square",
+    "rating": 4.3,
+    "review_count": 102,
+    "status": "Designer apparel & fragrance retailer",
+    "price_range": "4.3(102)"
+  },
+  {
+    "name": "Cavendish Clinic at John Lewis Edinburgh",
+    "category": "Skin care clinic",
+    "address": "Floor 2, John Lewis, 47 Leith St",
+    "rating": 4.9,
+    "review_count": 101,
+    "status": "Open ⋅ Closes 8 pm · 0131 609 0260",
+    "price_range": "4.9(101)"
+  },
+  {
+    "name": "OAKBERRY ACAI - Edinburgh",
+    "category": "Health food",
+    "address": "20 Leith St",
+    "rating": 4.6,
+    "review_count": 101,
+    "status": "Open ⋅ Closes 8 pm",
+    "price_range": "4.6(101)"
+  },
+  {
+    "name": "Goldsmiths",
+    "category": "Watch shop",
+    "address": "James Craig Walk St. James Quarter, 232 St James Cres",
+    "rating": 4.6,
+    "review_count": 94,
+    "status": "Diamond jewellery & watch specialist",
+    "price_range": "4.6(94)"
+  },
+  {
+    "name": "Three St. James Quarter",
+    "category": "Mobile Phone Shop",
+    "address": "St. James Quarter Unit 20, Level 1 (1.20",
+    "rating": 4.5,
+    "review_count": 94,
+    "status": "Smartphones, tablets & other mobile gear",
+    "price_range": "4.5(94)"
+  },
+  {
+    "name": "The Body Shop",
+    "category": "Cosmetics shop",
+    "address": "UNIT SU2.19 206, 206 St James Cres",
+    "rating": 4.5,
+    "review_count": 88,
+    "status": "Shower gels, creams, soaps & more",
+    "price_range": "4.5(88)"
+  },
+  {
+    "name": "JD Sports",
+    "category": "Sportswear Shop",
+    "address": "SU 2.31, St James Centre",
+    "rating": 2.9,
+    "review_count": 88,
+    "status": "Retailer of trainers & casual sportswear",
+    "price_range": "2.9(88)"
+  },
+  {
+    "name": "Superdry",
+    "category": "Clothing Shop",
+    "address": "231-233 St James Cres",
+    "rating": 4.5,
+    "review_count": 74,
+    "status": "Trendy apparel with updated vintage feel",
+    "price_range": "4.5(74)"
+  },
+  {
+    "name": "Ozen Street Food",
+    "category": "Fast food",
+    "address": "1 Little King St",
+    "rating": 4.5,
+    "review_count": 73,
+    "status": "Open ⋅ Closes 10 pm",
+    "price_range": "4.5(73)"
+  },
+  {
+    "name": "Dune Edinburgh",
+    "category": "Shoe Shop",
+    "address": "Unit Su2.18, 208 St James Cres",
+    "rating": 4.1,
+    "review_count": 71,
+    "status": "Supplier of stylish fashion footwear",
+    "price_range": "4.1(71)"
+  },
+  {
+    "name": "Radical Storage - Luggage Storage St James Quarter",
+    "category": "Luggage storage facility",
+    "address": "1 Leith St",
+    "rating": 5.0,
+    "review_count": 63,
+    "status": "Open ⋅ Closes 8 pm",
+    "price_range": "5.0(63)"
+  },
+  {
+    "name": "Space NK Edinburgh St James Quarter",
+    "category": "Beauty supply store",
+    "address": "Unit 3.13b, St James Quarter, 310 Saint James Square",
+    "rating": 4.2,
+    "review_count": 62,
+    "status": "Open ⋅ Closes 8 pm · 0300 124 8276",
+    "price_range": "4.2(62)"
+  },
+  {
+    "name": "Slumdog Delivered - Little Kings' Street Edinburgh - St.James Quarter",
+    "category": "Snack bar",
+    "address": "Little King St",
+    "rating": 4.7,
+    "review_count": 61,
+    "status": "Open ⋅ Closes 8 pm",
+    "price_range": "4.7(61)"
+  },
+  {
+    "name": "Bershka",
+    "category": "Clothing Shop",
+    "address": "1 Leith St, Saint James Square",
+    "rating": 3.1,
+    "review_count": 57,
+    "status": "Open ⋅ Closes 8 pm · 0131 380 6749",
+    "price_range": "3.1(57)"
+  },
+  {
+    "name": "Breitling Boutique",
+    "category": "Watch shop",
+    "address": "2.11, St James Quarter, 230 ST JAMES CRESCENT SU 2.11 ST JAMES QUARTER SU",
+    "rating": 4.9,
+    "review_count": 54,
+    "status": "Open ⋅ Closes 8 pm · 0131 558 8130",
+    "price_range": "4.9(54)"
+  },
+  {
+    "name": "H&M",
+    "category": "Clothing Shop",
+    "address": "Shopping Centre, Saint James Square",
+    "rating": 3.0,
+    "review_count": 54,
+    "status": "Retailer for hip apparel & accessories",
+    "price_range": "3.0(54)"
+  },
+  {
+    "name": "Joao's Place",
+    "category": "Cocktail bar",
+    "address": "1 Saint James Square",
+    "rating": 4.6,
+    "review_count": 52,
+    "status": "Closed ⋅ Opens 3 pm Wed",
+    "price_range": "4.6(52)"
+  },
+  {
+    "name": "Coach",
+    "category": "Leather Goods Shop",
+    "address": "Unit SU 3.05, 332 Saint James Square",
+    "rating": 4.5,
+    "review_count": 48,
+    "status": "Retailer of designer bags & accessories",
+    "price_range": "4.5(48)"
+  },
+  {
+    "name": "Russell & Bromley",
+    "category": "Shoe Shop",
+    "address": "Suite 3.09, Saint James Square",
+    "rating": 4.0,
+    "review_count": 48,
+    "status": "Luxury, design-led shoes & handbags",
+    "price_range": "4.0(48)"
+  },
+  {
+    "name": "The Perfume Shop",
+    "category": "Perfume store",
+    "address": "Unit SU 2.28, St James Quarter, 209 St James Cres",
+    "rating": 4.3,
+    "review_count": 48,
+    "status": "Branded fragrances for men & women",
+    "price_range": "4.3(48)"
+  },
+  {
+    "name": "Moss Edinburgh Moss Bros Edinburgh",
+    "category": "Men's Clothes Shop",
+    "address": "Unit SU1, Elder Street, 07 St James Cres, Level One",
+    "rating": 3.6,
+    "review_count": 47,
+    "status": "Open ⋅ Closes 8 pm · 0131 287 2402",
+    "price_range": "3.6(47)"
+  },
+  {
+    "name": "Rituals",
+    "category": "Cosmetics shop",
+    "address": "SU26, Su26, Saint James Square",
+    "rating": 4.7,
+    "review_count": 43,
+    "status": "Open ⋅ Closes 8 pm · 0131 608 2226",
+    "price_range": "4.7(43)"
+  },
+  {
+    "name": "Kingdom Scotland Fragrances",
+    "category": "Perfume store",
+    "address": "Quarter H Beauty - Harrods, 316 St James Cres, Saint James Square",
+    "rating": 4.9,
+    "review_count": 42,
+    "status": "Open ⋅ Closes 5 pm · 07843 441427",
+    "price_range": "4.9(42)"
+  },
+  {
+    "name": "Leith Woks",
+    "category": "Restaurant",
+    "address": "Bonnie & Wild St James Quarter Forth Floor, 415-417 Saint James Square",
+    "rating": 4.2,
+    "review_count": 36,
+    "status": "Open ⋅ Closes 9 pm",
+    "price_range": "4.2(36)"
+  },
+  {
+    "name": "Miele Experience Centre Edinburgh",
+    "category": "Appliance Shop",
+    "address": "243 St James Cres",
+    "rating": 4.1,
+    "review_count": 35,
+    "status": "Open ⋅ Closes 8 pm · 0330 160 6600",
+    "price_range": "4.1(35)"
+  },
+  {
+    "name": "Stradivarius",
+    "category": "Ladies' Clothes Shop",
+    "address": "1 Leith St",
+    "rating": 2.5,
+    "review_count": 33,
+    "status": "Open ⋅ Closes 8 pm · 0131 380 6720",
+    "price_range": "2.5(33)"
+  },
+  {
+    "name": "Beaverbrooks",
+    "category": "Jewellery Store",
+    "address": "124-128 Saint James Square",
+    "rating": 4.4,
+    "review_count": 33,
+    "status": "Seller of high-end jewellery",
+    "price_range": "4.4(33)"
+  },
+  {
+    "name": "Mango",
+    "category": "Ladies' Clothes Shop",
+    "address": "Unit SU2-29, St James Cres",
+    "rating": 3.9,
+    "review_count": 33,
+    "status": "Upmarket supplier of women's fashions",
+    "price_range": "3.9(33)"
+  },
+  {
+    "name": "Hollister Co.",
+    "category": "Clothing Shop",
+    "address": "1 Leith St",
+    "rating": 3.6,
+    "review_count": 31,
+    "status": "Southern California-inspired fashions",
+    "price_range": "3.6(31)"
+  },
+  {
+    "name": "Levi's® Edinburgh St James",
+    "category": "Clothing Shop",
+    "address": "Unit SU2. 17, Saint James Square",
+    "rating": 4.3,
+    "review_count": 31,
+    "status": "Open ⋅ Closes 8 pm · 0131 202 2384",
+    "price_range": "4.3(31)"
+  },
+  {
+    "name": "St James Centre Car Park",
+    "category": "Car Park",
+    "address": "St James' Pl",
+    "rating": 4.4,
+    "review_count": 31,
+    "status": "0345 050 7080",
+    "price_range": "4.4(31)"
+  },
+  {
+    "name": "MAC Cosmetics",
+    "category": "Cosmetics shop",
+    "address": "121-127 Saint James Square",
+    "rating": 4.9,
+    "review_count": 30,
+    "status": "Open ⋅ Closes 8 pm · 0131 557 2632",
+    "price_range": "4.9(30)"
+  },
+  {
+    "name": "AWAY® SPA",
+    "category": "Spa",
+    "address": "1 Saint James Square",
+    "rating": 4.9,
+    "review_count": 28,
+    "status": "Open ⋅ Closes 6 pm",
+    "price_range": "4.9(28)"
+  },
+  {
+    "name": "Skyline Sips",
+    "category": "Bar",
+    "address": "Level 5, St James Quarter, Saint James Square",
+    "rating": 3.8,
+    "review_count": 27,
+    "status": "Closed ⋅ Opens 12 pm Fri",
+    "price_range": "3.8(27)"
+  },
+  {
+    "name": "Mòr Bakehouse",
+    "category": "Bakery",
+    "address": "12 Leith St",
+    "rating": 4.0,
+    "review_count": 27,
+    "status": "Open ⋅ Closes 7 pm",
+    "price_range": "4.0(27)"
+  },
+  {
+    "name": "Mobilise",
+    "category": "Mobile phone repair shop",
+    "address": "1 Leith St",
+    "rating": 3.4,
+    "review_count": 25,
+    "status": "Open ⋅ Closes 8 pm",
+    "price_range": "3.4(25)"
+  },
+  {
+    "name": "Nordic Outdoor",
+    "category": "Outdoor clothing and equipment shop",
+    "address": "311 St James Cres",
+    "rating": 3.4,
+    "review_count": 25,
+    "status": "Open ⋅ Closes 8 pm · 0131 374 7226",
+    "price_range": "3.4(25)"
+  },
+  {
+    "name": "& Other Stories",
+    "category": "Clothing Shop",
+    "address": "Unit 2.14a, 214-218 St James Cres",
+    "rating": 3.3,
+    "review_count": 24,
+    "status": "Open ⋅ Closes 8 pm · 020 7660 3006",
+    "price_range": "3.3(24)"
+  },
+  {
+    "name": "Kartel",
+    "category": "Watch manufacturer",
+    "address": "Saint James Square",
+    "rating": 4.3,
+    "review_count": 22,
+    "status": "Open ⋅ Closes 8 pm",
+    "price_range": "4.3(22)"
+  },
+  {
+    "name": "Forth 1",
+    "category": "Radio broadcaster",
+    "address": "30 Leith St",
+    "rating": 4.2,
+    "review_count": 22,
+    "status": "Open 24 hours",
+    "price_range": "4.2(22)"
+  },
+  {
+    "name": "Superdrug",
+    "category": "Health and beauty shop",
+    "address": "Superdrug Unit SU 1/13 Level 01",
+    "rating": 2.5,
+    "review_count": 20,
+    "status": "Open ⋅ Closes 8 pm · 0131 385 7330",
+    "price_range": "2.5(20)"
+  },
+  {
+    "name": "Reiss",
+    "category": "Clothing Shop",
+    "address": "Su3 10, 322 St James Cres",
+    "rating": 3.9,
+    "review_count": 20,
+    "status": "Design-led fashions for men & women",
+    "price_range": "3.9(20)"
+  },
+  {
+    "name": "New Balance",
+    "category": "Sportswear Shop",
+    "address": "326 St James Cres",
+    "rating": 4.9,
+    "review_count": 20,
+    "status": "Athletic footwear, apparel & accessories",
+    "price_range": "4.9(20)"
+  },
+  {
+    "name": "Wanderers Kneaded Pizza",
+    "category": "Pizza Takeaway",
+    "address": "810 Little King St",
+    "rating": 4.8,
+    "review_count": 20,
+    "status": null,
+    "price_range": "4.8(20)"
+  },
+  {
+    "name": "COS",
+    "category": "Clothing Shop",
+    "address": "312-314 Saint James Square",
+    "rating": 4.8,
+    "review_count": 18,
+    "status": "Open ⋅ Closes 8 pm · 0131 301 1500",
+    "price_range": "4.8(18)"
+  },
+  {
+    "name": "Kurt Geiger Edinburgh",
+    "category": "Fashion accessories shop",
+    "address": "Shopping Centre, St James Cres",
+    "rating": 4.6,
+    "review_count": 18,
+    "status": "Fashionable footwear for men & women",
+    "price_range": "4.6(18)"
+  },
+  {
+    "name": "Ryman Design Edinburgh",
+    "category": "Stationery Shop",
+    "address": "Unit SU1, 12, 111 St James Cres",
+    "rating": 4.1,
+    "review_count": 16,
+    "status": "Open ⋅ Closes 8 pm · 0131 287 2998",
+    "price_range": "4.1(16)"
+  },
+  {
+    "name": "Aesop",
+    "category": "Skin care clinic",
+    "address": "St James Quarter, St James Cres",
+    "rating": 4.9,
+    "review_count": 15,
+    "status": "Upscale shop for skincare & fragrances",
+    "price_range": "4.9(15)"
+  },
+  {
+    "name": "Calvin Klein",
+    "category": "Clothing Shop",
+    "address": "315 St James Cres",
+    "rating": 4.3,
+    "review_count": 10,
+    "status": "Open ⋅ Closes 8 pm · 0131 374 4916",
+    "price_range": "4.3(10)"
+  },
+  {
+    "name": "LK Bennett - John Lewis (Concession)",
+    "category": "Clothing Shop",
+    "address": "60 Leith St",
+    "rating": 4.6,
+    "review_count": 9,
+    "status": "Classy womenswear, shoes & accessories",
+    "price_range": "4.6(9)"
+  },
+  {
+    "name": "Clarendon Fine Art Edinburgh",
+    "category": "Art gallery",
+    "address": "308 St James Cres",
+    "rating": 5.0,
+    "review_count": 9,
+    "status": "Open ⋅ Closes 8 pm · 0131 510 4205",
+    "price_range": "5.0(9)"
+  },
+  {
+    "name": "NEOM Wellbeing",
+    "category": "Health and beauty shop",
+    "address": "Unit 2.25a, Saint James Square",
+    "rating": 5.0,
+    "review_count": 8,
+    "status": "Open ⋅ Closes 8 pm · 0131 392 9759",
+    "price_range": "5.0(8)"
+  },
+  {
+    "name": "John Lewis parking",
+    "category": "Parking Garage",
+    "address": null,
+    "rating": 4.6,
+    "review_count": 8,
+    "status": null,
+    "price_range": "4.6(8)"
+  },
+  {
+    "name": "The Floor Room - Within John Lewis Edinburgh",
+    "category": "Flooring Shop",
+    "address": "John Lewis 69, St. James Centre",
+    "rating": 5.0,
+    "review_count": 7,
+    "status": "Open ⋅ Closes 8 pm · 0131 376 1482",
+    "price_range": "5.0(7)"
+  },
+  {
+    "name": "Holland & Barrett - Edinburgh St James Quarter",
+    "category": "Health food shop",
+    "address": "122 St James Cres",
+    "rating": 3.6,
+    "review_count": 7,
+    "status": "Open ⋅ Closes 8 pm · 0330 058 2640",
+    "price_range": "3.6(7)"
+  },
+  {
+    "name": "Sunglass Hut",
+    "category": "Sunglasses Shop",
+    "address": "Unit SU 2.26, St James Centre, 1 Leith St",
+    "rating": 4.0,
+    "review_count": 6,
+    "status": "Source for trendy brand-name sunglasses",
+    "price_range": "4.0(6)"
+  },
+  {
+    "name": "Diptyque H Beauty Edinburgh",
+    "category": "Perfume store",
+    "address": "H Beauty, St James Quarter, 316 -318 Saint James Square",
+    "rating": 5.0,
+    "review_count": 6,
+    "status": "Retailer of candles, perfumes & gifts",
+    "price_range": "5.0(6)"
+  },
+  {
+    "name": "Polo Ralph Lauren Edinburgh",
+    "category": "Clothing Shop",
+    "address": "Level 3, St James Quarter, St James Cres",
+    "rating": 3.7,
+    "review_count": 6,
+    "status": "Open ⋅ Closes 8 pm · 0131 392 8510",
+    "price_range": "3.7(6)"
+  },
+  {
+    "name": "DHL Express Service Point (Ryman Design Edinburgh)",
+    "category": "Courier service",
+    "address": "Unit SU1, 12, 111 St James Cres",
+    "rating": 4.4,
+    "review_count": 5,
+    "status": "Open ⋅ Closes 8 pm · 0844 248 0844",
+    "price_range": "4.4(5)"
+  },
+  {
+    "name": "L'OCCITANE EN PROVENCE",
+    "category": "Cosmetics shop",
+    "address": "Unit SU 2, 37 St James Cres",
+    "rating": 4.0,
+    "review_count": 4,
+    "status": "France-born retailer of beauty products",
+    "price_range": "4.0(4)"
+  },
+  {
+    "name": "St James Quarter & Multress Service Yard",
+    "category": "Delivery service",
+    "address": "Quarter & Multress Service Yard, Saint James Square",
+    "rating": 4.3,
+    "review_count": 4,
+    "status": "Open ⋅ Closes 6 pm",
+    "price_range": "4.3(4)"
+  },
+  {
+    "name": "John Lewis Bureau de Change Edinburgh",
+    "category": "Currency exchange service",
+    "address": "60 Leith St",
+    "rating": 5.0,
+    "review_count": 4,
+    "status": "Open ⋅ Closes 8 pm",
+    "price_range": "5.0(4)"
+  },
+  {
+    "name": "schuh",
+    "category": "Shoe Shop",
+    "address": "Unit 1.14, 117-119 St James Cres",
+    "rating": 3.0,
+    "review_count": 2,
+    "status": "Fashion-focused footwear retailer",
+    "price_range": "3.0(2)"
+  },
+  {
+    "name": "White Stuff Ltd",
+    "category": "Clothing Shop",
+    "address": "John Lewis",
+    "rating": 3.5,
+    "review_count": 2,
+    "status": "Stylish clothing for men & women",
+    "price_range": "3.5(2)"
+  },
+  {
+    "name": "Clement Browne",
+    "category": "Blinds shop",
+    "address": "John Lewis, St James Centre",
+    "rating": 3.5,
+    "review_count": 2,
+    "status": "Open ⋅ Closes 6 pm · 0800 028 1204",
+    "price_range": "3.5(2)"
+  },
+  {
+    "name": "Rarity Bottle Shop",
+    "category": "Shop",
+    "address": "St Level 4, St James Quarter, Edinburgh EH1 3AEnburgh",
+    "rating": 5.0,
+    "review_count": 2,
+    "status": "Open ⋅ Closes 5 pm · 07776 111144",
+    "price_range": "5.0(2)"
+  },
+  {
+    "name": "Kate Spade",
+    "category": "Fashion accessories shop",
+    "address": "St James Cres",
+    "rating": 5.0,
+    "review_count": 2,
+    "status": "Open ⋅ Closes 8 pm · 0131 460 8594",
+    "price_range": "5.0(2)"
+  },
+  {
+    "name": "Jo Malone London - John Lewis Edinburgh",
+    "category": "Perfume store",
+    "address": "Leith St",
+    "rating": 5.0,
+    "review_count": 2,
+    "status": "Open ⋅ Closes 8 pm · 0370 192 8487",
+    "price_range": "5.0(2)"
+  },
+  {
+    "name": "Fountain Ramen Ltd",
+    "category": "Restaurant",
+    "address": "35 Saint James Square",
+    "rating": 4.0,
+    "review_count": 1,
+    "status": null,
+    "price_range": "4.0(1)"
+  },
+  {
+    "name": "Clarins Boots Edinburgh St James",
+    "category": "Beauty product supplier",
+    "address": "121-127 Saint James Square",
+    "rating": 5.0,
+    "review_count": 1,
+    "status": "Open ⋅ Closes 8 pm · 01706 873542",
+    "price_range": "5.0(1)"
+  },
+  {
+    "name": "Pod Point Charging Station",
+    "category": "Electric vehicle charging station",
+    "address": "Saint James Square",
+    "rating": 5.0,
+    "review_count": 1,
+    "status": "020 7247 4114",
+    "price_range": "5.0(1)"
+  },
+  {
+    "name": "Amazon Counter - John Lewis Edinburgh",
+    "category": "Shipping and postal service",
+    "address": "Saint James Square",
+    "rating": 4.0,
+    "review_count": 1,
+    "status": "Open ⋅ Closes 8 pm",
+    "price_range": "4.0(1)"
+  },
+  {
+    "name": "Starwood W",
+    "category": "Shop",
+    "address": "1 Leith St",
+    "rating": 4.0,
+    "review_count": 1,
+    "status": null,
+    "price_range": "4.0(1)"
+  },
+  {
+    "name": "Sook",
+    "category": "Retail space rental agency",
+    "address": "Unit 12, 111 Saint James Square",
+    "rating": null,
+    "review_count": null,
+    "status": null,
+    "price_range": null
+  },
+  {
+    "name": "JTP",
+    "category": "Architect",
+    "address": "St James Cres",
+    "rating": null,
+    "review_count": null,
+    "status": "Open now · 0131 550 6600",
+    "price_range": null
+  },
+  {
+    "name": "Hbos",
+    "category": "Shop",
+    "address": "Leith St",
+    "rating": null,
+    "review_count": null,
+    "status": null,
+    "price_range": null
+  },
+  {
+    "name": "Bauer Media",
+    "category": "Advertising agency",
+    "address": "St James Cres",
+    "rating": null,
+    "review_count": null,
+    "status": null,
+    "price_range": null
+  },
+  {
+    "name": "The Bonnie Bide Awa'",
+    "category": "Holiday apartment rental",
+    "address": "35, 14 Leith St",
+    "rating": null,
+    "review_count": null,
+    "status": null,
+    "price_range": null
+  },
+  {
+    "name": "Therapie",
+    "category": "Skin care clinic",
+    "address": "St James Quarter",
+    "rating": null,
+    "review_count": null,
+    "status": null,
+    "price_range": null
+  },
+  {
+    "name": "Moriconi",
+    "category": "Jewellery Store",
+    "address": "St James Cres",
+    "rating": null,
+    "review_count": null,
+    "status": null,
+    "price_range": null
+  },
+  {
+    "name": "Polarn O. Pyret",
+    "category": "Children's Clothes Shop",
+    "address": "St James Quarter, 60 Leith St",
+    "rating": null,
+    "review_count": null,
+    "status": null,
+    "price_range": null
+  },
+  {
+    "name": "Sweaty Betty",
+    "category": "Ladies' Clothes Shop",
+    "address": "60 Leith St",
+    "rating": null,
+    "review_count": null,
+    "status": "Stylish exercise clothing for women",
+    "price_range": null
+  },
+  {
+    "name": "hydruff",
+    "category": "Beauty supply store",
+    "address": "St James Cres",
+    "rating": null,
+    "review_count": null,
+    "status": null,
+    "price_range": null
+  },
+  {
+    "name": "Tapi Carpets & Floors",
+    "category": "Flooring Shop",
+    "address": "Within John Lewis, 60 Leith St",
+    "rating": null,
+    "review_count": null,
+    "status": "Open ⋅ Closes 7 pm · 0131 287 1280",
+    "price_range": null
+  },
+  {
+    "name": "St James Quarter Management Suite, St Andrews Hall",
+    "category": "Corporate office",
+    "address": "Level 1, 2 Little King St",
+    "rating": null,
+    "review_count": null,
+    "status": "Open ⋅ Closes 5 pm",
+    "price_range": null
+  },
+  {
+    "name": "New Eidyn - Native Land",
+    "category": "Apartment building",
+    "address": "1, St James Quarter",
+    "rating": null,
+    "review_count": null,
+    "status": null,
+    "price_range": null
+  },
+  {
+    "name": "Carvela Edinburgh",
+    "category": "Fashion accessories shop",
+    "address": "Unit SU3, Shopping Centre, 25 Saint James Square",
+    "rating": 5.0,
+    "review_count": 1,
+    "status": "Open ⋅ Closes 8 pm · 0333 034 0575",
+    "price_range": "5.0(1)"
+  },
+  {
+    "name": "New Eidyn",
+    "category": "Apartment building",
+    "address": "1 St James' Pl",
+    "rating": null,
+    "review_count": null,
+    "status": null,
+    "price_range": null
+  },
+  {
+    "name": "Laing O'Rourke",
+    "category": "Estate Agent",
+    "address": null,
+    "rating": null,
+    "review_count": null,
+    "status": "Open now",
+    "price_range": null
+  },
+  {
+    "name": "Bowl Out",
+    "category": "Açaí shop",
+    "address": "4th Floor, Bonnie & Wild, St James Quarter",
+    "rating": null,
+    "review_count": null,
+    "status": "Open ⋅ Closes 9 pm",
+    "price_range": null
+  }
+]
