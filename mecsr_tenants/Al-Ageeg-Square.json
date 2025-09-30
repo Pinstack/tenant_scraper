@@ -1,0 +1,79 @@
+[
+  {
+    "name": "CC'S",
+    "category": "Hamburger",
+    "address": "Prince Muhammad Ibn Saad Ibn Abdulaziz Rd",
+    "rating": 4.1,
+    "review_count": 1356,
+    "status": "Temporarily closed",
+    "price_range": "4.1(1,356)",
+    "mall_name": "Al Ageeg Square",
+    "source_url": "https://www.google.com/maps/place/?q=place_id:ChIJ130mpFPiLj4RKWlqyEOCcSQ"
+  },
+  {
+    "name": "Kudu - Al Ageeg Square",
+    "category": "Restaurant",
+    "address": "Ibn Abdul Aziz St, Al Ageeg Square, Exit 2, Prince Mohammed Ibn Saad",
+    "rating": 3.9,
+    "review_count": 904,
+    "status": "Open 24 hours",
+    "price_range": "3.9(904)",
+    "mall_name": "Al Ageeg Square",
+    "source_url": "https://www.google.com/maps/place/?q=place_id:ChIJ130mpFPiLj4RKWlqyEOCcSQ"
+  },
+  {
+    "name": "Rosalia Burger B10 روزاليا برجر",
+    "category": "Hamburger",
+    "address": "Prince Muhammad Ibn Saad Ibn Abdulaziz Rd",
+    "rating": 4.6,
+    "review_count": 409,
+    "status": "Open ⋅ Closes 2:30 am",
+    "price_range": "4.6(409)",
+    "mall_name": "Al Ageeg Square",
+    "source_url": "https://www.google.com/maps/place/?q=place_id:ChIJ130mpFPiLj4RKWlqyEOCcSQ"
+  },
+  {
+    "name": "Domino's Pizza دومينوز بيتزا",
+    "category": "Pizza",
+    "address": "Prince Muhammad Ibn Saad Ibn Abdulaziz Rd",
+    "rating": 3.8,
+    "review_count": 226,
+    "status": "Longtime pizza chain known for delivery",
+    "price_range": "3.8(226)",
+    "mall_name": "Al Ageeg Square",
+    "source_url": "https://www.google.com/maps/place/?q=place_id:ChIJ130mpFPiLj4RKWlqyEOCcSQ"
+  },
+  {
+    "name": "Dunkin - دانكن",
+    "category": "Coffee shop",
+    "address": "Prince Muhammad Ibn Saad Ibn Abdulaziz Rd",
+    "rating": 3.4,
+    "review_count": 83,
+    "status": "Open ⋅ Closes 2 am",
+    "price_range": "3.4(83)",
+    "mall_name": "Al Ageeg Square",
+    "source_url": "https://www.google.com/maps/place/?q=place_id:ChIJ130mpFPiLj4RKWlqyEOCcSQ"
+  },
+  {
+    "name": "RED FOOD STREET",
+    "category": "Hamburger",
+    "address": "6921 Prince Muhammad Ibn Saad Ibn Abdulaziz Rd, 2474",
+    "rating": 4.0,
+    "review_count": 46,
+    "status": "Temporarily closed",
+    "price_range": "4.0(46)",
+    "mall_name": "Al Ageeg Square",
+    "source_url": "https://www.google.com/maps/place/?q=place_id:ChIJ130mpFPiLj4RKWlqyEOCcSQ"
+  },
+  {
+    "name": "الدانوب",
+    "category": "Supermarket",
+    "address": "QJ7G+35, 6911 Prince Muhammad Ibn Saad Ibn Abdulaziz Rd, RRAC6911, 2451",
+    "rating": 3.6,
+    "review_count": 46,
+    "status": "Open ⋅ Closes 1 am",
+    "price_range": "3.6(46)",
+    "mall_name": "Al Ageeg Square",
+    "source_url": "https://www.google.com/maps/place/?q=place_id:ChIJ130mpFPiLj4RKWlqyEOCcSQ"
+  }
+]

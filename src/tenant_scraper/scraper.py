@@ -3,10 +3,15 @@
 import asyncio
 import logging
 import re
-from typing import Dict, List, Optional, Any
+import time
+from dataclasses import dataclass, field
+from typing import Dict, List, Optional, Any, Iterable
+from urllib.parse import urlparse
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
 
+# Use module-level logger with a dedicated trace flag for high-volume debug output
 logger = logging.getLogger(__name__)
+TRACE_BLOCKED_RESOURCES = False
 
 
 class DirectoryTextExtractor:
@@ -123,12 +128,50 @@ class DirectoryTextExtractor:
         return valid_tenants
 
 
+@dataclass
+class ScraperSettings:
+    """Tunable knobs for scraper behaviour."""
+
+    block_resources: bool = True
+    aggressive_block: bool = False
+    blocked_resource_types: Iterable[str] = field(default_factory=lambda: {"image", "media"})
+    blocked_hosts: Iterable[str] = field(
+        default_factory=lambda: {
+            "lh3.googleusercontent.com",
+            "lh4.googleusercontent.com",
+            "lh5.googleusercontent.com",
+            "lh6.googleusercontent.com",
+        }
+    )
+    aggressive_hosts: Iterable[str] = field(
+        default_factory=lambda: {
+            "maps.googleapis.com",
+            "maps.gstatic.com",
+        }
+    )
+    action_retries: int = 2
+    action_retry_backoff: float = 0.5
+
+
 class TenantScraper:
     """Scraper for extracting tenant information from Google Maps mall listings."""
 
-    def __init__(self, headless: bool = True):
+    def __init__(
+        self,
+        headless: bool = True,
+        *,
+        block_resources: Optional[bool] = None,
+        aggressive_block: Optional[bool] = None,
+        settings: Optional[ScraperSettings] = None,
+    ):
         """Initialize the scraper with browser configuration."""
         self.headless = headless
+        self.settings = settings or ScraperSettings()
+
+        if block_resources is not None:
+            self.settings.block_resources = block_resources
+        if aggressive_block is not None:
+            self.settings.aggressive_block = aggressive_block
         self.playwright = None
         self.browser = None
         self.context = None
@@ -161,10 +204,65 @@ class TenantScraper:
 
         # Create context and page
         self.context = await self.browser.new_context()
+        if self.settings.block_resources:
+            await self.context.route("**/*", self._resource_route_interceptor)
         self.page = await self.context.new_page()
 
         # Set default timeout
         self.page.set_default_timeout(30000)
+
+    async def _perform_with_retries(self, description: str, action_factory) -> Any:
+        """Execute a coroutine factory with retries and backoff."""
+        retries = max(0, self.settings.action_retries)
+        backoff = max(0.0, self.settings.action_retry_backoff)
+        attempt = 0
+        last_exc = None
+
+        while attempt <= retries:
+            try:
+                return await action_factory()
+            except Exception as exc:  # pylint: disable=broad-except
+                last_exc = exc
+                if attempt == retries:
+                    logger.warning("Action '%s' failed after %d attempts", description, attempt + 1)
+                    raise
+                delay = backoff * (attempt + 1)
+                logger.debug("Retrying '%s' in %.2fs due to %s", description, delay, exc)
+                if delay:
+                    await asyncio.sleep(delay)
+                attempt += 1
+
+        if last_exc:
+            raise last_exc  # pragma: no cover
+        return None
+
+    async def _resource_route_interceptor(self, route, request) -> None:
+        """Lightweight request blocker to speed up scraping while preserving directory functionality."""
+        if not self.settings.block_resources:
+            await route.continue_()
+            return
+
+        try:
+            resource_type = request.resource_type
+            url = request.url
+            hostname = urlparse(url).hostname or ""
+
+            blocked_types = set(self.settings.blocked_resource_types)
+            blocked_hosts = set(self.settings.blocked_hosts)
+
+            if self.settings.aggressive_block:
+                blocked_hosts.update(self.settings.aggressive_hosts)
+
+            if resource_type in blocked_types or any(hostname.endswith(host) for host in blocked_hosts):
+                if TRACE_BLOCKED_RESOURCES:
+                    logger.debug(f"Blocking resource: type={resource_type}, url={url}")
+                await route.abort()
+                return
+
+        except Exception as e:
+            logger.debug(f"Resource interceptor fallback due to error: {e}")
+
+        await route.continue_()
 
     async def _cleanup(self) -> None:
         """Clean up browser resources."""
@@ -296,7 +394,13 @@ class TenantScraper:
             logger.error(f"Error accessing directory: {e}")
             return None
 
-    async def scrape_tenants(self, maps_url: str, extraction_mode: str = "directory") -> List[Dict[str, Any]]:
+    async def scrape_tenants(
+        self,
+        maps_url: str,
+        extraction_mode: str = "directory",
+        *,
+        fetch_details: bool = False,
+    ) -> List[Dict[str, Any]]:
         """Main scraping method to extract tenant information.
 
         Args:
@@ -313,20 +417,35 @@ class TenantScraper:
                 if extraction_mode == "categories":
                     return await self._scrape_tenants_by_categories(maps_url)
                 else:
-                    return await self._scrape_tenants_from_directory(maps_url)
+                    return await self._scrape_tenants_from_directory(
+                        maps_url,
+                        fetch_details=fetch_details,
+                    )
 
             except Exception as e:
                 logger.error(f"Error during scraping: {e}")
                 raise
 
-    async def _scrape_tenants_from_directory(self, maps_url: str) -> List[Dict[str, Any]]:
+    async def _scrape_tenants_from_directory(
+        self,
+        maps_url: str,
+        *,
+        fetch_details: bool = False,
+    ) -> List[Dict[str, Any]]:
         """Scrape tenants from the main directory view (original approach)."""
+        overall_start = time.perf_counter()
+
         # Step 1: Handle consent and navigate to URL
         logger.info("Step 1: Navigating to URL...")
-        await self.page.goto(maps_url)
+        await self._perform_with_retries(
+            "navigate to maps URL",
+            lambda: self.page.goto(maps_url),
+        )
         logger.info(f"Initial page title: {await self.page.title()}")
         logger.info(f"Current URL: {self.page.url}")
-        await asyncio.sleep(3)  # Wait for initial load
+        await self.page.wait_for_load_state("domcontentloaded")
+        await asyncio.sleep(2)
+        logger.debug("Navigation completed in %.2fs", time.perf_counter() - overall_start)
 
         if not await self._handle_consent_page():
             logger.warning("Consent page handling failed or not needed")
@@ -350,8 +469,14 @@ class TenantScraper:
 
         if view_all_count > 0:
             logger.info("Found 'View all' button - clicking it")
-            await view_all_button.first.click()
-            await asyncio.sleep(5)  # Wait longer for content to load
+            await self._perform_with_retries(
+                "click 'View all'",
+                lambda: view_all_button.first.click(),
+            )
+            try:
+                await self.page.wait_for_load_state("networkidle", timeout=10000)
+            except Exception:
+                await asyncio.sleep(2)
 
             # Check if URL changed to include !10e3 parameter (directory view)
             current_url_after_click = self.page.url
@@ -373,7 +498,9 @@ class TenantScraper:
 
         # Scroll again to ensure all content is loaded
         logger.info("Scrolling again to load all directory content...")
+        scroll_start = time.perf_counter()
         await self._scroll_directory_panel()
+        logger.debug("Directory scroll completed in %.2fs", time.perf_counter() - scroll_start)
 
         # Check if we're in directory view (look for individual tenant names)
         # In directory view (!10e3), individual tenants like "Maki & Ramen" are visible
@@ -401,9 +528,21 @@ class TenantScraper:
 
         # Step 4: Parse the extracted HTML using our parsing logic
         logger.info("Step 4: Parsing extracted tenant table HTML...")
+        parse_start = time.perf_counter()
         tenants = await self._parse_tenant_table_html(tenant_table_html)
+        logger.debug("HTML parsing completed in %.2fs", time.perf_counter() - parse_start)
 
-        logger.info(f"=== DIRECTORY SCRAPING COMPLETE: Successfully extracted {len(tenants)} tenants from DOM table ===")
+        if fetch_details:
+            logger.info("Fetching detailed tenant information using existing session...")
+            detail_start = time.perf_counter()
+            tenants = await self._extract_detailed_tenant_data(tenants)
+            logger.debug("Detail extraction completed in %.2fs", time.perf_counter() - detail_start)
+
+        logger.info(
+            "=== DIRECTORY SCRAPING COMPLETE: Successfully extracted %d tenants from DOM table (total %.2fs) ===",
+            len(tenants),
+            time.perf_counter() - overall_start,
+        )
         return tenants
 
     async def _scrape_tenants_by_categories(self, maps_url: str) -> List[Dict[str, Any]]:
@@ -465,7 +604,7 @@ class TenantScraper:
                     all_results.extend(category_tenants)
                     logger.info(f"Extracted {len(category_tenants)} tenants from {cat_info['name']}")
 
-                await self.page.wait_for_timeout(2000)
+                await self.page.wait_for_timeout(500)
 
             except Exception as e:
                 logger.warning(f"Error processing category {cat_info['name']}: {e}")
@@ -785,38 +924,19 @@ class TenantScraper:
         stable_checks = 0
 
         while True:
-            # Safety: overall duration cap
             now = asyncio.get_event_loop().time()
             if (now - start) * 1000 > max_duration_ms:
                 logger.warning("Stopping scroll due to overall duration cap")
                 break
 
-            # Scroll to bottom of the container (or window fallback)
-            if container_selector == "window":
-                await self.page.evaluate("window.scrollTo(0, document.body.scrollHeight)")
-            else:
-                await self.page.evaluate(
-                    "(sel) => { const el = document.querySelector(sel); if (el) el.scrollTop = el.scrollHeight; else window.scrollTo(0, document.body.scrollHeight); }",
-                    container_selector,
-                )
-
-            # Allow network and DOM to settle
-            try:
-                await self.page.wait_for_load_state("networkidle", timeout=5000)
-            except Exception:
-                pass
-            await asyncio.sleep(0.5)
-
-            # Count current tenants
+            await self._perform_scroll_step(container_selector)
             current_count = await self._count_visible_tenants()
             logger.info(f"Scrolled: {current_count} tenants visible")
 
-            # Deterministic stop by expected total
             if expected_total and current_count >= expected_total:
                 logger.info("Reached expected total tenants; stopping scroll")
                 break
 
-            # Compute scroll metrics and loading state
             metrics = await self.page.evaluate(
                 "(sel) => {\n                    const el = sel === 'window' ? null : document.querySelector(sel);\n                    const c = el || document.scrollingElement || document.body;\n                    const top = c.scrollTop;\n                    const height = c.scrollHeight;\n                    const clientH = c.clientHeight;\n                    const atBottom = Math.abs(height - (top + clientH)) < 2;\n                    return {height, clientH, top, atBottom};\n                }",
                 container_selector,
@@ -832,7 +952,6 @@ class TenantScraper:
 
             height = metrics.get("height", 0)
 
-            # Track stabilization at bottom
             if metrics.get("atBottom") and not loading_visible:
                 if height == prev_height:
                     stable_checks += 1
@@ -846,7 +965,6 @@ class TenantScraper:
 
             prev_height = height
 
-            # Deterministic stop: explicit end text or stabilized at bottom for idle window
             idle_elapsed = (now - last_change_ts) * 1000
             if end_text_visible or (metrics.get("atBottom") and not loading_visible and stable_checks >= 2 and idle_elapsed >= max_idle_ms):
                 logger.info("Detected end-of-results via stabilization or sentinel text; stopping")
@@ -854,6 +972,14 @@ class TenantScraper:
 
         final_count = await self._count_visible_tenants()
         return final_count
+
+    async def _perform_scroll_step(self, container_selector: str) -> None:
+        """Scroll once and wait for new content using a MutationObserver in the page."""
+
+        await self.page.evaluate(
+            "(sel) => {\n                const container = sel === 'window' ? document.scrollingElement || document.body : document.querySelector(sel);\n                if (!container) {\n                    window.scrollTo(0, document.body.scrollHeight);\n                    return;\n                }\n\n                const target = container === document.body ? document.documentElement : container;\n                if (!target._scraperObserver) {\n                    target._scraperObserver = { pending: [] };\n                    const observer = new MutationObserver((mutations) => {\n                        if (!target._scraperObserver) return;\n                        const added = mutations.some(m => m.addedNodes && m.addedNodes.length);\n                        if (added) {\n                            const callbacks = target._scraperObserver.pending.splice(0);\n                            callbacks.forEach(cb => cb());\n                        }\n                    });\n                    observer.observe(target, { childList: true, subtree: true });\n                    target._scraperObserver.observer = observer;\n                }\n\n                target.scrollTop = target.scrollHeight;\n            }",
+            container_selector,
+        )
 
     async def _get_expected_total_tenants(self) -> Optional[int]:
         """Try to derive a deterministic expected total tenant count from category chips.
@@ -872,40 +998,34 @@ class TenantScraper:
     async def _count_visible_tenants(self) -> int:
         """Count the number of visible tenant entries in the directory."""
         try:
-            # Look for tenant entries - these appear as individual business listings
-            # They typically have rating patterns or business names followed by details
-            tenant_selectors = [
-                "div:has-text('·')",  # Elements with the dot separator used in tenant listings
-                "[role='button']:has-text('·')",  # Button elements with tenant info
-                "div[data-item-id]",  # Elements with data-item-id attributes
-            ]
+            # Prefer direct DOM counting within the scroll container for speed
+            count = await self.page.evaluate(
+                """
+                () => {
+                    const elements = Array.from(
+                        document.querySelectorAll('div.bfdHYd, [data-result-index], div[data-item-id]')
+                    );
+                    const meaningful = elements.filter(el => (el.innerText || '').trim().length > 0);
+                    return meaningful.length;
+                }
+                """
+            )
 
-            total_count = 0
-            for selector in tenant_selectors:
-                try:
-                    count = await self.page.locator(selector).count()
-                    if count > total_count:
-                        total_count = count
-                except Exception:
-                    continue
+            if count and count > 0:
+                return int(count)
 
-            # Alternative approach: count lines in the page text that look like tenant entries
+            # Fallback to text-based heuristic if DOM counting fails
             page_text = await self.page.inner_text("body")
             lines = page_text.split('\n')
 
-            tenant_lines = 0
-            for line in lines:
-                line = line.strip()
-                # Count lines that look like tenant entries (contain rating patterns or business-like content)
-                if (len(line) > 10 and
-                    ('·' in line or '(' in line and ')' in line) and
-                    not line.startswith('') and  # Skip icons
-                    'Directory' not in line and
-                    'Search' not in line):
-                    tenant_lines += 1
+            tenant_lines = sum(
+                1
+                for line in lines
+                if (len(line.strip()) > 10
+                    and ('·' in line or '(' in line and ')' in line))
+            )
 
-            # Use the higher count
-            return max(total_count, tenant_lines // 3)  # Divide by 3 since each tenant takes ~3 lines
+            return tenant_lines // 3
 
         except Exception as e:
             logger.warning(f"Error counting visible tenants: {e}")
@@ -1420,48 +1540,38 @@ class TenantScraper:
             List of business data with contact details
         """
         detailed_businesses = []
+        semaphore = asyncio.Semaphore(5)
 
-        for i, url in enumerate(business_urls):
+        async def process_business(idx: int, url: str) -> None:
             try:
-                logger.info(f"Scraping business {i + 1}/{len(business_urls)}: {url[:50]}...")
-
-                # Create a new page/context for each business to avoid interference
-                context = await self.browser.new_context()
-                page = await context.new_page()
-
-                try:
-                    # Navigate to business page
-                    await page.goto(url, timeout=30000)
-                    await page.wait_for_load_state('networkidle', timeout=10000)
-
-                    # Handle consent if it appears
+                async with semaphore:
+                    logger.info(f"Scraping business {idx + 1}/{len(business_urls)}: {url[:50]}...")
+                    context = await self.browser.new_context()
+                    page = await context.new_page()
                     try:
-                        consent_result = await self._handle_consent_on_page(page)
-                        if consent_result:
-                            logger.debug("Handled consent on business page")
-                    except Exception:
-                        pass  # Consent handling might not be needed
+                        await page.goto(url, timeout=30000)
+                        await page.wait_for_load_state('networkidle', timeout=10000)
 
-                    # Extract business details from the individual page
-                    business_data = await self._extract_business_details_from_page(page)
+                        try:
+                            consent_result = await self._handle_consent_on_page(page)
+                            if consent_result:
+                                logger.debug("Handled consent on business page")
+                        except Exception:
+                            pass
 
-                    if business_data.get('name'):
-                        detailed_businesses.append(business_data)
-                        logger.info(f"✅ Extracted: {business_data.get('name', 'Unknown')}")
-                    else:
-                        logger.warning(f"No business name found for URL: {url[:50]}...")
-
-                finally:
-                    # Always close the context/page
-                    await page.close()
-                    await context.close()
-
-                # Small delay between requests to be respectful
-                await asyncio.sleep(1)
-
+                        business_data = await self._extract_business_details_from_page(page)
+                        if business_data.get('name'):
+                            detailed_businesses.append(business_data)
+                            logger.info(f"✅ Extracted: {business_data.get('name', 'Unknown')}")
+                        else:
+                            logger.warning(f"No business name found for URL: {url[:50]}...")
+                    finally:
+                        await page.close()
+                        await context.close()
             except Exception as e:
-                logger.error(f"❌ Failed to scrape business {i + 1}: {e}")
-                continue
+                logger.error(f"❌ Failed to scrape business {idx + 1}: {e}")
+
+        await asyncio.gather(*(process_business(i, url) for i, url in enumerate(business_urls)))
 
         logger.info(f"Successfully scraped {len(detailed_businesses)} business pages")
         return detailed_businesses
@@ -2095,15 +2205,20 @@ class TenantScraper:
                     count = await elements.count()
                     logger.info(f"Found {count} elements with selector: {selector}")
 
-                    for i in range(count):
-                        try:
-                            element = elements.nth(i)
-                            html_content = await element.inner_html()
-                            if html_content and len(html_content) > 50:  # Substantial content
-                                all_tenant_html.append(f'<tenant-element-{i}>{html_content}</tenant-element-{i}>')
-                        except Exception as e:
-                            logger.debug(f"Error extracting element {i}: {e}")
-                            continue
+                    concurrency = 20
+                    semaphore = asyncio.Semaphore(concurrency)
+
+                    async def fetch_html(idx: int) -> None:
+                        async with semaphore:
+                            try:
+                                element = elements.nth(idx)
+                                html_content = await element.inner_html()
+                                if html_content and len(html_content) > 50:
+                                    all_tenant_html.append(f'<tenant-element-{idx}>{html_content}</tenant-element-{idx}>')
+                            except Exception as e:
+                                logger.debug(f"Error extracting element {idx}: {e}")
+
+                    await asyncio.gather(*(fetch_html(i) for i in range(count)))
 
                     logger.info(f"Extracted {len(all_tenant_html)} tenant elements so far")
 
@@ -2151,6 +2266,15 @@ class TenantScraper:
             seen_names = set()
 
             cards = soup.select('div.bfdHYd')
+            if not cards:
+                logger.debug("No .bfdHYd cards found; falling back to attribute-based lookup")
+                fallback_cards = []
+                for name_el in soup.select('.qBF1Pd.fontHeadlineSmall'):
+                    parent = name_el.find_parent('div', attrs={'data-result-index': True})
+                    if parent and parent not in fallback_cards:
+                        fallback_cards.append(parent)
+                cards = fallback_cards
+
             logger.info(f"Found {len(cards)} potential tenant cards in HTML")
 
             for card in cards:
