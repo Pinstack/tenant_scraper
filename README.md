@@ -44,9 +44,23 @@ A tool to automatically extract tenant/brand information from shopping mall list
 
 ### Command Line
 
+#### Single Mall
 ```bash
 tenant-scraper "https://maps.app.goo.gl/FsGevWWrjvab4tZ9A" -o output.json
 ```
+
+#### Multiple Malls
+```bash
+tenant-scraper "https://maps.app.goo.gl/..." "https://maps.app.goo.gl/..." "https://maps.app.goo.gl/..."
+```
+When providing multiple URLs, the scraper creates an `outputs/` directory and saves each mall to a separate file named after the domain.
+
+#### Batch Processing (CSV)
+```bash
+python scripts/scrape_mecsr_csv.py
+python scripts/scrape_mecsr_csv.py custom_malls.csv --output-dir results/
+```
+Processes all malls listed in a CSV file with Google Maps URLs. Creates individual files for each mall plus an aggregated results file.
 
 ### Python API
 
@@ -66,12 +80,23 @@ asyncio.run(main())
 
 ## Command Line Options
 
-- `url`: Google Maps URL for the mall (required)
-- `-o, --output`: Output file path (default: tenants.json)
+- `urls`: Google Maps URL(s) for the mall(s) to scrape (**required**, one or more)
+- `-o, --output`: Output file path (for single URL) or directory (for multiple URLs)
 - `--format`: Output format (json/csv, auto-detected from file extension)
 - `--headless`: Run in headless mode (default: True)
 - `--no-headless`: Run with visible browser window
+- `--mode`: Extraction mode ('directory' or 'categories', default: 'directory')
+- `--details`: Extract detailed contact info from individual tenant cards
+- `--no-block-resources`: Disable resource blocking for debugging
+- `--aggressive-block`: Block additional map-related resources for faster scraping
 - `-v, --verbose`: Enable verbose logging
+
+### Error Handling
+
+- **No URLs provided**: The scraper requires at least one Google Maps URL
+- **Invalid URL**: Must be a valid Google Maps place URL
+- **Network issues**: Check internet connectivity
+- **Large malls**: May require longer processing time for complete tenant extraction
 
 ## Output Format
 

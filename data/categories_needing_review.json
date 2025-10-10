@@ -1,0 +1,6162 @@
+{
+  "description": "Categories needing manual review - low/medium/no confidence mappings",
+  "total_categories": 1231,
+  "total_tenants_affected": 5114,
+  "categories": {
+    "null": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 72
+    },
+    "Costume shop": {
+      "google_category": "Fashion & Apparel > Costume > Costume jewelry shop",
+      "confidence": "medium",
+      "count": 42
+    },
+    "Watch repair shop": {
+      "google_category": "Fashion & Apparel > Watch > Watch repair service",
+      "confidence": "medium",
+      "count": 40
+    },
+    "Tours": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 39
+    },
+    "Barbecue": {
+      "google_category": "Food & Drink > Barbecue > Barbecue area",
+      "confidence": "medium",
+      "count": 39
+    },
+    "Printing shop": {
+      "google_category": "Retail & Shopping > Screen > Screen printing shop",
+      "confidence": "medium",
+      "count": 38
+    },
+    "5-star hotel": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 38
+    },
+    "Vintage Clothing Shop": {
+      "google_category": "Fashion & Apparel > Vintage > Vintage clothing store",
+      "confidence": "medium",
+      "count": 38
+    },
+    "Factory outlet shop": {
+      "google_category": "Retail & Shopping > General Retail > General Stores",
+      "confidence": "medium",
+      "count": 37
+    },
+    "Chinaware shop": {
+      "google_category": "Retail & Shopping > Chinaware > Chinaware store",
+      "confidence": "medium",
+      "count": 37
+    },
+    "Property Consultant": {
+      "google_category": "Professional Services > Industrial > Industrial consultant",
+      "confidence": "medium",
+      "count": 36
+    },
+    "Event Planning Service": {
+      "google_category": "Automotive > Meeting > Meeting planning service",
+      "confidence": "medium",
+      "count": 36
+    },
+    "Non-profit organisation": {
+      "google_category": "Other > Non-Profit > Non-profit organization",
+      "confidence": "medium",
+      "count": 36
+    },
+    "Childrens Shop": {
+      "google_category": "Home & Garden > Children\u2019S > Children\u2019s home",
+      "confidence": "medium",
+      "count": 36
+    },
+    "Spice Shop": {
+      "google_category": "Retail & Shopping > Spice > Spice store",
+      "confidence": "medium",
+      "count": 34
+    },
+    "Shopping outlet": {
+      "google_category": "Retail & Shopping > Outlet > Outlet store",
+      "confidence": "medium",
+      "count": 34
+    },
+    "Flat Complex": {
+      "google_category": "Other > Badminton > Badminton complex",
+      "confidence": "medium",
+      "count": 33
+    },
+    "Vehicle repair shop": {
+      "google_category": "Electronics > Furniture > Furniture repair shop",
+      "confidence": "medium",
+      "count": 33
+    },
+    "Dry Fruit Shop": {
+      "google_category": "Retail & Shopping > Dry > Dry fruit store",
+      "confidence": "medium",
+      "count": 33
+    },
+    "Recreation Centre": {
+      "google_category": "Sports & Recreation > Recreation > Recreation center",
+      "confidence": "medium",
+      "count": 33
+    },
+    "Party shop": {
+      "google_category": "Arts & Entertainment > Party > Party planner",
+      "confidence": "medium",
+      "count": 32
+    },
+    "Persian": {
+      "google_category": "Food & Drink > Persian > Persian restaurant",
+      "confidence": "medium",
+      "count": 32
+    },
+    "Swimwear Shop": {
+      "google_category": "Fashion & Apparel > Swimwear > Swimwear store",
+      "confidence": "medium",
+      "count": 32
+    },
+    "Uniform Shop": {
+      "google_category": "Fashion & Apparel > Uniform > Uniform store",
+      "confidence": "medium",
+      "count": 31
+    },
+    "Steak": {
+      "google_category": "Food & Drink > Steak > Steak house",
+      "confidence": "medium",
+      "count": 31
+    },
+    "Breakfast": {
+      "google_category": "Food & Drink > Breakfast > Breakfast restaurant",
+      "confidence": "medium",
+      "count": 30
+    },
+    "Greetings Card Shop": {
+      "google_category": "Automotive > Greeting > Greeting card shop",
+      "confidence": "medium",
+      "count": 30
+    },
+    "Pet Care Store": {
+      "google_category": "Automotive > Auto > Auto care products store",
+      "confidence": "medium",
+      "count": 29
+    },
+    "Events Venue": {
+      "google_category": "Other > Wedding > Wedding venue",
+      "confidence": "medium",
+      "count": 28
+    },
+    "Sports Nutrition Shop": {
+      "google_category": "Sports & Recreation > Sports > Sports nutrition store",
+      "confidence": "medium",
+      "count": 28
+    },
+    "Hardware Shop": {
+      "google_category": "Home & Garden > Hardware > Hardware store",
+      "confidence": "medium",
+      "count": 28
+    },
+    "Costume Jewellery Shop": {
+      "google_category": "Fashion & Apparel > Costume > Costume jewelry shop",
+      "confidence": "medium",
+      "count": 28
+    },
+    "Off Licence": {
+      "google_category": "Other > Off > Off roading area",
+      "confidence": "low",
+      "count": 28
+    },
+    "Thai": {
+      "google_category": "Food & Drink > Thai > Thai restaurant",
+      "confidence": "medium",
+      "count": 28
+    },
+    "Buffet": {
+      "google_category": "Food & Drink > Buffet > Buffet restaurant",
+      "confidence": "medium",
+      "count": 28
+    },
+    "4-star hotel": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 27
+    },
+    "Antique Shop": {
+      "google_category": "Retail & Shopping > Antique > Antique store",
+      "confidence": "medium",
+      "count": 27
+    },
+    "Taxi rank": {
+      "google_category": "Travel & Lodging > Air > Air taxi",
+      "confidence": "medium",
+      "count": 26
+    },
+    "Immigration & Naturalisation Service": {
+      "google_category": "Automotive > Immigration > Immigration &amp; naturalization service",
+      "confidence": "medium",
+      "count": 26
+    },
+    "Pre-school": {
+      "google_category": "Sports & Recreation > Dance > Dance school",
+      "confidence": "medium",
+      "count": 26
+    },
+    "Western": {
+      "google_category": "Food & Drink > Western > Western restaurant",
+      "confidence": "medium",
+      "count": 26
+    },
+    "Camera shop": {
+      "google_category": "Electronics > Camera > Camera repair shop",
+      "confidence": "medium",
+      "count": 25
+    },
+    "Yemenite": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 25
+    },
+    "Escape room centre": {
+      "google_category": "Other > Escape > Escape room center",
+      "confidence": "medium",
+      "count": 25
+    },
+    "Tea Shop": {
+      "google_category": "Food & Drink > Tea > Tea manufacturer",
+      "confidence": "medium",
+      "count": 25
+    },
+    "Korean": {
+      "google_category": "Food & Drink > Korean > Korean restaurant",
+      "confidence": "medium",
+      "count": 25
+    },
+    "Othman Bin Affan Street (Street # 139)": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 24
+    },
+    "Linen Shop": {
+      "google_category": "Retail & Shopping > General Retail > General Stores",
+      "confidence": "medium",
+      "count": 24
+    },
+    "Egyptian": {
+      "google_category": "Food & Drink > Egyptian > Egyptian restaurant",
+      "confidence": "medium",
+      "count": 22
+    },
+    "Grill": {
+      "google_category": "Retail & Shopping > Grill > Grill store",
+      "confidence": "medium",
+      "count": 22
+    },
+    "Co-working Space": {
+      "google_category": "Beauty & Personal Care > Coworking > Coworking space",
+      "confidence": "medium",
+      "count": 22
+    },
+    "Office supplies shop": {
+      "google_category": "Retail & Shopping > General Retail > General Stores",
+      "confidence": "medium",
+      "count": 21
+    },
+    "Al Ittihad Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 21
+    },
+    "Physiotherapist": {
+      "google_category": "Health & Medical > Physical > Physical therapist",
+      "confidence": "medium",
+      "count": 21
+    },
+    "Natural Foods Shop": {
+      "google_category": "Retail & Shopping > Natural > Natural goods store",
+      "confidence": "medium",
+      "count": 21
+    },
+    "Eye Care Clinic": {
+      "google_category": "Health & Medical > Skin > Skin care clinic",
+      "confidence": "medium",
+      "count": 21
+    },
+    "Massage Supply Shop": {
+      "google_category": "Beauty & Personal Care > Massage > Massage supply store",
+      "confidence": "medium",
+      "count": 20
+    },
+    "Mens Tailor": {
+      "google_category": "Other > Custom > Custom tailor",
+      "confidence": "medium",
+      "count": 20
+    },
+    "Tyre Shop": {
+      "google_category": "Other > Tyre > Tyre manufacturer",
+      "confidence": "medium",
+      "count": 20
+    },
+    "Cr\u00eaperie": {
+      "google_category": "Other > Creperie > Creperie",
+      "confidence": "medium",
+      "count": 20
+    },
+    "Outdoor sports shop": {
+      "google_category": "Sports & Recreation > Outdoor > Outdoor sports store",
+      "confidence": "medium",
+      "count": 19
+    },
+    "Valeting service": {
+      "google_category": "Automotive > Dating > Dating service",
+      "confidence": "medium",
+      "count": 19
+    },
+    "Art Centre": {
+      "google_category": "Arts & Entertainment > Art > Art center",
+      "confidence": "medium",
+      "count": 19
+    },
+    "Youth Clothing Shop": {
+      "google_category": "Fashion & Apparel > Outdoor > Outdoor clothing and equipment shop",
+      "confidence": "medium",
+      "count": 19
+    },
+    "Tourist Information Centre": {
+      "google_category": "Other > Tourist > Tourist information center",
+      "confidence": "medium",
+      "count": 19
+    },
+    "Medical laboratory": {
+      "google_category": "Beauty & Personal Care > Medical > Medical spa",
+      "confidence": "medium",
+      "count": 19
+    },
+    "Mediterranean": {
+      "google_category": "Food & Drink > Mediterranean > Mediterranean restaurant",
+      "confidence": "medium",
+      "count": 19
+    },
+    "Job Centre": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 19
+    },
+    "Car Accessories Shop": {
+      "google_category": "Automotive > Car > Car accessories store",
+      "confidence": "medium",
+      "count": 18
+    },
+    "Flooring Shop": {
+      "google_category": "Home & Garden > Flooring > Flooring contractor",
+      "confidence": "medium",
+      "count": 18
+    },
+    "Takeaway": {
+      "google_category": "Food & Drink > Indian > Indian takeaway",
+      "confidence": "medium",
+      "count": 18
+    },
+    "Wellness Centre": {
+      "google_category": "Other > Wellness > Wellness program",
+      "confidence": "medium",
+      "count": 18
+    },
+    "Charity shop": {
+      "google_category": "Other > Charity > Charity",
+      "confidence": "low",
+      "count": 18
+    },
+    "Free Car Park": {
+      "google_category": "Automotive > Auto Services > General Auto Services",
+      "confidence": "medium",
+      "count": 18
+    },
+    "Cheesesteaks": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 18
+    },
+    "Vehicle Repair": {
+      "google_category": "Electronics > Repair > Repair service",
+      "confidence": "medium",
+      "count": 17
+    },
+    "Novelty shop": {
+      "google_category": "Retail & Shopping > Novelty > Novelty store",
+      "confidence": "medium",
+      "count": 17
+    },
+    "99 Park Lane": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 17
+    },
+    "Curtain Shop": {
+      "google_category": "Home & Garden > Curtain > Curtain store",
+      "confidence": "medium",
+      "count": 17
+    },
+    "Canteen": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 17
+    },
+    "Greek": {
+      "google_category": "Food & Drink > Greek > Greek restaurant",
+      "confidence": "medium",
+      "count": 17
+    },
+    "Nightclub": {
+      "google_category": "Other > Night > Night club",
+      "confidence": "medium",
+      "count": 17
+    },
+    "Tea room": {
+      "google_category": "Food & Drink > Tea > Tea manufacturer",
+      "confidence": "medium",
+      "count": 17
+    },
+    "Photography shop": {
+      "google_category": "Education > Photography > Photography school",
+      "confidence": "medium",
+      "count": 17
+    },
+    "Outerwear Shop": {
+      "google_category": "Retail & Shopping > Outerwear > Outerwear store",
+      "confidence": "medium",
+      "count": 17
+    },
+    "Bespoke Tailor": {
+      "google_category": "Other > Custom > Custom tailor",
+      "confidence": "medium",
+      "count": 16
+    },
+    "Interior architect office": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 16
+    },
+    "Al Rigga Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 16
+    },
+    "Hobby shop": {
+      "google_category": "Arts & Entertainment > Hobby > Hobby store",
+      "confidence": "medium",
+      "count": 16
+    },
+    "Candle shop": {
+      "google_category": "Retail & Shopping > Candle > Candle store",
+      "confidence": "medium",
+      "count": 16
+    },
+    "Music shop": {
+      "google_category": "Food & Drink > Music > Music publisher",
+      "confidence": "medium",
+      "count": 16
+    },
+    "Electrical supply shop": {
+      "google_category": "Home & Garden > Electrical > Electrical supply store",
+      "confidence": "medium",
+      "count": 16
+    },
+    "Chemist": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 16
+    },
+    "Sheikh Zayed Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 15
+    },
+    "Homestay": {
+      "google_category": "Home & Garden > Home Furnishings > General Furnishings",
+      "confidence": "medium",
+      "count": 15
+    },
+    "Herb shop": {
+      "google_category": "Retail & Shopping > General Retail > General Stores",
+      "confidence": "medium",
+      "count": 15
+    },
+    "Car Rental Service": {
+      "google_category": "Automotive > Car > Car rental agency",
+      "confidence": "medium",
+      "count": 15
+    },
+    "7832+8X4 - Sheikh Khalifa Bin Zayed Road (Trade Centre Road)": {
+      "google_category": "Other > Exhibition > Exhibition and trade centre",
+      "confidence": "low",
+      "count": 15
+    },
+    "Petrol Station": {
+      "google_category": "Other > Weigh > Weigh station",
+      "confidence": "medium",
+      "count": 15
+    },
+    "Tutor": {
+      "google_category": "Other > Private > Private tutor",
+      "confidence": "medium",
+      "count": 14
+    },
+    "Call Centre": {
+      "google_category": "Retail & Shopping > Call > Call shop",
+      "confidence": "medium",
+      "count": 14
+    },
+    "Delivery Company": {
+      "google_category": "Other > Railroad > Railroad company",
+      "confidence": "medium",
+      "count": 14
+    },
+    "6546 Ash Shihab at Taifi": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 14
+    },
+    "Rug Shop": {
+      "google_category": "Home & Garden > Rug > Rug store",
+      "confidence": "medium",
+      "count": 14
+    },
+    "Filipino": {
+      "google_category": "Food & Drink > Filipino > Filipino restaurant",
+      "confidence": "medium",
+      "count": 14
+    },
+    "IT security service": {
+      "google_category": "Electronics > Computer > Computer security service",
+      "confidence": "medium",
+      "count": 14
+    },
+    "Shisha bar": {
+      "google_category": "Food & Drink > Espresso > Espresso bar",
+      "confidence": "medium",
+      "count": 14
+    },
+    "Orthopaedic Shoe Shop": {
+      "google_category": "Fashion & Apparel > Shoe > Shoe repair shop",
+      "confidence": "medium",
+      "count": 14
+    },
+    "Chinese Noodles": {
+      "google_category": "Food & Drink > Chinese > Chinese bakery",
+      "confidence": "medium",
+      "count": 13
+    },
+    "71 Al Nahda St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 13
+    },
+    "Web hosting company": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 13
+    },
+    "Balloon Shop": {
+      "google_category": "Retail & Shopping > Balloon > Balloon store",
+      "confidence": "medium",
+      "count": 13
+    },
+    "Office Furniture Shop": {
+      "google_category": "Home & Garden > Office > Office furniture store",
+      "confidence": "medium",
+      "count": 13
+    },
+    "Popcorn Shop": {
+      "google_category": "Retail & Shopping > Popcorn > Popcorn store",
+      "confidence": "medium",
+      "count": 13
+    },
+    "Fine dining": {
+      "google_category": "Food & Drink > Restaurants > General Restaurants",
+      "confidence": "medium",
+      "count": 12
+    },
+    "Oud Metha Road, Wafi City": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 12
+    },
+    "Computer Accessories Shop": {
+      "google_category": "Electronics > Computer > Computer accessories store",
+      "confidence": "medium",
+      "count": 12
+    },
+    "Craft shop": {
+      "google_category": "Arts & Entertainment > Craft > Craft store",
+      "confidence": "medium",
+      "count": 12
+    },
+    "Kitchen Furniture Shop": {
+      "google_category": "Home & Garden > Kitchen > Kitchen furniture store",
+      "confidence": "medium",
+      "count": 12
+    },
+    "Laser Tag Centre": {
+      "google_category": "Beauty & Personal Care > Laser > Laser tag center",
+      "confidence": "medium",
+      "count": 12
+    },
+    "Pakistani": {
+      "google_category": "Food & Drink > Pakistani > Pakistani restaurant",
+      "confidence": "medium",
+      "count": 12
+    },
+    "Gourmet Grocery Shop": {
+      "google_category": "Retail & Shopping > Gourmet > Gourmet grocery store",
+      "confidence": "medium",
+      "count": 12
+    },
+    "Meat": {
+      "google_category": "Food & Drink > Meat > Meat packer",
+      "confidence": "medium",
+      "count": 12
+    },
+    "Vegetarian": {
+      "google_category": "Food & Drink > Vegetarian > Vegetarian restaurant",
+      "confidence": "medium",
+      "count": 12
+    },
+    "Investment Banking": {
+      "google_category": "Automotive > Investment > Investment service",
+      "confidence": "medium",
+      "count": 11
+    },
+    "3-star hotel": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 11
+    },
+    "Post Office/Courier": {
+      "google_category": "Government & Community > Post > Post office",
+      "confidence": "medium",
+      "count": 11
+    },
+    "Learning Centre": {
+      "google_category": "Other > Learning > Learning center",
+      "confidence": "medium",
+      "count": 11
+    },
+    "Go-Cart Track": {
+      "google_category": "Arts & Entertainment > Go-Kart > Go-kart track",
+      "confidence": "medium",
+      "count": 11
+    },
+    "Organic Food Shop": {
+      "google_category": "Food & Drink > Organic > Organic food store",
+      "confidence": "medium",
+      "count": 11
+    },
+    "Performing arts theatre": {
+      "google_category": "Arts & Entertainment > Performing > Performing arts theater",
+      "confidence": "medium",
+      "count": 11
+    },
+    "Brunch": {
+      "google_category": "Food & Drink > Brunch > Brunch restaurant",
+      "confidence": "medium",
+      "count": 11
+    },
+    "Wrapping Paper Shop": {
+      "google_category": "Retail & Shopping > General Retail > General Stores",
+      "confidence": "medium",
+      "count": 11
+    },
+    "Salad": {
+      "google_category": "Retail & Shopping > Salad > Salad shop",
+      "confidence": "medium",
+      "count": 11
+    },
+    "SB-4 /21 Sarwar Shaheed Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 10
+    },
+    "Bicycle Shop": {
+      "google_category": "Sports & Recreation > Used > Used bicycle shop",
+      "confidence": "medium",
+      "count": 10
+    },
+    "Electrical Sub-station": {
+      "google_category": "Home & Garden > Electrical > Electrical substation",
+      "confidence": "medium",
+      "count": 10
+    },
+    "1 Bisway St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 10
+    },
+    "T-shirt Shop": {
+      "google_category": "Fashion & Apparel > T-Shirt > T-shirt store",
+      "confidence": "medium",
+      "count": 10
+    },
+    "Cleaning service": {
+      "google_category": "Automotive > Window > Window cleaning service",
+      "confidence": "medium",
+      "count": 10
+    },
+    "Lift Service": {
+      "google_category": "Automotive > Auto Services > General Auto Services",
+      "confidence": "medium",
+      "count": 10
+    },
+    "Tax Advisor": {
+      "google_category": "Professional Services > Tax > Tax attorney",
+      "confidence": "medium",
+      "count": 10
+    },
+    "Social services organisation": {
+      "google_category": "Automotive > Social > Social services organization",
+      "confidence": "medium",
+      "count": 10
+    },
+    "E commerce agency": {
+      "google_category": "Automotive > E-Commerce > E-commerce service",
+      "confidence": "medium",
+      "count": 10
+    },
+    "Outdoor furniture shop": {
+      "google_category": "Home & Garden > Outdoor > Outdoor furniture store",
+      "confidence": "medium",
+      "count": 10
+    },
+    "Mecca Mall, Abdullah Al Dawoud St 20": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 10
+    },
+    "Formal menswear shop": {
+      "google_category": "Fashion & Apparel > Clothing > General Clothing",
+      "confidence": "medium",
+      "count": 10
+    },
+    "Vietnamese": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 10
+    },
+    "Wig shop": {
+      "google_category": "Retail & Shopping > Sewing > Sewing shop",
+      "confidence": "medium",
+      "count": 9
+    },
+    "Curtain Maker and Retailer": {
+      "google_category": "Home & Garden > Curtain > Curtain supplier and maker",
+      "confidence": "medium",
+      "count": 9
+    },
+    "Dumpling": {
+      "google_category": "Food & Drink > Dumpling > Dumpling restaurant",
+      "confidence": "medium",
+      "count": 9
+    },
+    "Counsellor": {
+      "google_category": "Other > Counselor > Counselor",
+      "confidence": "medium",
+      "count": 9
+    },
+    "Do\u00e7. Dr. Halil \u00dcr\u00fcn Cd. No:22": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 9
+    },
+    "Modelling agency": {
+      "google_category": "Other > Certification > Certification agency",
+      "confidence": "medium",
+      "count": 9
+    },
+    "Toiletries Shop": {
+      "google_category": "Retail & Shopping > Toiletries > Toiletries store",
+      "confidence": "medium",
+      "count": 9
+    },
+    "88 Nazim-ud-din Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 9
+    },
+    "Dubai-Hatta Road (E 44 Road)": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 9
+    },
+    "Commercial property estate agent": {
+      "google_category": "Professional Services > Commercial > Commercial real estate agency",
+      "confidence": "medium",
+      "count": 9
+    },
+    "Pasta": {
+      "google_category": "Food & Drink > Pasta > Pasta shop",
+      "confidence": "medium",
+      "count": 9
+    },
+    "Cookies": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 9
+    },
+    "Fashion": {
+      "google_category": "Fashion & Apparel > Fashion > Fashion designer",
+      "confidence": "medium",
+      "count": 9
+    },
+    "Hookah Shop": {
+      "google_category": "Retail & Shopping > Hookah > Hookah store",
+      "confidence": "medium",
+      "count": 9
+    },
+    "Immigration Lawyer": {
+      "google_category": "Professional Services > Divorce > Divorce lawyer",
+      "confidence": "medium",
+      "count": 9
+    },
+    "Mental Health Services": {
+      "google_category": "Health & Medical > Mental > Mental health service",
+      "confidence": "medium",
+      "count": 8
+    },
+    "Wine shop": {
+      "google_category": "Food & Drink > Wine > Wine store",
+      "confidence": "medium",
+      "count": 8
+    },
+    "\u0627\u0644\u0642\u0627\u0647\u0631\u0629, \u0645\u062f\u064a\u0646\u0629 \u0627\u0644\u0631\u062d\u0627\u0628": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 8
+    },
+    "Abu Baker Al Siddique St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 8
+    },
+    "Picture framing shop": {
+      "google_category": "Retail & Shopping > Picture > Picture frame shop",
+      "confidence": "medium",
+      "count": 8
+    },
+    "Sheikh Zayed Road - 4th Interchange": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 8
+    },
+    "Hearing Aid Shop": {
+      "google_category": "Retail & Shopping > Hearing > Hearing aid store",
+      "confidence": "medium",
+      "count": 8
+    },
+    "Collectibles Shop": {
+      "google_category": "Retail & Shopping > Collectibles > Collectibles store",
+      "confidence": "medium",
+      "count": 8
+    },
+    "Gymnastics academy": {
+      "google_category": "Sports & Recreation > Gymnastics > Gymnastics center",
+      "confidence": "medium",
+      "count": 8
+    },
+    "Fishing shop": {
+      "google_category": "Food & Drink > Fishing > Fishing store",
+      "confidence": "medium",
+      "count": 8
+    },
+    "Key Duplication Service": {
+      "google_category": "Automotive > Video > Video duplication service",
+      "confidence": "medium",
+      "count": 8
+    },
+    "Paint shop": {
+      "google_category": "Home & Garden > Paint > Paint store",
+      "confidence": "medium",
+      "count": 8
+    },
+    "Kitchenware Shop": {
+      "google_category": "Retail & Shopping > General Retail > General Stores",
+      "confidence": "medium",
+      "count": 8
+    },
+    "Glassware Shop": {
+      "google_category": "Automotive > Glassware > Glassware manufacturer",
+      "confidence": "medium",
+      "count": 8
+    },
+    "Boat Hire Service": {
+      "google_category": "Automotive > Boat > Boat rental service",
+      "confidence": "medium",
+      "count": 7
+    },
+    "1 Sengkang Square": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 7
+    },
+    "Adventure sports centre": {
+      "google_category": "Sports & Recreation > Adventure > Adventure sports center",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Garden centre": {
+      "google_category": "Home & Garden > Botanical > Botanical garden",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Art supply shop": {
+      "google_category": "Arts & Entertainment > Art > Art supply store",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Al Mankhool Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 7
+    },
+    "Sheikh Mohammed Bin Salem Road (E 11 Road), Al Hamra": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 7
+    },
+    "Marine Supply Shop": {
+      "google_category": "Retail & Shopping > Marine > Marine supply store",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Hawaiian": {
+      "google_category": "Food & Drink > Hawaiian > Hawaiian restaurant",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Antique Furniture Shop": {
+      "google_category": "Home & Garden > Antique > Antique furniture store",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Pretzel Shop": {
+      "google_category": "Retail & Shopping > Pretzel > Pretzel store",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Removals company": {
+      "google_category": "Other > Railroad > Railroad company",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Company": {
+      "google_category": "Other > Railroad > Railroad company",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Cannabis shop": {
+      "google_category": "Other > Cannabis > Cannabis club",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Bathroom Supply Shop": {
+      "google_category": "Home & Garden > Bathroom > Bathroom supply store",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Moroccan": {
+      "google_category": "Food & Drink > Moroccan > Moroccan restaurant",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Curtain shop": {
+      "google_category": "Home & Garden > Curtain > Curtain store",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Halal": {
+      "google_category": "Food & Drink > Halal > Halal restaurant",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Western Clothing Shop": {
+      "google_category": "Fashion & Apparel > Outdoor > Outdoor clothing and equipment shop",
+      "confidence": "medium",
+      "count": 7
+    },
+    "N\u00e1m\u011bst\u00ed Republiky 1078": {
+      "google_category": "Food & Drink > Restaurants > General Restaurants",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Camping Shop": {
+      "google_category": "Sports & Recreation > Camping > Camping cabin",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Sheikh Zayed Road, 5th Interchange": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 7
+    },
+    "Kerepesi \u00fat 9": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 7
+    },
+    "Formal Wear Shop": {
+      "google_category": "Retail & Shopping > Formal > Formal wear store",
+      "confidence": "medium",
+      "count": 7
+    },
+    "Asian Grocery Shop": {
+      "google_category": "Retail & Shopping > Asian > Asian grocery store",
+      "confidence": "medium",
+      "count": 6
+    },
+    "Wallpaper Shop": {
+      "google_category": "Other > Wallpaper > Wallpaper installer",
+      "confidence": "medium",
+      "count": 6
+    },
+    "Holiday Flat": {
+      "google_category": "Home & Garden > Holiday > Holiday home",
+      "confidence": "medium",
+      "count": 6
+    },
+    "Beach Clothing Shop": {
+      "google_category": "Fashion & Apparel > Beach > Beach clothing store",
+      "confidence": "medium",
+      "count": 6
+    },
+    "Organic Pharmacy": {
+      "google_category": "Food & Drink > Organic > Organic restaurant",
+      "confidence": "medium",
+      "count": 6
+    },
+    "Syrian": {
+      "google_category": "Food & Drink > Syrian > Syrian restaurant",
+      "confidence": "medium",
+      "count": 6
+    },
+    "6XW8+5JM San Stefano Grand Plaza, El-Gaish Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 6
+    },
+    "Sheikh Zayed Road, 4th Interchange": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 6
+    },
+    "Landscape Gardener": {
+      "google_category": "Other > Landscape > Landscape architect",
+      "confidence": "medium",
+      "count": 6
+    },
+    "Outlet": {
+      "google_category": "Retail & Shopping > Outlet > Outlet store",
+      "confidence": "medium",
+      "count": 6
+    },
+    "Employment Centre": {
+      "google_category": "Professional Services > Employment > Employment consultant",
+      "confidence": "medium",
+      "count": 6
+    },
+    "Jumeirah Beach Road": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 6
+    },
+    "Wedding Shop": {
+      "google_category": "Retail & Shopping > Wedding > Wedding souvenir shop",
+      "confidence": "medium",
+      "count": 6
+    },
+    "Packaging Supply Shop": {
+      "google_category": "Retail & Shopping > Packaging > Packaging supply store",
+      "confidence": "medium",
+      "count": 6
+    },
+    "Secondhand Shop": {
+      "google_category": "Retail & Shopping > Second > Second hand store",
+      "confidence": "medium",
+      "count": 6
+    },
+    "Cultural centre": {
+      "google_category": "Other > Cultural > Cultural center",
+      "confidence": "medium",
+      "count": 6
+    },
+    "Pancake": {
+      "google_category": "Food & Drink > Pancake > Pancake restaurant",
+      "confidence": "medium",
+      "count": 6
+    },
+    "MOT Centre": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 6
+    },
+    "B\u00fcy\u00fckdere Cd. 22/A": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 6
+    },
+    "Snooker and Pool Club": {
+      "google_category": "Beauty & Personal Care > Spa > Spa and health club",
+      "confidence": "medium",
+      "count": 6
+    },
+    "Artistic handicrafts": {
+      "google_category": "Arts & Entertainment > Handicrafts > Handicrafts wholesaler",
+      "confidence": "medium",
+      "count": 6
+    },
+    "Non-Governmental Organisation": {
+      "google_category": "Government & Community > Non-Governmental > Non-governmental organization",
+      "confidence": "medium",
+      "count": 6
+    },
+    "Nisbetiye Cd No:56": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 5
+    },
+    "Phase 3": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 5
+    },
+    "Ramen": {
+      "google_category": "Food & Drink > Ramen > Ramen restaurant",
+      "confidence": "medium",
+      "count": 5
+    },
+    "8QVV+M25 - Al Ain-Dubai Road (E 66 Road)": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 5
+    },
+    "Al Wuheida St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 5
+    },
+    "Wholesale Jeweller": {
+      "google_category": "Food & Drink > Wholesale > Wholesale bakery",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Work Clothes Shop": {
+      "google_category": "Retail & Shopping > Work > Work clothes store",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Conference Centre": {
+      "google_category": "Other > Conference > Conference center",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Computer Software Shop": {
+      "google_category": "Electronics > Computer > Computer software store",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Taiwanese": {
+      "google_category": "Food & Drink > Taiwanese > Taiwanese restaurant",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Aromatherapy Supply Shop": {
+      "google_category": "Health & Medical > Aromatherapy > Aromatherapy supply store",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Pottery shop": {
+      "google_category": "Other > Pottery > Pottery manufacturer",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Computer networking service": {
+      "google_category": "Electronics > Computer > Computer security service",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Car Battery Shop": {
+      "google_category": "Automotive > Car > Car battery store",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Herbal Medicine Shop": {
+      "google_category": "Retail & Shopping > Herbal > Herbal medicine store",
+      "confidence": "medium",
+      "count": 5
+    },
+    "\u00c7oban\u00e7e\u015fme Ko\u015fuyolu Cd. No:3": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 5
+    },
+    "Property Rental Agency": {
+      "google_category": "Automotive > Truck > Truck rental agency",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Brazilian": {
+      "google_category": "Food & Drink > Brazilian > Brazilian restaurant",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Athletics field": {
+      "google_category": "Home & Garden > Rugby > Rugby field",
+      "confidence": "medium",
+      "count": 5
+    },
+    "European": {
+      "google_category": "Food & Drink > European > European restaurant",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Bicycle hire shop": {
+      "google_category": "Sports & Recreation > Used > Used bicycle shop",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Martial Arts Supply Shop": {
+      "google_category": "Sports & Recreation > Martial > Martial arts supply store",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Maternity Shop": {
+      "google_category": "Retail & Shopping > Maternity > Maternity store",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Piano Shop": {
+      "google_category": "Other > Piano > Piano instructor",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Pound Shop": {
+      "google_category": "Retail & Shopping > General Retail > General Stores",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Landscaping Supply Shop": {
+      "google_category": "Home & Garden > Landscaping > Landscaping supply store",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Theatre Company": {
+      "google_category": "Other > Railroad > Railroad company",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Cable provider": {
+      "google_category": "Electronics > Cable > Cable company",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Football Shop": {
+      "google_category": "Other > Football > Football club",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Malaysian": {
+      "google_category": "Food & Drink > Malaysian > Malaysian restaurant",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Japanese Sweet Shop": {
+      "google_category": "Retail & Shopping > Japanese > Japanese confectionery shop",
+      "confidence": "medium",
+      "count": 5
+    },
+    "Car Restoration Service": {
+      "google_category": "Automotive > Car > Car detailing service",
+      "confidence": "medium",
+      "count": 5
+    },
+    "6526 \u0627\u0644\u062a\u062e\u0635\u0635\u064a": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 5
+    },
+    "Launderette": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 5
+    },
+    "Nepalese": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 5
+    },
+    "Ulug\u00fcn Sk. No:18": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 5
+    },
+    "Jewellery Buyer": {
+      "google_category": "Other > Diamond > Diamond buyer",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Entertainment": {
+      "google_category": "Arts & Entertainment > Entertainment > Entertainment agency",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Holiday home letting agency": {
+      "google_category": "Electronics > Mobile > Mobile home rental agency",
+      "confidence": "medium",
+      "count": 4
+    },
+    "2152. Sk. No:22": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 4
+    },
+    "Moving Supply Shop": {
+      "google_category": "Retail & Shopping > Moving > Moving supply store",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Removals Service": {
+      "google_category": "Automotive > Snow > Snow removal service",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Arts Organisation": {
+      "google_category": "Sports & Recreation > Martial > Martial arts club",
+      "confidence": "low",
+      "count": 4
+    },
+    "2704 \u0627\u0644\u0627\u0645\u064a\u0631 \u0645\u062d\u0645\u062f \u0628\u0646 \u0639\u0628\u062f\u0627\u0644\u0639\u0632\u064a\u0632": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 4
+    },
+    "S\u00fcleyman Demirel Blv No:7": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 4
+    },
+    "Dairy Products Shop": {
+      "google_category": "Retail & Shopping > General Retail > General Stores",
+      "confidence": "medium",
+      "count": 4
+    },
+    "3CF2+26W - Dubai-Al Ain Road (E 66 Road)": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 4
+    },
+    "Financial Ctr St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 4
+    },
+    "Beauty therapy college": {
+      "google_category": "Beauty & Personal Care > Beauty Salons > General Beauty Salons",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Personal Injury Lawyer": {
+      "google_category": "Professional Services > Personal > Personal injury attorney",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Home audio shop": {
+      "google_category": "Electronics > Home > Home audio store",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Open now": {
+      "google_category": "Education > Open > Open university",
+      "confidence": "medium",
+      "count": 4
+    },
+    "1 Sea View Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 4
+    },
+    "Peruvian": {
+      "google_category": "Food & Drink > Peruvian > Peruvian restaurant",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Property Surveyor": {
+      "google_category": "Other > Quantity > Quantity surveyor",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Georgian": {
+      "google_category": "Food & Drink > Georgian > Georgian restaurant",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Izakaya": {
+      "google_category": "Food & Drink > Modern > Modern izakaya restaurant",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Clothing": {
+      "google_category": "Fashion & Apparel > Clothing > Clothing supplier",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Comic book shop": {
+      "google_category": "Retail & Shopping > Comic > Comic book store",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Tile Shop": {
+      "google_category": "Retail & Shopping > Tile > Tile store",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Professional Organiser": {
+      "google_category": "Other > Professional > Professional association",
+      "confidence": "medium",
+      "count": 4
+    },
+    "2C87+Q29": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 4
+    },
+    "Driving Licence Training School": {
+      "google_category": "Automotive > Motorcycle > Motorcycle driving school",
+      "confidence": "medium",
+      "count": 4
+    },
+    "French steak restaurant": {
+      "google_category": "Food & Drink > French > French steakhouse restaurant",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Chinese Medicine Shop": {
+      "google_category": "Health & Medical > Chinese > Chinese medicine clinic",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Cosmetics": {
+      "google_category": "Beauty & Personal Care > Cosmetics > Cosmetics industry",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Jewellery Repair Service": {
+      "google_category": "Electronics > Hydraulic > Hydraulic repair service",
+      "confidence": "medium",
+      "count": 4
+    },
+    "2433 Al Imam Saud Ibn Abdul Aziz Branch Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 4
+    },
+    "3F5W+H87": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 4
+    },
+    "Hoagies": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 4
+    },
+    "Indoor Snowcentre": {
+      "google_category": "Home & Garden > Indoor > Indoor snowcenter",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Marine broker": {
+      "google_category": "Other > Mortgage > Mortgage broker",
+      "confidence": "medium",
+      "count": 4
+    },
+    "38FW+9WG\u060c \u0634 \u0639\u0645\u0631 \u0628\u0646 \u0627\u0644\u062e\u0637\u0627\u0628": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 4
+    },
+    "Korean BBQ": {
+      "google_category": "Food & Drink > Korean > Korean restaurant",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Restaurant or cafe": {
+      "google_category": "Food & Drink > Restaurants > General Restaurants",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Spanish": {
+      "google_category": "Food & Drink > Spanish > Spanish restaurant",
+      "confidence": "medium",
+      "count": 4
+    },
+    "Paediatric Dentist": {
+      "google_category": "Beauty & Personal Care > Cosmetic > Cosmetic dentist",
+      "confidence": "medium",
+      "count": 4
+    },
+    "User-operated machine": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 4
+    },
+    "Windshield Repair Service": {
+      "google_category": "Electronics > Hydraulic > Hydraulic repair service",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Central Heating Service": {
+      "google_category": "Health & Medical > Mental > Mental health service",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Al Baraka Mall, Said Al Mufti St 30": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "Hac\u0131 Sabanc\u0131 Blv. No:28": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "Student Halls": {
+      "google_category": "Education > Student > Student union",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Telecommunications": {
+      "google_category": "Other > Telecommunications > Telecommunications engineer",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Animal feed shop": {
+      "google_category": "Retail & Shopping > Animal > Animal feed store",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Tunisian": {
+      "google_category": "Food & Drink > Tunisian > Tunisian restaurant",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Sports Memorabilia Shop": {
+      "google_category": "Sports & Recreation > Sports > Sports memorabilia store",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Trading Card Shop": {
+      "google_category": "Automotive > Trading > Trading card store",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Tennis Shop": {
+      "google_category": "Sports & Recreation > Tennis > Tennis store",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Gift basket shop": {
+      "google_category": "Retail & Shopping > Gift > Gift basket store",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Afghani": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "2C87+Q29\u060c \u0627\u0644\u0642\u0627\u0647\u0631\u0629, \u0627\u0644\u0642\u0627\u0647\u0631\u0629 \u0627\u0644\u062c\u062f\u064a\u062f\u0629": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "Fishmonger": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "Advertising service": {
+      "google_category": "Professional Services > Advertising > Advertising agency",
+      "confidence": "medium",
+      "count": 3
+    },
+    "R2CM+QF8": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "Lawyer Referral Service": {
+      "google_category": "Automotive > Roommate > Roommate referral service",
+      "confidence": "medium",
+      "count": 3
+    },
+    "S\u00fcleyman Demirel Blv No: 7E1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "JX9R+C6F": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "Exercise Equipment Shop": {
+      "google_category": "Sports & Recreation > Exercise > Exercise equipment store",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Marriage Counsellor": {
+      "google_category": "Other > Marriage > Marriage celebrant",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Specialised Clinic": {
+      "google_category": "Health & Medical > Abortion > Abortion clinic",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Metaphysical Supply Shop": {
+      "google_category": "Retail & Shopping > Metaphysical > Metaphysical supply store",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Doll Shop": {
+      "google_category": "Retail & Shopping > Doll > Doll store",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Physical Fitness Programme": {
+      "google_category": "Sports & Recreation > Physical > Physical fitness program",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Property valuer": {
+      "google_category": "Other > Property > Property maintenance",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Recycling Centre": {
+      "google_category": "Other > Recycling > Recycling center",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Sewing Machine Shop": {
+      "google_category": "Retail & Shopping > Sewing > Sewing machine store",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Roofing Service": {
+      "google_category": "Home & Garden > Roofing > Roofing contractor",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Haydar Aliyev Blv. No:3": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "Japanese supermarket": {
+      "google_category": "Retail & Shopping > Discount > Discount supermarket",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Religious Goods Shop": {
+      "google_category": "Retail & Shopping > Religious > Religious goods store",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Reptile Shop": {
+      "google_category": "Retail & Shopping > Reptile > Reptile store",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Indonesian": {
+      "google_category": "Food & Drink > Indonesian > Indonesian restaurant",
+      "confidence": "medium",
+      "count": 3
+    },
+    "82 Nazim-ud-din Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "Vegan": {
+      "google_category": "Food & Drink > Vegan > Vegan restaurant",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Diagnostic centre": {
+      "google_category": "Health & Medical > Diagnostic > Diagnostic center",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Children's Furniture Shop": {
+      "google_category": "Home & Garden > Children\u2019S > Children\u2019s furniture store",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Chiropodist": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "Rehabilitation Centre": {
+      "google_category": "Other > Rehabilitation > Rehabilitation center",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Shelving Shop": {
+      "google_category": "Retail & Shopping > Shelving > Shelving store",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Independent school": {
+      "google_category": "Sports & Recreation > Dance > Dance school",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Cabinet Shop": {
+      "google_category": "Other > Cabinet > Cabinet maker",
+      "confidence": "medium",
+      "count": 3
+    },
+    "67M7+JRJ - \u0634\u0627\u0631\u0639 \u0634\u0627\u0637\u0626 \u062c\u0645\u064a\u0631\u0629": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "34 Ilia Chavchavadze Avenue": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "4500 Kingsway": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "Mevlana Blv. No:2": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "General Practice Lawyer": {
+      "google_category": "Professional Services > General > General practice attorney",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Buqar-Jyrau Ave 53": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "Leather Coats Shop": {
+      "google_category": "Fashion & Apparel > Leather > Leather coats store",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Voluntary organisation": {
+      "google_category": "Other > Volunteer > Volunteer organization",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Blood Donation Centre": {
+      "google_category": "Other > Blood > Blood donation center",
+      "confidence": "medium",
+      "count": 3
+    },
+    "3F6J+PQ8": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "309 Al Khawaneej St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "Dental Supply Shop": {
+      "google_category": "Health & Medical > Dental > Dental supply store",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Car Body Shop": {
+      "google_category": "Food & Drink > Body > Body piercing shop",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Theatrical Supplies Shop": {
+      "google_category": "Retail & Shopping > General Retail > General Stores",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Christmas Shop": {
+      "google_category": "Retail & Shopping > Christmas > Christmas market",
+      "confidence": "medium",
+      "count": 3
+    },
+    "Indoor accommodation": {
+      "google_category": "Home & Garden > Indoor > Indoor snowcenter",
+      "confidence": "medium",
+      "count": 3
+    },
+    "9 \u0634 Al Batrawi": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 3
+    },
+    "Art cafe": {
+      "google_category": "Food & Drink > Cosplay > Cosplay cafe",
+      "confidence": "medium",
+      "count": 2
+    },
+    "82HH+VFG": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "7 Tsotne Dadiani St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Imax Cinema": {
+      "google_category": "Arts & Entertainment > Imax > IMAX theater",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Car Stereo Shop": {
+      "google_category": "Automotive > Car > Car stereo store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Football pitch": {
+      "google_category": "Other > Football > Football club",
+      "confidence": "medium",
+      "count": 2
+    },
+    "African goods shop": {
+      "google_category": "Retail & Shopping > African > African goods store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Family counsellor": {
+      "google_category": "Food & Drink > Family > Family restaurant",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Airsoft Supply Shop": {
+      "google_category": "Retail & Shopping > Airsoft > Airsoft supply store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Banking and finance": {
+      "google_category": "Automotive > Car > Car finance and loan company",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Diving Centre": {
+      "google_category": "Other > Diving > Diving center",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Bangladeshi": {
+      "google_category": "Food & Drink > Bangladeshi > Bangladeshi restaurant",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Motorbike repair shop": {
+      "google_category": "Electronics > Atv > ATV repair shop",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Aluminium Window": {
+      "google_category": "Home & Garden > Window > Window supplier",
+      "confidence": "medium",
+      "count": 2
+    },
+    "2-star hotel": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "F9M5+WC8 - Sheikh Rashid Bin Saeed Al Maktoum Street (Old Airport Road)": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Halit Ziya U\u015fakl\u0131gil Cd. No:1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Fabrika Sk. No:2": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Yavuz Sultan Selim Blv. No:43": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Falafel": {
+      "google_category": "Food & Drink > Falafel > Falafel restaurant",
+      "confidence": "medium",
+      "count": 2
+    },
+    "K\u00fc\u00e7\u00fckyal\u0131 Ayd\u0131nevler Yolu No:1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "9CRV+2WQ - Sheikh Khalifa Bin Zayed Road": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Furniture": {
+      "google_category": "Automotive > Furniture > Furniture accessories",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Mongolian BBQ": {
+      "google_category": "Food & Drink > Mongolian > Mongolian barbecue restaurant",
+      "confidence": "low",
+      "count": 2
+    },
+    "Waste Collection Service": {
+      "google_category": "Automotive > Waste > Waste management service",
+      "confidence": "medium",
+      "count": 2
+    },
+    "DJ": {
+      "google_category": "Automotive > Dj > DJ service",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Automative": {
+      "google_category": "Automotive > Auto Services > General Auto Services",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Aluminium Supplier": {
+      "google_category": "Other > Aluminum > Aluminum supplier",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Plot D 15/4": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "New Service": {
+      "google_category": "Food & Drink > New > New England restaurant",
+      "confidence": "low",
+      "count": 2
+    },
+    "Organic": {
+      "google_category": "Food & Drink > Organic > Organic restaurant",
+      "confidence": "medium",
+      "count": 2
+    },
+    "University department": {
+      "google_category": "Arts & Entertainment > Justice > Justice department",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Sports Card Shop": {
+      "google_category": "Sports & Recreation > Sports > Sports card store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Sports activity location": {
+      "google_category": "Sports & Recreation > Fitness > General Fitness",
+      "confidence": "medium",
+      "count": 2
+    },
+    "British": {
+      "google_category": "Food & Drink > British > British restaurant",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Airport Rd": {
+      "google_category": "Travel & Lodging > Domestic > Domestic airport",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Fish & chips": {
+      "google_category": "Food & Drink > Fish > Fish and chips takeaway",
+      "confidence": "medium",
+      "count": 2
+    },
+    "7822+QHQ - Sheikh Khalifa Bin Zayed Road (Trade Centre Road)": {
+      "google_category": "Other > Exhibition > Exhibition and trade centre",
+      "confidence": "low",
+      "count": 2
+    },
+    "Paan shop": {
+      "google_category": "Retail & Shopping > Pawn > Pawn shop",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Second-hand Book Shop": {
+      "google_category": "Retail & Shopping > Second > Second hand store",
+      "confidence": "low",
+      "count": 2
+    },
+    "Refrigerator Shop": {
+      "google_category": "Retail & Shopping > Refrigerator > Refrigerator store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Tool Shop": {
+      "google_category": "Electronics > Tool > Tool repair shop",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Magic Shop": {
+      "google_category": "Retail & Shopping > Magic > Magic store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Food seasoning manufacturer": {
+      "google_category": "Food & Drink > Frozen > Frozen food manufacturer",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Caher Dudayev Blv No:40": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "CEPA AVM No:2123": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "2 Nagib Al Rehani": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Cantonese": {
+      "google_category": "Food & Drink > Cantonese > Cantonese restaurant",
+      "confidence": "medium",
+      "count": 2
+    },
+    "55. Sk. No:1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "B\u00fcy\u00fckdere Cd. \u0130stanbul Cevahir Al\u0131\u015fveri\u015f Ve E\u011flence Merkezi No:22": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Buqar-Jyrau Ave 53\u0430": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Argentinian": {
+      "google_category": "Food & Drink > Argentinian > Argentinian restaurant",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Wafi City - Oud Metha Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Office": {
+      "google_category": "Other > Environment > Environment office",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Remodeller": {
+      "google_category": "Other > Remodeler > Remodeler",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Second-hand Computer Shop": {
+      "google_category": "Retail & Shopping > Second > Second hand store",
+      "confidence": "low",
+      "count": 2
+    },
+    "Bike sharing station": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "12 Bd de l'Oc\u00e9an Atlantique": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Car Parts Manufacturer": {
+      "google_category": "Automotive > Auto > Auto parts manufacturer",
+      "confidence": "medium",
+      "count": 2
+    },
+    "\u0130smet Rafet \u0130\u015fitmen Cad. Sanko Park Al\u0131\u015fveri\u015f Merkezi No:223": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Joiner": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Off-licence": {
+      "google_category": "Other > Off > Off roading area",
+      "confidence": "low",
+      "count": 2
+    },
+    "Kafi St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Insurance Lawyer": {
+      "google_category": "Professional Services > Insurance > Insurance agency",
+      "confidence": "medium",
+      "count": 2
+    },
+    "S\u00fcleyman Demirel Blv No:23": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Mikrorayon Samal-2 111": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Na Po\u0159\u00ed\u010d\u00ed 1076": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Duty Free Shop": {
+      "google_category": "Retail & Shopping > Duty > Duty free store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Wellness Programme": {
+      "google_category": "Other > Wellness > Wellness program",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Ahmet Adnan Saygun Cd. No:3": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Phase 1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Katar Cd No:11": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Used Appliance Shop": {
+      "google_category": "Home & Garden > Used > Used appliance store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "2704 Al Amir Muhammad Ibn Abdul Aziz": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "\u0627\u0644\u0627\u0633\u0643\u0646\u062f\u0631\u064a\u0629, \u0633\u0627\u0646 \u0627\u0633\u062a\u064a\u0641\u0627\u0646\u0648": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Galleria Sweifieh, Abd Al Rahim Al Hajj Mohammad St 52": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Agricultural organisation": {
+      "google_category": "Automotive > Agricultural > Agricultural service",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Korean Food Shop": {
+      "google_category": "Food & Drink > Restaurants > General Restaurants",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Oriental Goods Shop": {
+      "google_category": "Retail & Shopping > General Retail > General Stores",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Nursery": {
+      "google_category": "Health & Medical > Plant > Plant nursery",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Motorbike dealer": {
+      "google_category": "Automotive > Salvage > Salvage dealer",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Barber Supply Shop": {
+      "google_category": "Food & Drink > Barber > Barber supply store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "16m Abdul Haque Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Special food and drink": {
+      "google_category": "Food & Drink > Catering > Catering food and drink supplier",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Vehicle Parts Shop": {
+      "google_category": "Automotive > Auto Services > General Auto Services",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Singaporean": {
+      "google_category": "Food & Drink > Singaporean > Singaporean restaurant",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Fence Supply Shop": {
+      "google_category": "Retail & Shopping > Fence > Fence supply store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Sheikh Zayed Road, Betweeen 2nd & 3rd Interchange": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Hotel Supply Shop": {
+      "google_category": "Travel & Lodging > Hotel > Hotel supply store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Cutlery Shop": {
+      "google_category": "Retail & Shopping > Cutlery > Cutlery store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Rayimbek Ave 418": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Newsagent": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "N\u00e1m\u011bst\u00ed Republiky 1079": {
+      "google_category": "Food & Drink > Restaurants > General Restaurants",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Hot Tub Shop": {
+      "google_category": "Retail & Shopping > Hot > Hot tub store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Civic Centre": {
+      "google_category": "Other > Civic > Civic center",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Burglar alarm shop": {
+      "google_category": "Retail & Shopping > Burglar > Burglar alarm store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Professional services": {
+      "google_category": "Automotive > Railway > Railway services",
+      "confidence": "medium",
+      "count": 2
+    },
+    "4538 Kingsway": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Kitchen Renovator": {
+      "google_category": "Home & Garden > Soup > Soup kitchen",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Catering supplier": {
+      "google_category": "Food & Drink > Catering > Catering food and drink supplier",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Polish": {
+      "google_category": "Food & Drink > Polish > Polish restaurant",
+      "confidence": "medium",
+      "count": 2
+    },
+    "46Q9+RXH - Sheikh Zayed Road, 3rd Interchange": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Childrens Book Shop": {
+      "google_category": "Retail & Shopping > Children\u2019S > Children\u2019s book store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "7822+QHQ - Sheikh Khalifa Bin Zayed Road - Road": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "6GJQ+R6G": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Childcare Agency": {
+      "google_category": "Other > Certification > Certification agency",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Caribbean": {
+      "google_category": "Food & Drink > Caribbean > Caribbean restaurant",
+      "confidence": "medium",
+      "count": 2
+    },
+    "10 Bashiru Oweh St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Motorsports Shop": {
+      "google_category": "Sports & Recreation > Motorsports > Motorsports store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Record Shop": {
+      "google_category": "Other > Record > Record company",
+      "confidence": "medium",
+      "count": 2
+    },
+    "BishkekPark Mall, 148 Kiev St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Sports Medicine Doctor": {
+      "google_category": "Sports & Recreation > Sports > Sports medicine physician",
+      "confidence": "medium",
+      "count": 2
+    },
+    "8 Omar Ibn El-Khattab": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "South East Asian": {
+      "google_category": "Food & Drink > South > South Asian restaurant",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Urgent care centre": {
+      "google_category": "Automotive > Urgent > Urgent care center",
+      "confidence": "medium",
+      "count": 2
+    },
+    "3CF2+26W": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "70b Vazha Pshavela Ave": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Designer Clothing Shop": {
+      "google_category": "Fashion & Apparel > Outdoor > Outdoor clothing and equipment shop",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Consumer Advice Centre": {
+      "google_category": "Other > Consumer > Consumer advice center",
+      "confidence": "medium",
+      "count": 2
+    },
+    "6XW8+88V, El Guish Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Electronics": {
+      "google_category": "Electronics > Electronics > Electronics manufacturer",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Shanghainese": {
+      "google_category": "Food & Drink > Shanghainese > Shanghainese restaurant",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Distance Learning Centre": {
+      "google_category": "Other > Distance > Distance learning center",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Biryani": {
+      "google_category": "Food & Drink > Biryani > Biryani restaurant",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Tacos": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Licence Office": {
+      "google_category": "Other > Environment > Environment office",
+      "confidence": "medium",
+      "count": 2
+    },
+    "African": {
+      "google_category": "Food & Drink > African > African restaurant",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Delicatessen": {
+      "google_category": "Food & Drink > Japanese > Japanese delicatessen",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Second-hand furniture shop": {
+      "google_category": "Retail & Shopping > Second > Second hand store",
+      "confidence": "low",
+      "count": 2
+    },
+    "N\u00e1m\u011bst\u00ed Republiky": {
+      "google_category": "Food & Drink > Restaurants > General Restaurants",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Wool Shop": {
+      "google_category": "Retail & Shopping > Wool > Wool store",
+      "confidence": "medium",
+      "count": 2
+    },
+    "Haberdashery": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "10 Mohammed Ahmed Afify": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Town Hall": {
+      "google_category": "Other > City > City or town hall",
+      "confidence": "medium",
+      "count": 2
+    },
+    "\u0627\u0644\u0623\u0645\u064a\u0631 \u0645\u0627\u062c\u062f\u060c \u0627\u0644\u0641\u064a\u062d\u0627\u0621 \u0637\u0631\u064a\u0642\u060c, Jeddah 22245 \u0628\u062c\u0648\u0627\u0631 \u0627\u0644\u0627\u062d\u0648\u0627\u0644 \u0627\u0644\u0645\u062f\u0646\u064a\u0629": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "6118 Tunisia St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "Interior plant hire service": {
+      "google_category": "Automotive > Interior > Interior plant service",
+      "confidence": "medium",
+      "count": 2
+    },
+    "82HH+R7G, Tunisia St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 2
+    },
+    "8294/1. Sk": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "3rd Floor Office 48 Oasis Center - Sheikh Zayed Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "57 Streat Ajial Complex -Third Floor - Office C8\u060c 64022": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "29 Promenade": {
+      "google_category": "Other > Promenade > Promenade",
+      "confidence": "low",
+      "count": 1
+    },
+    "4J5G+FJ2, \u0637\u0631\u064a\u0642": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JX9R+77V": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+C3F": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "31915 Rancho California Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+F5J": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "9 Al Mehear Al Markazi - No. Ber 1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+83P city center": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "W2PR+532": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+C46": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "near Al Khail Mall": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+762": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "School of Computing": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Al Asmiah, Block 4 Kuwait Al": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Outdoor cinema": {
+      "google_category": "Home & Garden > Outdoor > Outdoor bath",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Al Wahda Commercial Tower - 732 Hazza ' Bin Zayed The First St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Marmara Cd. Marmara Park No:33/A D:235": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JX9R+G4X": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Al Muntasir Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "2C87+X2H\u060c \u0627\u0645\u0627\u0645 \u0627\u0644\u062f\u0627\u0648\u0646 \u062a\u0627\u0648\u0646": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "salahdin metro station": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Adana Blv. No:57": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Kavak Sk. NO: 4/D": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Metal services": {
+      "google_category": "Other > Metal > Metal supplier",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Beirut Road": {
+      "google_category": "Other > Road > Road cycling",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Executive tower Dolmen Mall, 747, 7th floor,": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "79J5+G2H Nahda 1 - Unnamed Road": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Mecca Mall": {
+      "google_category": "Retail & Shopping > Shopping > Shopping mall",
+      "confidence": "medium",
+      "count": 1
+    },
+    "7VJG+8VQ": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "City Mall, King Abdullah II St 295": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "7VMG+3V7": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "79J4+8Q4 - Al Ittihad Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "F9C2+2MG - Mubarak Bin Mohammed St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Religious Book Shop": {
+      "google_category": "Retail & Shopping > Religious > Religious book store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Escrow Services": {
+      "google_category": "Automotive > Escrow > Escrow service",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Hashemiye Blvd, 8F2V+3WH": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Diyarbak\u0131r-\u015eanl\u0131urfa Yolu \u00dczeri": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Railway Company": {
+      "google_category": "Other > Railroad > Railroad company",
+      "confidence": "medium",
+      "count": 1
+    },
+    "H7GV+JM5": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+C22": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "7J3G+QM2, Avenue 29": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Panorama Shopping Centre, Shop 11-B, Plot 48, Mall Rd, Mayo Gardens, Lahore, Punjab": {
+      "google_category": "Retail & Shopping > Shopping > Shopping mall",
+      "confidence": "low",
+      "count": 1
+    },
+    "Real 2 A": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Optimum No:23": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Apartment Letting Agency": {
+      "google_category": "Automotive > Apartment > Apartment rental agency",
+      "confidence": "medium",
+      "count": 1
+    },
+    "36 Selborne Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "34HQ+P29": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Aytekin Kotil Cd. No:12/A": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Nispetiye Cad No:408": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Block # 20 Al Wasl Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Fireplace shop": {
+      "google_category": "Government & Community > Fireplace > Fireplace manufacturer",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Poster Shop": {
+      "google_category": "Retail & Shopping > Poster > Poster store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "3F6M+F22": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "M9CV+P76": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "W3MP+3Q7": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "55. Sk. Teras Park Al\u0131\u015fveri\u015f Merkezi No:1 D:6": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Running Shop": {
+      "google_category": "Retail & Shopping > Running > Running store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "XFMV+V4P": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Self-catering accommodation": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "3C3J+97Q": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+G88": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JX9R+78M": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Closed": {
+      "google_category": "Electronics > Closed > Closed circuit television",
+      "confidence": "medium",
+      "count": 1
+    },
+    "\u0130stanbul Cd No:487": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Motorbike rental agency": {
+      "google_category": "Automotive > Truck > Truck rental agency",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Sheikh Zayed Road, Betweeen 2nd & - Interchange No 3": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H2V7+26X": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+HF4": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H2V7+3F4": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "1655. Sokak, 319 No: 6B": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Dutch": {
+      "google_category": "Food & Drink > Dutch > Dutch restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Welfare Office": {
+      "google_category": "Other > Environment > Environment office",
+      "confidence": "medium",
+      "count": 1
+    },
+    "R2CM+QHV": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "4174. Sk No: 4": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Forum AVM No:99/G": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Panorama Shopping Centre, Shop 151-152-B, Plot 48, Mall Rd, Mayo Gardens": {
+      "google_category": "Retail & Shopping > Shopping > Shopping mall",
+      "confidence": "low",
+      "count": 1
+    },
+    "H7GR+7WX": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Libadiye Cd. No : 82 D:E": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "FL 1, Zone 1, Soho 12, 333A, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "No:2, CEPA AVM": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JX9R+F48": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Portuguese": {
+      "google_category": "Food & Drink > Portuguese > Portuguese restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "1369 George Washington Way": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Eski G\u00f6lc\u00fck Yolu, \u00d6mer T\u00fcrk\u00e7akal Blv. \u00dczeri C203": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "459X+FX9 - Sheikh Zayed Road - 4th Interchange": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "S\u00fcleyman Demirel Blv No:45": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Beyazevler Mahallesi, Ak\u00e7ay Cd. No:101 - 103, Gaziemir Z34": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Na Po\u0159\u00ed\u010d\u00ed 1142": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Halk Cd. No: 8/A": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "De\u011firmenbah\u00e7e Cd. NO:34": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Omar Bin Al Khattab St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Turgut \u00d6zal Cd. No:2": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "RQ8C+9WM": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "R. Jaime Brasil 104 7.04": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Cupcakes": {
+      "google_category": "Food & Drink > Cupcake > Cupcake shop",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Eatery": {
+      "google_category": "Food & Drink > Restaurants > General Restaurants",
+      "confidence": "medium",
+      "count": 1
+    },
+    "FL 5, Zone 2, Orchard 2, 1262/2, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Tugay Yolu Cd. E-5": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "7QFH+8H8": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Rayimbek Ave 514 a": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Ali R\u0131za Efendi Cd. NO:4": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Employment Lawyer": {
+      "google_category": "Professional Services > Employment > Employment consultant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Vehicle Upholsterer": {
+      "google_category": "Automotive > Vehicle > Vehicle exporter",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Religious organisation": {
+      "google_category": "Other > Religious > Religious destination",
+      "confidence": "medium",
+      "count": 1
+    },
+    "FL 1, Zone 2, Soho 7, 315A, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+C33": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "7GF2+8R3, Street": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Kosher": {
+      "google_category": "Food & Drink > Kosher > Kosher restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Almondvale Blvd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Eski\u015fehir Yolu 7. Km./17 Sok. Cepa Al\u0131\u015fveri\u015f Merkezi No:2 D:25": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "57WG+2H8 - Old Town Island": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "CEPA AVM No:2": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Hac\u0131 Sabanc\u0131 Bulv. Optimum Outlet No:28": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H\u00fck\u00fcmet Cd. Tekira Al\u0131\u015fveri\u015f Merkezi No:304": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Halk Cd. NO:6 D:2": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "788H+QWV Al Khattal Bldg": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "11 Nisan Fuar Cd. No:42": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "XFMV+V4F": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "3982+R7P": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+9G4": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "7VJG+CQM": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "89FV+V9W - Al Wahda St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Mecidiyek\u00f6y, Aytekin Kotil Cd. No:8": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Al Saaha C offices, Souk Al Bahar - 202": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "399 El-Gaish Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "3rd floor Remall Mall saniya - 337 Khalid Bin Sultan St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u00c7oban\u00e7e\u015fme Ko\u015fuyolu Cd. No:3 S207": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Halit Ziya U\u015fakl\u0131gil Cd. Carousel Al\u0131\u015fveri\u015f Ve Ya\u015fam Merkezi No:1 D:24": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "415-416 \u0e0a\u0e31\u0e49\u0e19 2 \u0e42\u0e0b\u0e19 1Platinum Fashion Mall Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u00d6zel Ac\u0131badem Bak\u0131rk\u00f6y Hastanesi, Halit Ziya U\u015fakl\u0131gil Cd. no:1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GR+5QH": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "B\u00fcy\u00fckdere Cd. No:223": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Halit Ziya U\u015fakl\u0131gil Cd. No: 1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "FL 1, Zone 2, Soho 12, 334A, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H8XP+857": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Morocco Mall, Bd de l'Oc\u00e9an Atlantique": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Cookery School": {
+      "google_category": "Sports & Recreation > Dance > Dance school",
+      "confidence": "medium",
+      "count": 1
+    },
+    "411 W Esplanade Dr": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Environmental Service": {
+      "google_category": "Health & Medical > Environmental > Environmental health service",
+      "confidence": "medium",
+      "count": 1
+    },
+    "5CFF+63F dargon mall 2": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "FL 2, Zone 3,Oxford a, 2-21, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JX9R+67W": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+9FG": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Ashrafi Esfahani Expy, No. \u067e\u0644\u0627\u06a9 \u0645\u0631\u0643\u0632\u062e\u0631\u064a\u062f \u062a\u064a\u0631\u0627\u0698\u0647\u060c\u0637\u0628\u0642\u0647 \u062f\u0648\u0645 \u067e\u0644\u0627\u0643 \u0668\u0661": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "DJ Supply Shop": {
+      "google_category": "Retail & Shopping > Dj > DJ supply store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "M9CV+W54": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Corporate Location Marina Mall": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "XFMV+V5C": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Dialysis Centre": {
+      "google_category": "Other > Dialysis > Dialysis center",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Halil Sezai Erkut Cad./afra Sok. Antares Al\u0131\u015fveri\u015f Ve Ya\u015fam Merkezi No:1/A": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Eski\u015fehir Yolu 7. Km./17. Sok. Cepa Al\u0131\u015fveri\u015f Merkezi No:2": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Kocatepe Mah. \u015eehir Park\u0131 Cad. 12. Sok., Y\u0131ld\u0131r\u0131m, Bayrampa\u015fa, \u0130stanbul": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Eski G\u00f6lc\u00fck Yolu Outlet Center \u0130zmit, Outlet Center \u0130zmit \u0130\u00e7inde, \u0130zmit Merkez, \u0130zmit, Kocaeli (\u0130zmit)": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Fatih Sk. Tepe Nautilus Al\u0131\u015fveri\u015f Merkezi No:1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "2290 Golden Gate Dr": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Fountain": {
+      "google_category": "Other > Fountain > Fountain contractor",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Sheikh Mohammed Bin Salem Road (E 11 Road": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Akasya Avm": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Mirage mall": {
+      "google_category": "Retail & Shopping > Shopping > Shopping mall",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Tibetan": {
+      "google_category": "Food & Drink > Tibetan > Tibetan restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "285 Fulton St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Truhl\u00e1\u0159sk\u00e1 1110": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "M9CV+R5R": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "6XW8+88V, el guish rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Wheel Shop": {
+      "google_category": "Retail & Shopping > Wheel > Wheel store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "17947 I-45": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Katar Cd No:73": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Otob\u00fcs Son Dura\u011f\u0131, Bah\u00e7eleraras\u0131, Otob\u00fcs Dura\u011f\u0131": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "CV service": {
+      "google_category": "Automotive > Dj > DJ service",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Halk Cd. 35/6": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "El Guish Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u00c7e\u00e7en Sok.": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Motorway services": {
+      "google_category": "Automotive > Railway > Railway services",
+      "confidence": "medium",
+      "count": 1
+    },
+    "6522. Sk. c3": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Korupark 9 Km": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "8 \u0634\u0627\u0631\u0639 \u0645\u062d\u0645\u062f, \u0631\u0623\u0641\u062a": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "GP": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Housing Offices": {
+      "google_category": "Other > Housing > Housing society",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Akasya Avm No:25": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u00c7oban\u00e7e\u015fme Ko\u015fuyolu Cd. No:3 S088": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "W3JP+MVQ": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+C3Q": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Ye\u015filk\u00f6y Halkal\u0131 Cd. No:93/2": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+FF6": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+C3H": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "QC4P+VM4": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JX9R+G5G": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+9F3": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H2V7+4FR": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Rescue Squad": {
+      "google_category": "Automotive > Animal > Animal rescue service",
+      "confidence": "low",
+      "count": 1
+    },
+    "Unit 16-22, The Forum Shopping Centre": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Sheikh Rashid Bin Saeed Al Maktoum Street (Old Airport Road)": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Aya\u015f Ankara Yolu Blv. No:93 B1-a": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Tongu\u00e7 Baba Cd. No: 21": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "2J4Q+F5M\u060c \u0634 \u0645\u062d\u0645\u062f \u0639\u0644\u0649": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "FL 1, Zone 2, Soho 5, 215B, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Unnamed Road\u060c HM2Q+HP4": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "3F5W+G7J": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+8F3": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Retirement village": {
+      "google_category": "Automotive > Retirement > Retirement community",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Tugay Yolu Cd. No:69-C": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Postbox Rental Service": {
+      "google_category": "Automotive > Houseboat > Houseboat rental service",
+      "confidence": "medium",
+      "count": 1
+    },
+    "2414 E Sunrise Blvd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Erdal Acet Cd. No:1 B2 303b": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "234 Obafemi Awolowo Wy": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Al Nahda St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "F9C4+F9C": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "M9CV+P6J": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "132 Abu Baker Al Siddique St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Afra Cd No:1/A": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u00c7oban\u00e7e\u015fme Ko\u015fuyolu Cd. No:3/3": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "3CGG+Q7X": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "2415 Park Ave": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Ahmet Remzi Y\u00fcre\u011fir Mahallesi, Erdal Acet Cd, 8217-8218 No:1 L2 8216": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Buqar-Jyrau Ave 53/1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "6XW8+88V\u060c \u0627\u0644\u0627\u0633\u0643\u0646\u062f\u0631\u064a\u0629, \u0633\u0627\u0646 \u0627\u0633\u062a\u064a\u0641\u0627\u0646\u0648": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "7CGW+F4V": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Suite No. 6, Alausa Mini Market, Opposite Lagos State Ministry of Lands, Alausa Secretariat": {
+      "google_category": "Education > Ministry > Ministry of Education",
+      "confidence": "low",
+      "count": 1
+    },
+    "al ghurair mall": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+F46": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+F2H": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+82J": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Y\u0131lmaz B\u00fcy\u00fcker\u015fen Blv No:21": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "7CGV+FQ4": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "R2CM+RG9": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Street # 23": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Barbecue Shop": {
+      "google_category": "Food & Drink > Barbecue > Barbecue area",
+      "confidence": "medium",
+      "count": 1
+    },
+    "6XW8+2WH": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Panorama Shopping Centre, Shop 110-B, Plot 48, Mall Rd, Mayo Gardens, Lahore, Punjab": {
+      "google_category": "Retail & Shopping > Shopping > Shopping mall",
+      "confidence": "low",
+      "count": 1
+    },
+    "Fibreglass Repair Service": {
+      "google_category": "Electronics > Hydraulic > Hydraulic repair service",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Needlecraft shop": {
+      "google_category": "Retail & Shopping > General Retail > General Stores",
+      "confidence": "medium",
+      "count": 1
+    },
+    "XFMV+V48": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Osmaniye Mahallesi, \u00c7oban\u00e7e\u015fme Ko\u015fuyolu Caddesi No:3,bak\u0131rk\u00f6y Ms004": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "1001 Bd du Kent": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Legal Aid Agency": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "774V+PRW - Al Rolla Street": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Addiction Rehabilitation Centre": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+C37": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Football Practice": {
+      "google_category": "Other > Soccer > Soccer practice",
+      "confidence": "medium",
+      "count": 1
+    },
+    "24WC+7JQ": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+C3W": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Kud\u00fcs Cd. No:6": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+94F": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+47P": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JX9R+G4V": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "39 Plot, 264 Tafawa Balewa Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Nisbetiye Cd No:137": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Keralan": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Souk Al Bahar 202": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "CEPA AVM No:35": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "7832+8X4 - Sheikh Khalifa Bin Zayed Road - Road": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Tugay Yolu Maltepe Park Al\u0131\u015fveri\u015f Merkezi No:67 D:39": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Nisbetiye Cd No:115": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Do\u00e7. Dr. Halil \u00dcr\u00fcn Cd. M1 Merkez Konya Al\u0131\u015fveri\u015f Merkezi No:22": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "R2CM+QHP": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Kud\u00fcs Cd. No:1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Racetrack": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u0130n\u00f6n\u00fc Cd. No:196": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Balabandere Cd. No:2007": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Environmental Programme": {
+      "google_category": "Professional Services > Environmental > Environmental consultant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Metrocentre, Gateshead, Tyne and Wear NE11 9YG, UK": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "8FPJ+R73, Al Markhiya St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "5771 SW 72nd St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Halk Cd. No:8 - B": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Othman Bin Affan Street (Street # 139": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H\u00fck\u00fcmet Cd. No:304 D:133": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "R2CM+PHC": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Panorama Shopping Centre, Shop G-181, Plot 48, Mall Rd, Mayo Gardens": {
+      "google_category": "Retail & Shopping > Shopping > Shopping mall",
+      "confidence": "low",
+      "count": 1
+    },
+    "\u00c7e\u00e7en Sok. No: 2": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "K\u00fc\u00e7\u00fckyal\u0131, Ayd\u0131nevler Siteler Yolu Cadde 28 No:1, B2-252": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "M9CV+Q55": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Panorama Shopping Centre, Shop 9-B, Plot 48, Mall Rd, Mayo Gardens": {
+      "google_category": "Retail & Shopping > Shopping > Shopping mall",
+      "confidence": "low",
+      "count": 1
+    },
+    "W2PR+42V": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "15 Cornwall Pl": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "W3JQ+P22": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+CGQ": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "6QCJ+RR5": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Pet care service": {
+      "google_category": "Automotive > Pet > Pet boarding service",
+      "confidence": "medium",
+      "count": 1
+    },
+    "FL 2, Zone 1, Oxford 8, 559 & 560, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u0627\u0644\u0645\u0631\u062d\u0644\u0629 \u0627\u0644\u0627\u0648\u0644\u0649": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Otogar Sk": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "4500 Kingsway #1102": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Sheikh Rashid Bin Humaid Al Awwal Street": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "F9C4+F77": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Batting cage centre": {
+      "google_category": "Other > Batting > Batting cage center",
+      "confidence": "medium",
+      "count": 1
+    },
+    "FL 3, Zone 1, Nathan 11, 631, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Milli Egemenlik Cd. Demirpark Al\u0131\u015fveri\u015f Ve Ya\u015fam Merkezi No:130": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u0130smet Rafet \u0130\u015fitmen Cad. Sanko Park Al\u0131\u015fveri\u015f Merkezi No:233": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Teppanyaki": {
+      "google_category": "Food & Drink > Teppanyaki > Teppanyaki restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "7C6V+36G, Al Waab St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+F55": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "4041 Shop No, 1080 Building 1723": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "35 St Andrew Sq": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "6GJP+QQM": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JX9R+F4Q": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "100m Road - Family Mall": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Karachi Block, Shop No 8/2, Fortress Stadium, Cantonment, Lahore, Punjab": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Food Shop": {
+      "google_category": "Food & Drink > Food > Food bank",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Tongu\u00e7 Baba Cd. NO: 21": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Estate Agent Auctioneer": {
+      "google_category": "Professional Services > Real > Real estate agent",
+      "confidence": "medium",
+      "count": 1
+    },
+    "7CGW+P54": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+CJJ": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "M9CV+R48": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "R2CM+PHR": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "W2PR+63P": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "FL 2, Zone 2, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Na Po\u0159\u00ed\u010d\u00ed 1079/3a": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "second floor, Millennium Mall": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Dr Ayat St, PFHV+667": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "135 E Granada Blvd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H\u00fck\u00fcmet Cd. No: 304": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "FL 4, Zone 1, Camden 7, 1011, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "C. Poeta Emilio Prados, s/n": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H8XP+736": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Tugay Yolu Cd. No:67 D:1-009": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "W2PR+22J, Dolmen Mall, North Nazimabad": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Panorama Shopping Centre, Shop 77-B, Plot 48, Mall Rd, Mayo Gardens": {
+      "google_category": "Retail & Shopping > Shopping > Shopping mall",
+      "confidence": "low",
+      "count": 1
+    },
+    "H7GR+4R7": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H2R7+XCR": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+23C": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Paper Shop": {
+      "google_category": "Other > Paper > Paper distributor",
+      "confidence": "medium",
+      "count": 1
+    },
+    "W3JP+XW3": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Cheque cashing service": {
+      "google_category": "Automotive > Check > Check cashing service",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Eski\u015fehiryolu, Kentpark AVM No:164/75": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "87071. Sk. No:5": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Bat\u0131 \u00c7evre Yolu Piazza No:4": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Car Auction": {
+      "google_category": "Automotive > Auto > Auto auction",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Ashrafi Esfahani Expy, P8XJ+8F9": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Butcher shop restaurant": {
+      "google_category": "Food & Drink > Butcher > Butcher shop deli",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Shop Equipment Supplier": {
+      "google_category": "Sports & Recreation > Store > Store equipment supplier",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Unit GF - 111 - Financial Ctr St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Cajun": {
+      "google_category": "Food & Drink > Cajun > Cajun restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Geotechnical engineer": {
+      "google_category": "Other > Textile > Textile engineer",
+      "confidence": "medium",
+      "count": 1
+    },
+    "V24J+C38": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Konya Devlet Yolu Ankamall Al\u0131\u015fveri\u015f Merkezi No:2 D:2kb05": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "6783+J48 - \u0634\u0627\u0631\u0639 \u0634\u0627\u0637\u0626 \u062c\u0645\u064a\u0631\u0629": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Erdal Acet Cd. No:1 B2 303a": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Osmaniye Mahallesi, \u00c7oban\u00e7e\u015fme Ko\u015fuyolu Caddesi No:3, Bak\u0131rk\u00f6y S188-189": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Halil Sezai Erkut Cad./afra Sok. Antares Al\u0131\u015fveri\u015f Ve Ya\u015fam Merkezi No:1/A D:25": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "9GFQ+6GF Kon Digital Marketing": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "1 WORLD TRADE CTR STE 77A, 285 Fulton St SUITE 77A": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "6XW8+88V": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Credit Counselling Service": {
+      "google_category": "Health & Medical > Credit > Credit counseling service",
+      "confidence": "medium",
+      "count": 1
+    },
+    "2040/4. Sk. NO:8": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Bayar Cad./buket Sok. Kozzy Al\u0131\u015fveri\u015f Ve K\u00fclt\u00fcr Merkezi No:20/1 D:1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Silk Shop": {
+      "google_category": "Retail & Shopping > Silk > Silk plant shop",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Business service": {
+      "google_category": "Automotive > Business > Business banking service",
+      "confidence": "medium",
+      "count": 1
+    },
+    "K\u00fc\u00e7\u00fckyal\u0131, Siteler Yolu No:28 No:1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "W2PR+53C": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "FL 1, Zone 1, Soho 10, 234B, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Laotian": {
+      "google_category": "Food & Drink > Laotian > Laotian restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "\u00c7oban\u00e7e\u015fme Ko\u015fuyolu Cd. No:3 S081": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Q5J5+MM4, 9000": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Social security lawyer": {
+      "google_category": "Home & Garden > Social > Social security office",
+      "confidence": "medium",
+      "count": 1
+    },
+    "V24J+F5C": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JX9R+77H": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "FL 3, Zone 2, Nathan 7, 680, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "7832+8X4 \u062f\u0648\u0627\u0631 - Sheikh Khalifa Bin Zayed Road": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "F9C4+GC8": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Beer shop": {
+      "google_category": "Food & Drink > Beer > Beer distributor",
+      "confidence": "medium",
+      "count": 1
+    },
+    "W3JP+WQ7": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "23rd St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Wheelchair Shop": {
+      "google_category": "Beauty & Personal Care > Wheelchair > Wheelchair store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Pa\u015fa Cd No 1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Osmaniye Mahallesi, \u00c7oban\u00e7e\u015fme Ko\u015fuyolu Caddesi No:3,bak\u0131rk\u00f6y S137-138": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "+971 4 454 1523": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "School Centre": {
+      "google_category": "Sports & Recreation > Dance > Dance school",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Adana Bulv. Tarsu Al\u0131\u015fveri\u015f Merkezi No:57": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Dumlup\u0131nar Blv. No:164/306": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Turf and Soil Supplier": {
+      "google_category": "Electronics > Wire > Wire and cable supplier",
+      "confidence": "medium",
+      "count": 1
+    },
+    "FL 4, Zone 2, Camden 10, 1226, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Yeni Mahallesi \u00d6\u011fretmenler Bulvar\u0131, 87071. Sk. No:5": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "The Platinum Fashion Mall Room 222/640 Soi Nathan 11 Petchaburi,Rachathavee 10400": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+92J": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "W3MP+2XX": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "R23H+2M5": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "W2PR+538": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Baseball Goods Shop": {
+      "google_category": "Retail & Shopping > Baseball > Baseball goods store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "V24J+F53": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7FR+WH5": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "W3JP+WWG": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "89FW+MMF": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Furnace Shop": {
+      "google_category": "Retail & Shopping > Furnace > Furnace store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Hungarian": {
+      "google_category": "Food & Drink > Hungarian > Hungarian restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "FJQ5+4P7 - Jebel Ali Free Zone South": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Traffic police station": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "School Supply Shop": {
+      "google_category": "Education > School > School supply store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "1655. Sk No:6 150": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u0645\u062c\u062a\u0645\u0639 \u062e\u0644\u06cc\u062c \u0641\u0627\u0631\u0633\u060c \u0627\u0646\u062a\u0647\u0627\u06cc \u062a\u062c\u0627\u0631\u06cc 2\u060c \u0645\u0631\u06a9\u0632 \u062a\u062c\u0627\u0631\u06cc \u0645\u0647\u0631": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "N\u00e1m\u011bst\u00ed Republiky 1078/1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "udon noodles": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "One Stop Business Center, 3rd Floor, Al Ghurair Center Office Tower": {
+      "google_category": "Professional Services > Business > Business center",
+      "confidence": "low",
+      "count": 1
+    },
+    "FL 1, Zone 2, Soho 12, 333B, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Na Po\u0159\u00ed\u010d\u00ed 1041/12": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Specialised Hospital": {
+      "google_category": "Health & Medical > University > University Hospital",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Massage Services": {
+      "google_category": "Beauty & Personal Care > Erotic > Erotic massage",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Armenian": {
+      "google_category": "Other > Armenian > Armenian church",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Aya\u015f Ankara Yolu Blv. No:93 D:1k-35": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Medical Book Shop": {
+      "google_category": "Health & Medical > Medical > Medical book store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Dance Shop": {
+      "google_category": "Sports & Recreation > Dance > Dance school",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Halil Sezai Erkut Cad./afra Sok. Antares Al\u0131\u015fveri\u015f Ve Ya\u015fam Merkezi No:1/A D:14": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u0423\u043b\u0438\u0446\u0430, Buqar-Jyrau Ave 53/1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Skydiving Centre": {
+      "google_category": "Other > Skydiving > Skydiving center",
+      "confidence": "medium",
+      "count": 1
+    },
+    "175 Greenwich St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Aya\u015f Ankara Yolu Blv. No:93 D:110-111-112": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Patent Lawyer": {
+      "google_category": "Professional Services > Patent > Patent attorney",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Ulus Cd. No:17": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Pendorya AVM 7,8": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Mirdif Mall - 62 B St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Halk Cd. Palladium Al\u0131\u015fveri\u015f Merkezi No:8-B D:277": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Baking Supply Shop": {
+      "google_category": "Retail & Shopping > Baking > Baking supply store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "7CGW+RGH": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Romanian": {
+      "google_category": "Food & Drink > Romanian > Romanian restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "JRCG+JFF": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H2V7+495": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "2, I Bisway St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H8XP+77H": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Tugay Yolu Cd. No:67 D:00-033": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Multiplex Constructions LLC,Mazyad Mall, Tower 3,Floor No: 11, Office No: 1133": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "128 \u0634\u0627\u0631\u0639 \u0627\u0644\u0645\u064e\u0631\u0652\u0643\u0650\u0628": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "79F9+X2H": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "726Platinum Fashion Mall, Floor 3 Zon2 Nathan 2 room number 724/725, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "M\u00fcze Blv. No:1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JX9R+79V": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+QPW": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "2123. Sokak Cepa Ofis No:2-D Kat:2-202": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+C5P": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Training provider": {
+      "google_category": "Education > Emergency > Emergency training",
+      "confidence": "medium",
+      "count": 1
+    },
+    "F9CF+RM6": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Transport Infrastructure": {
+      "google_category": "Sports & Recreation > Refrigerated > Refrigerated transport service",
+      "confidence": "low",
+      "count": 1
+    },
+    "Ukrainian": {
+      "google_category": "Food & Drink > Ukrainian > Ukrainian restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "1 Bisway Street Victoria Island Lekki": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "800001 Faris Abdulrahman Al Waqayan St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "69MP+42R - Airport Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "FL 4, Zone 1, Camden 11, 948, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H2V7+28H": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Visitor centre": {
+      "google_category": "Other > Visitor > Visitor center",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Alcoholism treatment programme": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Interior decoration": {
+      "google_category": "Home & Garden > Interior > Interior Decorator",
+      "confidence": "medium",
+      "count": 1
+    },
+    "1500 Fisher St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "5CF7+V8H - Dubai-Hatta Road (E 44 Road)": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "55. Sk. Teras Park Al\u0131\u015fveri\u015f Merkezi No:1 D:321": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "FL 5, Zone 2, Orchard 2, 1290/1, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Trial Lawyer": {
+      "google_category": "Professional Services > Divorce > Divorce lawyer",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Police Station": {
+      "google_category": "Other > Weigh > Weigh station",
+      "confidence": "medium",
+      "count": 1
+    },
+    "H7GR+5W8": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Gragon Mart Dragon Mart": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Vehicle Storage Facility": {
+      "google_category": "Electronics > Automobile > Automobile storage facility",
+      "confidence": "medium",
+      "count": 1
+    },
+    "W3JP+RWC": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7FR+XMC": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Archery Shop": {
+      "google_category": "Other > Archery > Archery range",
+      "confidence": "medium",
+      "count": 1
+    },
+    "W3MP+4JX": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Sengkang Square, No. 1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Mevlana Blv. NO 2": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Labour Relations Lawyer": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Macrobiotic": {
+      "google_category": "Food & Drink > Macrobiotic > Macrobiotic restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "X2C8+JM9 MALL OF EGYPT": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "College of Technology": {
+      "google_category": "Other > Institute > Institute of technology",
+      "confidence": "medium",
+      "count": 1
+    },
+    "W3MQ+426": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Sports medicine clinic": {
+      "google_category": "Health & Medical > Chinese > Chinese medicine clinic",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Australian": {
+      "google_category": "Food & Drink > Australian > Australian restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "7CGV+RQV": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H2V7+3FH": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Fabric product manufacturer": {
+      "google_category": "Other > Clothes > Clothes and fabric manufacturer",
+      "confidence": "medium",
+      "count": 1
+    },
+    "W2PR+53V": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7FV+X23": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+VRP": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Eski G\u00f6lc\u00fck Yolu, \u00d6mer T\u00fcrk\u00e7akal Blv. \u00dczeri B110-1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Jiu jitsu school": {
+      "google_category": "Education > Jujitsu > Jujitsu school",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Yal\u0131 Mahallesi, 6552 Sokak, No:3,kar\u015f\u0131yaka Ff.l102_ff.l02": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Persian Gulf Complex Parking Exit, Persian Gulf Complex": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "FL 1, Zone 2, Soho 8, 344, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "8, V Celnici 1028": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Kamzin St 67/1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u0130brahim Bali Sk. No:28": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Alausa, 2 Oshin St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Park Cevizli Mah. Tugay Yolu Cad, AVM No:67": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "FL 2, Zone 1, Oxford 8, 584A, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Vehicle Tuning Service": {
+      "google_category": "Automotive > Vehicle > Vehicle wrapping service",
+      "confidence": "medium",
+      "count": 1
+    },
+    "W3JP+QX8": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Music Box Shop": {
+      "google_category": "Arts & Entertainment > Music > Music box store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Fireworks shop": {
+      "google_category": "Government & Community > Fireworks > Fireworks supplier",
+      "confidence": "medium",
+      "count": 1
+    },
+    "9XHV+G5Q": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Kocatepe Mah. \u015eehir Park\u0131 Cad. 12. Sok. Forum \u0130stanbul Al\u0131\u015fveri\u015f Merkezi K:-1, Forum \u0130stanbul Al\u0131\u015fveri\u015f Merkezi -1. Kat\u0131nda, Y\u0131ld\u0131r\u0131m, Bayrampa\u015fa, \u0130stanbul": {
+      "google_category": "Education > K-12 > K-12 school",
+      "confidence": "low",
+      "count": 1
+    },
+    "C. Poeta Emilio Prados, 14": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "W85C+94G": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "W85C+966": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Fevzi \u00c7akmak Mahallesi, Adana Bulvar\u0131, No:57, Tarsus 108": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "FL 5, Zone 2, Orchard 4, 1300/4, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Erdal Acet Cd. No:1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Bartending service": {
+      "google_category": "Food & Drink > Bartending > Bartending school",
+      "confidence": "medium",
+      "count": 1
+    },
+    "3FH3+WWR": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "W3MP+5QR": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Painter and Decorator": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "80-28 Cooper Ave": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JX9R+G67": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JX9R+78Q": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Kcity Business Centre, Office No 218, Building No 21 Manama": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Estate Planning Lawyer": {
+      "google_category": "Professional Services > Estate > Estate planning attorney",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Panorama Shopping Centre, Shop 200-G, Plot 48, Mall Rd, Mayo Gardens, Lahore, Punjab": {
+      "google_category": "Retail & Shopping > Shopping > Shopping mall",
+      "confidence": "low",
+      "count": 1
+    },
+    "Crab": {
+      "google_category": "Home & Garden > Crab > Crab house",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Al Saaha Offices B, Souk Al Bahar - 404 Burj Khalifa Blvd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u0433, Buqar-Jyrau Ave 53\u0430": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Punjabi": {
+      "google_category": "Food & Drink > Punjabi > Punjabi restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Russian": {
+      "google_category": "Food & Drink > Russian > Russian restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "68H9+MH6 - Oud Metha Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+C5M": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Studying Centre": {
+      "google_category": "Other > Studying > Studying center",
+      "confidence": "medium",
+      "count": 1
+    },
+    "3rd St, P8XJ+9G7 \u062a\u06cc\u0631\u0627\u0698\u0647 \u0637\u0628\u0642\u0647": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Off-road racing venue": {
+      "google_category": "Other > Off-Road > Off-road race track",
+      "confidence": "medium",
+      "count": 1
+    },
+    "V24J+92P": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Pierre De Coubertin No:3-5": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+PV8": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "F9C4+CCR": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "N\u00e1m\u011bst\u00ed Republiky 1a": {
+      "google_category": "Food & Drink > Restaurants > General Restaurants",
+      "confidence": "medium",
+      "count": 1
+    },
+    "2J4Q+F5M\u060c \u0627\u0644\u0633\u0627\u062d\u0644 \u0627\u0644\u0634\u0645\u0627\u0644\u0649": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Gaziantep forum awm": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Foot Massage Parlour": {
+      "google_category": "Beauty & Personal Care > Foot > Foot massage parlor",
+      "confidence": "medium",
+      "count": 1
+    },
+    "R2CM+QH9": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Railway Contractor": {
+      "google_category": "Other > Railroad > Railroad contractor",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Clairvoyant": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Property lawyer": {
+      "google_category": "Other > Property > Property maintenance",
+      "confidence": "medium",
+      "count": 1
+    },
+    "5th Interchange - Sheikh Zayed Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Sheikh Maktoum Bin Rashid Al Maktoum Road": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Tropical Fish Shop": {
+      "google_category": "Food & Drink > Tropical > Tropical fish store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "3FH3+VWM": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "M9CV+X4C": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Swedish": {
+      "google_category": "Food & Drink > Swedish > Swedish restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Second-hand Clothing Shop": {
+      "google_category": "Retail & Shopping > Second > Second hand store",
+      "confidence": "low",
+      "count": 1
+    },
+    "Kosher Food Shop": {
+      "google_category": "Food & Drink > Restaurants > General Restaurants",
+      "confidence": "medium",
+      "count": 1
+    },
+    "389J+335": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Persian Gulf Complex Parking Entrance, QC4P+M5J": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24H+8XQ": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Bathroom Renovator": {
+      "google_category": "Home & Garden > Bathroom > Bathroom remodeler",
+      "confidence": "medium",
+      "count": 1
+    },
+    "W2PQ+5X9": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+C2V": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H2V7+4CJ": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "5CF8+J96 - Al Awir Road": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "W2PQ+4XG": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H2V7+22Q": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7FR+XHM": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "3250 W Olympic Blvd # 118": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Adana Blv. No:57 B-1003": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Irish": {
+      "google_category": "Food & Drink > Irish > Irish restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Barbers School": {
+      "google_category": "Sports & Recreation > Dance > Dance school",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Ulus Cd. 15/1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H8XP+972": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Halkal\u0131 Cd No:93/B": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Monument": {
+      "google_category": "Other > Monument > Monument maker",
+      "confidence": "medium",
+      "count": 1
+    },
+    "FL 1, Zone 1, Soho 11, 285A, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "7CGV+CVG": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Dubai Shopping Centre, Bhnd Deira City Centre": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Mevlana Blv. No:2/A": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Shabu Shabu": {
+      "google_category": "Food & Drink > Shabu-Shabu > Shabu-shabu restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "M9CV+W4F": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "CGGG+WF8": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "38FW+6W9\u060c \u0634 \u0639\u0645\u0631 \u0628\u0646 \u0627\u0644\u062e\u0637\u0627\u0628": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "XFMV+V4J": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "2293+QM6, Unnamed Road": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Kafi Street Alausa Ojodu": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H\u00fck\u00fcmet Cd. No 304 209": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Austrian": {
+      "google_category": "Food & Drink > Austrian > Austrian restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "One World Trade Center, 285 Fulton St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Tongu\u00e7 Baba Cd. NO:21": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Shop 199, Panorama Shopping Centre, A/B Shahrah-e-Quaid-e-Azam": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Dolmen Mall, Tariq Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JX9R+G3W": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Meditation Centre": {
+      "google_category": "Other > Meditation > Meditation instructor",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Yeni Mahallesi \u00d6\u011fretmenler Bulvar\u0131, 87071. Sk. No:5, Seyhan 219": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JX9R+G43": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "J985+33J, Oshin St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "57VH+45Q": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "6783+J48 - Jumeirah Beach Road": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "XFMV+V57": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "M9CV+W4M": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "75 El-Nasr Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Bus stop": {
+      "google_category": "Automotive > Truck > Truck stop",
+      "confidence": "medium",
+      "count": 1
+    },
+    "JQP5+Q7R": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "20-22 Olympia Ct": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Rubber Stamp Shop": {
+      "google_category": "Retail & Shopping > Rubber > Rubber stamp store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "V24J+948": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Dubai-Al Ain Road (E 66 Road": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "52C7+HF2 First building, Kirkuk Road": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "FL 4, Zone 2, Camden 8, 1068, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "The Avenues Mall KW, Sheikh Zayed Bin Sultan Al Nahyan Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "V24J+C55": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Hunting Shop": {
+      "google_category": "Sports & Recreation > Hunting > Hunting preserve",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Siteler Yolu No:60": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Car Body Parts Supplier": {
+      "google_category": "Automotive > Auto > Auto body parts supplier",
+      "confidence": "medium",
+      "count": 1
+    },
+    "H2V7+3C7": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7FR+QPV": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "W3JQ+X2J": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Panay\u0131r, \u00d6mer T\u00fcrk\u00e7akal Blv. NO:8C": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "22C3+983 Arkan Plaza": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "B\u00fcy\u00fckdere Cd. No. 122": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Libadiye Cd. No:90": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Yeni Mahallesi \u00d6\u011fretmenler Bulvar\u0131, 87071. Sk, 176 No:5": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Kazimierza G\u00f3rskiego 2": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Tekelio\u011flu Cd. No:55": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Buket Sk. 20/1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "80-00 Cooper Ave": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "K\u00fc\u00e7\u00fckyal\u0131, Ayd\u0131nevler Siteler Yolu Cadde 28 No:1, Maltepe 00-232,00-233 \u0130stanbul": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "MRI Centre": {
+      "google_category": "Other > Mri > MRI center",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Al Baraka Mall Princess Taghreed Mohammad St 21": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Foodbank": {
+      "google_category": "Food & Drink > Food > Food bank",
+      "confidence": "medium",
+      "count": 1
+    },
+    "7X8V+P7W": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Criminal defence lawyer": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "FL 1, Zone 1, Soho 7, 287B, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "5CF7+R7G": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "6552 Sokak No:3 D:1b.l15": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "XFMV+V4W": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Jewellery Engraver": {
+      "google_category": "Fashion & Apparel > Jewelry > Jewelry engraver",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Almondvale Pl": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JRCG+PGP": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "elf bus stop, Plot 6 QMB Builder's Mart Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "11401 NW 12th St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Halk Cd. No:8/A": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Tuscan": {
+      "google_category": "Food & Drink > Tuscan > Tuscan restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Eski\u015fehir Yolu 7. Km No:164 Kentpark AVM Arka Cephesi, PK:": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "No 114071 Ibn Battuta Gate Offices - Sheikh Zayed Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "W3MP+5P8": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "FL B, ZONE2,Ginza 4, 197, Platinum Fashion Mall, Phetchaburi Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GR+2JM": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Volkan Sk. no:1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "1307 George Washington Way": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Osmaniye Mahallesi, \u00c7oban\u00e7e\u015fme Ko\u015fuyolu Caddesi No:3,bak\u0131rk\u00f6y S025a": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u00c7ar\u015famba Cd. No:40": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Siteler Yolu No:28": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "415 South St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "D:2": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Student Accommodation Centre": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Car Bodywork Mechanic": {
+      "google_category": "Automotive > Auto > Auto bodywork mechanic",
+      "confidence": "medium",
+      "count": 1
+    },
+    "1377 Rd No 2819": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u0627\u0644\u0645\u0631\u062d\u0644\u0629 \u0627\u0644\u062b\u0627\u0644\u062b\u0629": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Water companies": {
+      "google_category": "Other > Water > Water works",
+      "confidence": "medium",
+      "count": 1
+    },
+    "W3MP+5WQ": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "68H9+MPF - Wafi City - Oud Metha Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "8GMF+7HG - Street # 19, ICAD City 1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "one tower avm, Kud\u00fcs Cd. no:6/7 D:1. Kat": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "9, Afariogun Street, Off Obafemi Awolowo Way, Opposite Ipodo Mrk": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u00c7al\u0131ko\u011flu Sk. No:50": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Electronics engineer": {
+      "google_category": "Other > Textile > Textile engineer",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Halit Ziya U\u015fakl\u0131gil Cd. Carousel Al\u0131\u015fveri\u015f Ve Ya\u015fam Merkezi No:1": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Car broker": {
+      "google_category": "Other > Mortgage > Mortgage broker",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Adult education centre": {
+      "google_category": "Education > Adult > Adult education school",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Ye\u015filk\u00f6y Halkal\u0131 Cd. No:93": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Al Sila Tower - Office 2406, 24th Floor Island": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "CCFV+CW7, Adeniyi Jones": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Halil Sezai Erkut Cad./afra Sok. Antares Al\u0131\u015fveri\u015f Ve Ya\u015fam Merkezi No:1/A D:37": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "1597. Cd. No:3": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Burritos": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GV+G72": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Panorama Shopping Centre, Shop 78-B, Plot 48, Mall Rd, Mayo Gardens": {
+      "google_category": "Retail & Shopping > Shopping > Shopping mall",
+      "confidence": "low",
+      "count": 1
+    },
+    "Cevizli Mah. Tugay Yolu Cad, Maltepe Park Avm, No:67": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "M9CV+V4P": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Yakiniku": {
+      "google_category": "Food & Drink > Yakiniku > Yakiniku restaurant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "G\u00fcvenevler Mah.2096 SK. Park Afyon Rezidans D:Kat:12/53": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Dinner theatre": {
+      "google_category": "Food & Drink > Dinner > Dinner theater",
+      "confidence": "medium",
+      "count": 1
+    },
+    "85PJ+2G4, Algiers St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u0130smet \u0130n\u00f6n\u00fc Cd. No:69": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Panorama Shopping Centre, Shop 88-B, Plot 48, Mall Rd, Mayo Gardens": {
+      "google_category": "Retail & Shopping > Shopping > Shopping mall",
+      "confidence": "low",
+      "count": 1
+    },
+    "Pa\u015fa Cd Gf.99-100": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Dried Seafood Shop": {
+      "google_category": "Food & Drink > Dried > Dried seafood store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "JX9R+97Q": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "16M Abdul Haque Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Vadi Cd NO:2": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "11 Nisan Fuar Cd. No:42 Zk-037": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "7 Tsotne Dadiani St \u10db\u10d4\u10ee\u10e3\u10d7\u10d4 \u10e1\u10d0\u10e0\u10d7\u10e3\u10da\u10d8 \u10dd\u10d7\u10d0\u10ee\u10d8 B513 \u10d7\u10d1\u10d8\u10da\u10d8\u10e1\u10d8": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Oniru estate, B. I. S Dr": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Via Europa, 8": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Education": {
+      "google_category": "Education > Education > Education center",
+      "confidence": "medium",
+      "count": 1
+    },
+    "al. Jana Paw\u0142a II 82": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Toy manufacturer": {
+      "google_category": "Retail & Shopping > Toy > Toy and game manufacturer",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Vehicle Registration Agency": {
+      "google_category": "Sports & Recreation > Recreational > Recreational vehicle rental agency",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Panora No:01": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Corner 47 Algeria St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "istanbul/esenyurt": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Al Farabi Ave \u0434\u043e\u043c 65": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Area A-City Center, 5th District, Road 90": {
+      "google_category": "Other > City > City district office",
+      "confidence": "low",
+      "count": 1
+    },
+    "W3JP+MRR": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "H7GR+5V2": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "1014, Azadlig avenu 15a/4 Baku AZ": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Tugay Yolu Cd. No:67 D:2-007": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Police station": {
+      "google_category": "Other > Weigh > Weigh station",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Seafood Shop": {
+      "google_category": "Food & Drink > Seafood > Seafood wholesaler",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Kavak Sk. NO:4": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Yeni Mahallesi \u00d6\u011fretmenler Bulvar\u0131, 87071. Sk. No:5, Seyhan 102": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Tugay Yolu Cd. NO:69": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Tepe Nautilus Avm No:11": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "S\u00fcleyman Demirel Blv No:147": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Aziz Nesin Blv. No: 26": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Eski Golcuk Yolu Uzeri, \u00d6mer T\u00fcrk\u00e7akal Blv.": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u0130KEA Bayrampa\u015fa-Forum \u0130stanbul No:5": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Al Farabi Ave 65": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Head Start Centre": {
+      "google_category": "Arts & Entertainment > Head > Head start center",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Educational Supply Shop": {
+      "google_category": "Education > Educational > Educational supply store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Ferdowsi Square, PC29+7W8": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "\u0634\u0631\u0642\u060c\u0645\u0631\u06a9\u0632 \u062e\u0631\u06cc\u062f\u060c 8HWW+CH2": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Mechanical Engineering": {
+      "google_category": "Education > Engineering > Engineering school",
+      "confidence": "medium",
+      "count": 1
+    },
+    "38FW+6GH, Omar Ibn El-Khattab": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "56PQ+7MV": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JF54+82G": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "JFMV+4CH": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "56PQ+3G6 - Al Wasl Rd": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Plumbers' merchant": {
+      "google_category": "Automotive > Glass > Glass merchant",
+      "confidence": "medium",
+      "count": 1
+    },
+    "17 Al Batrawi": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "GMFC+WQ5 Mall - Al bahia Abu Dhabi deerfirls - inside fabyland level 4": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "3525+9XJ\u060c Abu Bakr Al Siddique Street, Saadah": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "8HWW+JFX": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Z-62, Peshawa Qazi": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "DIY Store": {
+      "google_category": "Retail & Shopping > Dairy > Dairy store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "G72F+7PC": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Billiards Supply Shop": {
+      "google_category": "Sports & Recreation > Billiards > Billiards supply store",
+      "confidence": "medium",
+      "count": 1
+    },
+    "G64F+VQ3": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Skate park": {
+      "google_category": "Sports & Recreation > Skateboard > Skateboard park",
+      "confidence": "medium",
+      "count": 1
+    },
+    "3982+V8F": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "36X3+HV3": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Al Takhassousi": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "8967+WP6": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "539X+X29 Sama Mall": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "92RP+HX8": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "City Center Parking Exit\u060c HM3R+257": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "8GGJ+3H6": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "Estate Valuer": {
+      "google_category": "Other > Estate > Estate appraiser",
+      "confidence": "medium",
+      "count": 1
+    },
+    "Q874+V6J": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "542/21-22, \u0e16\u0e19\u0e19\u0e40\u0e1e\u0e0a\u0e23\u0e1a\u0e38\u0e23\u0e35, \u0e23\u0e32\u0e0a\u0e40\u0e17\u0e27\u0e35 \u0e01\u0e23\u0e38\u0e07\u0e40\u0e17\u0e1e\u0e21\u0e2b\u0e32\u0e19\u0e04\u0e23, 10400": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "7, 9 Tsotne Dadiani St": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    },
+    "RQ8F+P2F Tbilisi Mall": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "count": 1
+    }
+  }
+}

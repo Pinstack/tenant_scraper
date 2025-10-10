@@ -19,3 +19,15 @@ env/
 # Temporary files
 *.tmp
 *.temp
+
+# Output files and data
+*.json
+outputs/
+temp/
+!data/*.json
+!outputs/.gitkeep
+
+# Legacy output directories (should not exist but just in case)
+mecsr_tenants/
+tenants_outputs/
+batch_outputs/

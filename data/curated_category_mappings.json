@@ -1,0 +1,1207 @@
+{
+  "description": "Curated mappings for tenant categories to Google Business Profile categories",
+  "total_mappings": 200,
+  "coverage": "59008 tenants",
+  "mappings": {
+    "Clothing Shop": {
+      "google_category": "Fashion & Apparel > Clothing > Clothing store",
+      "confidence": "high",
+      "tenant_count": 7071,
+      "needs_review": false
+    },
+    "Restaurant": {
+      "google_category": "Food & Drink > Restaurant > Restaurant",
+      "confidence": "high",
+      "tenant_count": 2907,
+      "needs_review": false
+    },
+    "Shoe Shop": {
+      "google_category": "Shoe store",
+      "confidence": "high",
+      "tenant_count": 2358,
+      "needs_review": false
+    },
+    "Perfume store": {
+      "google_category": "Retail & Shopping > Perfume > Perfume store",
+      "confidence": "high",
+      "tenant_count": 2161,
+      "needs_review": false
+    },
+    "Jewellery Store": {
+      "google_category": "Jewelry store",
+      "confidence": "high",
+      "tenant_count": 2051,
+      "needs_review": false
+    },
+    "Ladies' Clothes Shop": {
+      "google_category": "Fashion & Apparel > Clothing > General Clothing",
+      "confidence": "medium",
+      "tenant_count": 1969,
+      "needs_review": true
+    },
+    "Coffee shop": {
+      "google_category": "Food & Drink > Coffee > Coffee shop",
+      "confidence": "high",
+      "tenant_count": 1644,
+      "needs_review": false
+    },
+    "Cosmetics shop": {
+      "google_category": "Cosmetics store",
+      "confidence": "high",
+      "tenant_count": 1640,
+      "needs_review": false
+    },
+    "Fast food": {
+      "google_category": "Food & Drink > Fast > Fast food restaurant",
+      "confidence": "high",
+      "tenant_count": 1351,
+      "needs_review": false
+    },
+    "Cashpoint": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "tenant_count": 1332,
+      "needs_review": true
+    },
+    "Shop": {
+      "google_category": "Retail & Shopping > General Retail > General Stores",
+      "confidence": "medium",
+      "tenant_count": 1257,
+      "needs_review": true
+    },
+    "Cafe": {
+      "google_category": "Food & Drink > Cafe > Cafe",
+      "confidence": "high",
+      "tenant_count": 1153,
+      "needs_review": false
+    },
+    "Electronics Retail and Repair Shop": {
+      "google_category": "Electronics store",
+      "confidence": "high",
+      "tenant_count": 960,
+      "needs_review": false
+    },
+    "Watch shop": {
+      "google_category": "Watch store",
+      "confidence": "high",
+      "tenant_count": 952,
+      "needs_review": false
+    },
+    "Men's Clothes Shop": {
+      "google_category": "Fashion & Apparel > Men'S > Men's clothing store",
+      "confidence": "high",
+      "tenant_count": 946,
+      "needs_review": false
+    },
+    "Corporate office": {
+      "google_category": "Other > Corporate > Corporate office",
+      "confidence": "high",
+      "tenant_count": 905,
+      "needs_review": false
+    },
+    "Homewares Shop": {
+      "google_category": "Home goods store",
+      "confidence": "high",
+      "tenant_count": 829,
+      "needs_review": false
+    },
+    "Fashion accessories shop": {
+      "google_category": "Fashion & Apparel > Fashion > Fashion accessories store",
+      "confidence": "medium",
+      "tenant_count": 721,
+      "needs_review": true
+    },
+    "Optician": {
+      "google_category": "Optician",
+      "confidence": "high",
+      "tenant_count": 701,
+      "needs_review": false
+    },
+    "Sportswear Shop": {
+      "google_category": "Sportswear store",
+      "confidence": "high",
+      "tenant_count": 649,
+      "needs_review": false
+    },
+    "Shopping Centre": {
+      "google_category": "Retail & Shopping > Shopping > Shopping mall",
+      "confidence": "medium",
+      "tenant_count": 643,
+      "needs_review": true
+    },
+    "Beauty Salon": {
+      "google_category": "Beauty salon",
+      "confidence": "high",
+      "tenant_count": 571,
+      "needs_review": false
+    },
+    "Ice cream": {
+      "google_category": "Ice cream shop",
+      "confidence": "high",
+      "tenant_count": 557,
+      "needs_review": false
+    },
+    "Pharmacy": {
+      "google_category": "Pharmacy",
+      "confidence": "high",
+      "tenant_count": 534,
+      "needs_review": false
+    },
+    "Bank": {
+      "google_category": "Retail & Shopping > Bank > Bank",
+      "confidence": "high",
+      "tenant_count": 506,
+      "needs_review": false
+    },
+    "Home Furniture Shop": {
+      "google_category": "Furniture store",
+      "confidence": "high",
+      "tenant_count": 491,
+      "needs_review": false
+    },
+    "Supermarket": {
+      "google_category": "Retail & Shopping > Supermarket > Supermarket",
+      "confidence": "high",
+      "tenant_count": 480,
+      "needs_review": false
+    },
+    "Telecommunications service provider": {
+      "google_category": "Automotive > Telecommunications > Telecommunications service provider",
+      "confidence": "high",
+      "tenant_count": 478,
+      "needs_review": false
+    },
+    "Travel Agent": {
+      "google_category": "Travel agency",
+      "confidence": "high",
+      "tenant_count": 442,
+      "needs_review": false
+    },
+    "Mobile Phone Shop": {
+      "google_category": "Cell phone store",
+      "confidence": "high",
+      "tenant_count": 437,
+      "needs_review": false
+    },
+    "Children's Clothes Shop": {
+      "google_category": "Fashion & Apparel > Children'S > Children's clothing store",
+      "confidence": "high",
+      "tenant_count": 430,
+      "needs_review": false
+    },
+    "Toy Shop": {
+      "google_category": "Toy store",
+      "confidence": "high",
+      "tenant_count": 405,
+      "needs_review": false
+    },
+    "Gift shop": {
+      "google_category": "Retail & Shopping > Gift > Gift shop",
+      "confidence": "high",
+      "tenant_count": 396,
+      "needs_review": false
+    },
+    "Lingerie shop": {
+      "google_category": "Lingerie store",
+      "confidence": "high",
+      "tenant_count": 379,
+      "needs_review": false
+    },
+    "Department store": {
+      "google_category": "Arts & Entertainment > Department > Department store",
+      "confidence": "high",
+      "tenant_count": 363,
+      "needs_review": false
+    },
+    "Pizza": {
+      "google_category": "Pizza restaurant",
+      "confidence": "high",
+      "tenant_count": 346,
+      "needs_review": false
+    },
+    "Beauty supply store": {
+      "google_category": "Beauty & Personal Care > Beauty > Beauty supply store",
+      "confidence": "high",
+      "tenant_count": 336,
+      "needs_review": false
+    },
+    "Bakery": {
+      "google_category": "Bakery",
+      "confidence": "high",
+      "tenant_count": 332,
+      "needs_review": false
+    },
+    "Sporting Goods Shop": {
+      "google_category": "Sporting goods store",
+      "confidence": "high",
+      "tenant_count": 323,
+      "needs_review": false
+    },
+    "Hairdresser": {
+      "google_category": "Hair salon",
+      "confidence": "high",
+      "tenant_count": 323,
+      "needs_review": false
+    },
+    "Cinema": {
+      "google_category": "Arts & Entertainment > Movie > Movie theater",
+      "confidence": "high",
+      "tenant_count": 306,
+      "needs_review": false
+    },
+    "Chicken": {
+      "google_category": "Chicken restaurant",
+      "confidence": "high",
+      "tenant_count": 304,
+      "needs_review": false
+    },
+    "Software company": {
+      "google_category": "Electronics > Software > Software company",
+      "confidence": "high",
+      "tenant_count": 280,
+      "needs_review": false
+    },
+    "Leather Goods Shop": {
+      "google_category": "Leather goods store",
+      "confidence": "high",
+      "tenant_count": 260,
+      "needs_review": false
+    },
+    "Money transfer service": {
+      "google_category": "Money transfer service",
+      "confidence": "high",
+      "tenant_count": 246,
+      "needs_review": false
+    },
+    "Jeweller": {
+      "google_category": "Other > Jeweler > Jeweler",
+      "confidence": "medium",
+      "tenant_count": 236,
+      "needs_review": true
+    },
+    "Book Shop": {
+      "google_category": "Book store",
+      "confidence": "high",
+      "tenant_count": 234,
+      "needs_review": false
+    },
+    "Dress Shop": {
+      "google_category": "Fashion & Apparel > Dress > Dress store",
+      "confidence": "medium",
+      "tenant_count": 234,
+      "needs_review": true
+    },
+    "Hamburger": {
+      "google_category": "Hamburger restaurant",
+      "confidence": "high",
+      "tenant_count": 232,
+      "needs_review": false
+    },
+    "Boutique": {
+      "google_category": "Boutique",
+      "confidence": "high",
+      "tenant_count": 229,
+      "needs_review": false
+    },
+    "Barber shop": {
+      "google_category": "Food & Drink > Barber > Barber shop",
+      "confidence": "high",
+      "tenant_count": 227,
+      "needs_review": false
+    },
+    "Appliance Shop": {
+      "google_category": "Home & Garden > Appliance > Appliance store",
+      "confidence": "medium",
+      "tenant_count": 222,
+      "needs_review": true
+    },
+    "Chocolate shop": {
+      "google_category": "Food & Drink > Chocolate > Chocolate shop",
+      "confidence": "high",
+      "tenant_count": 219,
+      "needs_review": false
+    },
+    "Sunglasses Shop": {
+      "google_category": "Automotive > Sunglasses > Sunglasses store",
+      "confidence": "medium",
+      "tenant_count": 217,
+      "needs_review": true
+    },
+    "Baby shop": {
+      "google_category": "Retail & Shopping > Baby > Baby store",
+      "confidence": "medium",
+      "tenant_count": 217,
+      "needs_review": true
+    },
+    "Apartment building": {
+      "google_category": "Arts & Entertainment > Apartment > Apartment building",
+      "confidence": "high",
+      "tenant_count": 216,
+      "needs_review": false
+    },
+    "Estate Agent": {
+      "google_category": "Professional Services > Real > Real estate agent",
+      "confidence": "high",
+      "tenant_count": 215,
+      "needs_review": false
+    },
+    "Mobile Phone Accessory Shop": {
+      "google_category": "Electronics > Mobile > Mobile phone repair shop",
+      "confidence": "high",
+      "tenant_count": 204,
+      "needs_review": false
+    },
+    "Italian": {
+      "google_category": "Food & Drink > Italian > Italian restaurant",
+      "confidence": "medium",
+      "tenant_count": 203,
+      "needs_review": true
+    },
+    "Health and beauty shop": {
+      "google_category": "Beauty & Personal Care > Health > Health and beauty shop",
+      "confidence": "high",
+      "tenant_count": 191,
+      "needs_review": false
+    },
+    "Turkish": {
+      "google_category": "Food & Drink > Turkish > Turkish restaurant",
+      "confidence": "medium",
+      "tenant_count": 191,
+      "needs_review": true
+    },
+    "Gym": {
+      "google_category": "Gym",
+      "confidence": "high",
+      "tenant_count": 190,
+      "needs_review": false
+    },
+    "Construction Company": {
+      "google_category": "Other > Construction > Construction company",
+      "confidence": "high",
+      "tenant_count": 182,
+      "needs_review": false
+    },
+    "Mobile phone repair shop": {
+      "google_category": "Electronics > Mobile > Mobile phone repair shop",
+      "confidence": "high",
+      "tenant_count": 179,
+      "needs_review": false
+    },
+    "Electric vehicle charging station": {
+      "google_category": "Automotive > Electric > Electric vehicle charging station",
+      "confidence": "high",
+      "tenant_count": 177,
+      "needs_review": false
+    },
+    "Mosque": {
+      "google_category": "Other > Mosque > Mosque",
+      "confidence": "high",
+      "tenant_count": 176,
+      "needs_review": false
+    },
+    "Car Park": {
+      "google_category": "Sports & Recreation > Parking > Parking lot",
+      "confidence": "high",
+      "tenant_count": 170,
+      "needs_review": false
+    },
+    "Sweet shop": {
+      "google_category": "Retail & Shopping > Saree > Saree Shop",
+      "confidence": "medium",
+      "tenant_count": 166,
+      "needs_review": true
+    },
+    "Hypermarket": {
+      "google_category": "Retail & Shopping > Hypermarket > Hypermarket",
+      "confidence": "high",
+      "tenant_count": 156,
+      "needs_review": false
+    },
+    "Advertising agency": {
+      "google_category": "Professional Services > Advertising > Advertising agency",
+      "confidence": "high",
+      "tenant_count": 153,
+      "needs_review": false
+    },
+    "Baby Clothing Shop": {
+      "google_category": "Fashion & Apparel > Children'S > Children's clothing store",
+      "confidence": "high",
+      "tenant_count": 152,
+      "needs_review": false
+    },
+    "Amusement Centre": {
+      "google_category": "Sports & Recreation > Amusement > Amusement park",
+      "confidence": "medium",
+      "tenant_count": 151,
+      "needs_review": true
+    },
+    "Luggage Shop": {
+      "google_category": "Other > Luggage > Luggage wholesaler",
+      "confidence": "medium",
+      "tenant_count": 150,
+      "needs_review": true
+    },
+    "Kitchen supply shop": {
+      "google_category": "Home & Garden > Kitchen > Kitchen supply store",
+      "confidence": "medium",
+      "tenant_count": 149,
+      "needs_review": true
+    },
+    "Repair service": {
+      "google_category": "Electronics > Repair > Repair service",
+      "confidence": "high",
+      "tenant_count": 143,
+      "needs_review": false
+    },
+    "Juice": {
+      "google_category": "Juice shop",
+      "confidence": "high",
+      "tenant_count": 140,
+      "needs_review": false
+    },
+    "Vitamin & Supplements Shop": {
+      "google_category": "Retail & Shopping > Vitamin > Vitamin &amp; supplements store",
+      "confidence": "medium",
+      "tenant_count": 140,
+      "needs_review": true
+    },
+    "Car rental company": {
+      "google_category": "Automotive > Car > Car rental agency",
+      "confidence": "medium",
+      "tenant_count": 139,
+      "needs_review": true
+    },
+    "Discount shop": {
+      "google_category": "Retail & Shopping > Discount > Discount store",
+      "confidence": "medium",
+      "tenant_count": 137,
+      "needs_review": true
+    },
+    "Indian": {
+      "google_category": "Food & Drink > Indian > Indian restaurant",
+      "confidence": "medium",
+      "tenant_count": 133,
+      "needs_review": true
+    },
+    "Marketing agency": {
+      "google_category": "Professional Services > Marketing > Marketing agency",
+      "confidence": "high",
+      "tenant_count": 132,
+      "needs_review": false
+    },
+    "Government office": {
+      "google_category": "Government & Community > Government > Government office",
+      "confidence": "high",
+      "tenant_count": 131,
+      "needs_review": false
+    },
+    "Currency exchange service": {
+      "google_category": "Automotive > Currency > Currency exchange service",
+      "confidence": "high",
+      "tenant_count": 127,
+      "needs_review": false
+    },
+    "Chinese": {
+      "google_category": "Food & Drink > Chinese > Chinese restaurant",
+      "confidence": "medium",
+      "tenant_count": 127,
+      "needs_review": true
+    },
+    "Nail salon": {
+      "google_category": "Beauty & Personal Care > Nail > Nail salon",
+      "confidence": "high",
+      "tenant_count": 125,
+      "needs_review": false
+    },
+    "American": {
+      "google_category": "Food & Drink > American > American restaurant",
+      "confidence": "medium",
+      "tenant_count": 121,
+      "needs_review": true
+    },
+    "Business management consultant": {
+      "google_category": "Professional Services > Business > Business management consultant",
+      "confidence": "high",
+      "tenant_count": 120,
+      "needs_review": false
+    },
+    "Florist": {
+      "google_category": "Florist",
+      "confidence": "high",
+      "tenant_count": 120,
+      "needs_review": false
+    },
+    "Dessert shop": {
+      "google_category": "Food & Drink > Dessert > Dessert shop",
+      "confidence": "high",
+      "tenant_count": 119,
+      "needs_review": false
+    },
+    "Car wash": {
+      "google_category": "Automotive > Car > Car wash",
+      "confidence": "high",
+      "tenant_count": 116,
+      "needs_review": false
+    },
+    "Beauty product supplier": {
+      "google_category": "Beauty & Personal Care > Beauty > Beauty product supplier",
+      "confidence": "high",
+      "tenant_count": 116,
+      "needs_review": false
+    },
+    "Consultant": {
+      "google_category": "Professional Services > Consultant > Consultant",
+      "confidence": "high",
+      "tenant_count": 116,
+      "needs_review": false
+    },
+    "Coffee store": {
+      "google_category": "Food & Drink > Coffee > Coffee store",
+      "confidence": "high",
+      "tenant_count": 115,
+      "needs_review": false
+    },
+    "Transportation service": {
+      "google_category": "Sports & Recreation > Transportation > Transportation service",
+      "confidence": "high",
+      "tenant_count": 115,
+      "needs_review": false
+    },
+    "Nut Shop": {
+      "google_category": "Retail & Shopping > Nut > Nut store",
+      "confidence": "medium",
+      "tenant_count": 110,
+      "needs_review": true
+    },
+    "Parking Garage": {
+      "google_category": "Sports & Recreation > Parking > Parking garage",
+      "confidence": "high",
+      "tenant_count": 109,
+      "needs_review": false
+    },
+    "Children's Amusement Centre": {
+      "google_category": "Arts & Entertainment > Children\u2019S > Children\u2019s amusement center",
+      "confidence": "high",
+      "tenant_count": 109,
+      "needs_review": false
+    },
+    "Tailor": {
+      "google_category": "Other > Tailor > Tailor",
+      "confidence": "high",
+      "tenant_count": 106,
+      "needs_review": false
+    },
+    "Bag shop": {
+      "google_category": "Fashion & Apparel > Bag > Bag shop",
+      "confidence": "high",
+      "tenant_count": 106,
+      "needs_review": false
+    },
+    "Playground": {
+      "google_category": "Other > Playground > Playground",
+      "confidence": "high",
+      "tenant_count": 104,
+      "needs_review": false
+    },
+    "Law firm": {
+      "google_category": "Other > Law > Law firm",
+      "confidence": "high",
+      "tenant_count": 104,
+      "needs_review": false
+    },
+    "Food court": {
+      "google_category": "Food & Drink > Food > Food court",
+      "confidence": "high",
+      "tenant_count": 104,
+      "needs_review": false
+    },
+    "Bubble Tea": {
+      "google_category": "Food & Drink > Bubble > Bubble tea store",
+      "confidence": "high",
+      "tenant_count": 103,
+      "needs_review": false
+    },
+    "Computer Shop": {
+      "google_category": "Electronics > Computer > Computer consultant",
+      "confidence": "medium",
+      "tenant_count": 103,
+      "needs_review": true
+    },
+    "Asian": {
+      "google_category": "Food & Drink > Asian > Asian restaurant",
+      "confidence": "medium",
+      "tenant_count": 101,
+      "needs_review": true
+    },
+    "Dental clinic": {
+      "google_category": "Dentist",
+      "confidence": "high",
+      "tenant_count": 98,
+      "needs_review": false
+    },
+    "Mattress Shop": {
+      "google_category": "Retail & Shopping > Mattress > Mattress store",
+      "confidence": "medium",
+      "tenant_count": 98,
+      "needs_review": true
+    },
+    "Indoor playground": {
+      "google_category": "Home & Garden > Indoor > Indoor snowcenter",
+      "confidence": "medium",
+      "tenant_count": 97,
+      "needs_review": true
+    },
+    "Japanese": {
+      "google_category": "Food & Drink > Japanese > Japanese steakhouse",
+      "confidence": "medium",
+      "tenant_count": 96,
+      "needs_review": true
+    },
+    "Doughnuts": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "tenant_count": 95,
+      "needs_review": true
+    },
+    "Vaporiser Shop": {
+      "google_category": "Retail & Shopping > General Retail > General Stores",
+      "confidence": "medium",
+      "tenant_count": 93,
+      "needs_review": true
+    },
+    "Tobacco shop": {
+      "google_category": "Retail & Shopping > Tobacco > Tobacco shop",
+      "confidence": "high",
+      "tenant_count": 91,
+      "needs_review": false
+    },
+    "Handbags Shop": {
+      "google_category": "Fashion & Apparel > Handbags > Handbags shop",
+      "confidence": "high",
+      "tenant_count": 90,
+      "needs_review": false
+    },
+    "Amusement park": {
+      "google_category": "Sports & Recreation > Amusement > Amusement park",
+      "confidence": "high",
+      "tenant_count": 90,
+      "needs_review": false
+    },
+    "Lebanese": {
+      "google_category": "Food & Drink > Lebanese > Lebanese restaurant",
+      "confidence": "medium",
+      "tenant_count": 88,
+      "needs_review": true
+    },
+    "General Store": {
+      "google_category": "Retail & Shopping > General > General store",
+      "confidence": "high",
+      "tenant_count": 87,
+      "needs_review": false
+    },
+    "Medical centre": {
+      "google_category": "Health & Medical > Medical > Medical lawyer",
+      "confidence": "medium",
+      "tenant_count": 86,
+      "needs_review": true
+    },
+    "Bar": {
+      "google_category": "Food & Drink > Bar > Bar",
+      "confidence": "high",
+      "tenant_count": 85,
+      "needs_review": false
+    },
+    "Fashion designer": {
+      "google_category": "Fashion & Apparel > Fashion > Fashion designer",
+      "confidence": "high",
+      "tenant_count": 85,
+      "needs_review": false
+    },
+    "Hotel": {
+      "google_category": "Travel & Lodging > Hotel > Hotel",
+      "confidence": "high",
+      "tenant_count": 84,
+      "needs_review": false
+    },
+    "Market": {
+      "google_category": "Retail & Shopping > Market > Market",
+      "confidence": "high",
+      "tenant_count": 83,
+      "needs_review": false
+    },
+    "Education Centre": {
+      "google_category": "Education > Education > Education center",
+      "confidence": "medium",
+      "tenant_count": 82,
+      "needs_review": true
+    },
+    "Seafood": {
+      "google_category": "Food & Drink > Seafood > Seafood restaurant",
+      "confidence": "medium",
+      "tenant_count": 82,
+      "needs_review": true
+    },
+    "Home improvement shop": {
+      "google_category": "Home & Garden > Home > Home improvement store",
+      "confidence": "medium",
+      "tenant_count": 79,
+      "needs_review": true
+    },
+    "Skin care clinic": {
+      "google_category": "Health & Medical > Skin > Skin care clinic",
+      "confidence": "high",
+      "tenant_count": 76,
+      "needs_review": false
+    },
+    "Fro-Yo": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "tenant_count": 75,
+      "needs_review": true
+    },
+    "Fitness centre": {
+      "google_category": "Sports & Recreation > Fitness > Fitness center",
+      "confidence": "medium",
+      "tenant_count": 74,
+      "needs_review": true
+    },
+    "Courier service": {
+      "google_category": "Automotive > Courier > Courier service",
+      "confidence": "high",
+      "tenant_count": 74,
+      "needs_review": false
+    },
+    "E-commerce service": {
+      "google_category": "Automotive > E-Commerce > E-commerce service",
+      "confidence": "high",
+      "tenant_count": 74,
+      "needs_review": false
+    },
+    "Web Designer": {
+      "google_category": "Other > Website > Website designer",
+      "confidence": "medium",
+      "tenant_count": 73,
+      "needs_review": true
+    },
+    "Car dealer": {
+      "google_category": "Automotive > Car > Car dealer",
+      "confidence": "high",
+      "tenant_count": 72,
+      "needs_review": false
+    },
+    "Health food shop": {
+      "google_category": "Food & Drink > Health > Health food store",
+      "confidence": "medium",
+      "tenant_count": 72,
+      "needs_review": true
+    },
+    "null": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "tenant_count": 72,
+      "needs_review": false
+    },
+    "Sandwich": {
+      "google_category": "Food & Drink > Sandwich > Sandwich shop",
+      "confidence": "medium",
+      "tenant_count": 72,
+      "needs_review": true
+    },
+    "Dry cleaner": {
+      "google_category": "Other > Dry > Dry cleaner",
+      "confidence": "high",
+      "tenant_count": 69,
+      "needs_review": false
+    },
+    "Association / Organization": {
+      "google_category": "Other > Association > Association / Organization",
+      "confidence": "high",
+      "tenant_count": 69,
+      "needs_review": false
+    },
+    "Financial institution": {
+      "google_category": "Professional Services > Financial > Financial institution",
+      "confidence": "high",
+      "tenant_count": 69,
+      "needs_review": false
+    },
+    "Game Shop": {
+      "google_category": "Retail & Shopping > Game > Game store",
+      "confidence": "medium",
+      "tenant_count": 68,
+      "needs_review": true
+    },
+    "Family friendly": {
+      "google_category": "Food & Drink > Family > Family restaurant",
+      "confidence": "medium",
+      "tenant_count": 68,
+      "needs_review": true
+    },
+    "Video Game Shop": {
+      "google_category": "Retail & Shopping > Video > Video game store",
+      "confidence": "medium",
+      "tenant_count": 68,
+      "needs_review": true
+    },
+    "Art gallery": {
+      "google_category": "Arts & Entertainment > Art > Art gallery",
+      "confidence": "high",
+      "tenant_count": 67,
+      "needs_review": false
+    },
+    "Pet Shop": {
+      "google_category": "Pet store",
+      "confidence": "high",
+      "tenant_count": 67,
+      "needs_review": false
+    },
+    "Educational consultant": {
+      "google_category": "Education > Educational > Educational consultant",
+      "confidence": "high",
+      "tenant_count": 65,
+      "needs_review": false
+    },
+    "Shops and Shopping": {
+      "google_category": "Retail & Shopping > General Retail > General Stores",
+      "confidence": "medium",
+      "tenant_count": 65,
+      "needs_review": true
+    },
+    "Photography studio": {
+      "google_category": "Arts & Entertainment > Photography > Photography studio",
+      "confidence": "high",
+      "tenant_count": 65,
+      "needs_review": false
+    },
+    "Manufacturer": {
+      "google_category": "Other > Manufacturer > Manufacturer",
+      "confidence": "high",
+      "tenant_count": 64,
+      "needs_review": false
+    },
+    "Variety Shop": {
+      "google_category": "Retail & Shopping > Variety > Variety store",
+      "confidence": "medium",
+      "tenant_count": 61,
+      "needs_review": true
+    },
+    "Building materials supplier": {
+      "google_category": "Other > Building > Building materials supplier",
+      "confidence": "high",
+      "tenant_count": 61,
+      "needs_review": false
+    },
+    "Clinic": {
+      "google_category": "Health & Medical > Abortion > Abortion clinic",
+      "confidence": "medium",
+      "tenant_count": 60,
+      "needs_review": true
+    },
+    "Cake shop": {
+      "google_category": "Food & Drink > Cake > Cake shop",
+      "confidence": "high",
+      "tenant_count": 60,
+      "needs_review": false
+    },
+    "Interior designer": {
+      "google_category": "Other > Interior > Interior designer",
+      "confidence": "high",
+      "tenant_count": 59,
+      "needs_review": false
+    },
+    "Fabric Shop": {
+      "google_category": "Fabric store",
+      "confidence": "high",
+      "tenant_count": 59,
+      "needs_review": false
+    },
+    "Training centre": {
+      "google_category": "Education > Training > Training centre",
+      "confidence": "high",
+      "tenant_count": 59,
+      "needs_review": false
+    },
+    "Spa": {
+      "google_category": "Spa",
+      "confidence": "high",
+      "tenant_count": 58,
+      "needs_review": false
+    },
+    "Legal services": {
+      "google_category": "Automotive > Legal > Legal services",
+      "confidence": "high",
+      "tenant_count": 58,
+      "needs_review": false
+    },
+    "Clothes market": {
+      "google_category": "Retail & Shopping > Clothes > Clothes market",
+      "confidence": "high",
+      "tenant_count": 58,
+      "needs_review": false
+    },
+    "Confectionery store": {
+      "google_category": "Retail & Shopping > Confectionery > Confectionery store",
+      "confidence": "high",
+      "tenant_count": 57,
+      "needs_review": false
+    },
+    "Driving school": {
+      "google_category": "Education > Driving > Driving school",
+      "confidence": "high",
+      "tenant_count": 56,
+      "needs_review": false
+    },
+    "Logistics service": {
+      "google_category": "Automotive > Logistics > Logistics service",
+      "confidence": "high",
+      "tenant_count": 56,
+      "needs_review": false
+    },
+    "Carpet Retail Shop": {
+      "google_category": "Automotive > Auto Services > General Auto Services",
+      "confidence": "medium",
+      "tenant_count": 56,
+      "needs_review": true
+    },
+    "Bowling Alley": {
+      "google_category": "Sports & Recreation > Bowling > Bowling alley",
+      "confidence": "high",
+      "tenant_count": 56,
+      "needs_review": false
+    },
+    "Tour operator": {
+      "google_category": "Travel & Lodging > Tour > Tour operator",
+      "confidence": "high",
+      "tenant_count": 55,
+      "needs_review": false
+    },
+    "French": {
+      "google_category": "Food & Drink > French > French restaurant",
+      "confidence": "medium",
+      "tenant_count": 55,
+      "needs_review": true
+    },
+    "Jewellery Designer": {
+      "google_category": "Other > Website > Website designer",
+      "confidence": "medium",
+      "tenant_count": 55,
+      "needs_review": true
+    },
+    "Pastries": {
+      "google_category": "Other > General > Unspecified",
+      "confidence": "none",
+      "tenant_count": 55,
+      "needs_review": true
+    },
+    "Park and Garden": {
+      "google_category": "Sports & Recreation > Wildlife > Wildlife and safari park",
+      "confidence": "medium",
+      "tenant_count": 54,
+      "needs_review": true
+    },
+    "Mexican": {
+      "google_category": "Food & Drink > Mexican > Mexican restaurant",
+      "confidence": "medium",
+      "tenant_count": 54,
+      "needs_review": true
+    },
+    "Dessert": {
+      "google_category": "Food & Drink > Dessert > Dessert shop",
+      "confidence": "medium",
+      "tenant_count": 53,
+      "needs_review": true
+    },
+    "Public male bathroom": {
+      "google_category": "Food & Drink > Public > Public male bathroom",
+      "confidence": "high",
+      "tenant_count": 53,
+      "needs_review": false
+    },
+    "Public female bathroom": {
+      "google_category": "Food & Drink > Public > Public female bathroom",
+      "confidence": "high",
+      "tenant_count": 52,
+      "needs_review": false
+    },
+    "Laundry service": {
+      "google_category": "Automotive > Laundry > Laundry service",
+      "confidence": "high",
+      "tenant_count": 51,
+      "needs_review": false
+    },
+    "Media company": {
+      "google_category": "Other > Media > Media company",
+      "confidence": "high",
+      "tenant_count": 51,
+      "needs_review": false
+    },
+    "Stationery Shop": {
+      "google_category": "Other > Stationery > Stationery manufacturer",
+      "confidence": "medium",
+      "tenant_count": 51,
+      "needs_review": true
+    },
+    "Lawyer": {
+      "google_category": "Professional Services > Lawyer > Lawyer",
+      "confidence": "high",
+      "tenant_count": 49,
+      "needs_review": false
+    },
+    "Educational institution": {
+      "google_category": "Education > Educational > Educational institution",
+      "confidence": "high",
+      "tenant_count": 49,
+      "needs_review": false
+    },
+    "Souvenir Shop": {
+      "google_category": "Retail & Shopping > Wedding > Wedding souvenir shop",
+      "confidence": "medium",
+      "tenant_count": 48,
+      "needs_review": true
+    },
+    "Insurance agency": {
+      "google_category": "Professional Services > Insurance > Insurance agency",
+      "confidence": "high",
+      "tenant_count": 48,
+      "needs_review": false
+    },
+    "Waxing Hair-Removal Service": {
+      "google_category": "Beauty & Personal Care > Waxing > Waxing hair removal service",
+      "confidence": "high",
+      "tenant_count": 48,
+      "needs_review": false
+    },
+    "Business-to-Business service": {
+      "google_category": "Automotive > Business > Business to business service",
+      "confidence": "high",
+      "tenant_count": 47,
+      "needs_review": false
+    },
+    "Massage spa": {
+      "google_category": "Beauty & Personal Care > Massage > Massage spa",
+      "confidence": "high",
+      "tenant_count": 47,
+      "needs_review": false
+    },
+    "Boot Shop": {
+      "google_category": "Fashion & Apparel > Boot > Boot repair shop",
+      "confidence": "medium",
+      "tenant_count": 47,
+      "needs_review": true
+    },
+    "Optometrist": {
+      "google_category": "Other > Optometrist > Optometrist",
+      "confidence": "high",
+      "tenant_count": 46,
+      "needs_review": false
+    },
+    "Sushi": {
+      "google_category": "Food & Drink > Sushi > Sushi takeaway",
+      "confidence": "medium",
+      "tenant_count": 46,
+      "needs_review": true
+    },
+    "Business Centre": {
+      "google_category": "Professional Services > Business > Business attorney",
+      "confidence": "medium",
+      "tenant_count": 45,
+      "needs_review": true
+    },
+    "Property Developer": {
+      "google_category": "Other > Property > Property maintenance",
+      "confidence": "medium",
+      "tenant_count": 45,
+      "needs_review": true
+    },
+    "Underwear Shop": {
+      "google_category": "Retail & Shopping > Underwear > Underwear store",
+      "confidence": "medium",
+      "tenant_count": 45,
+      "needs_review": true
+    },
+    "Tourist attraction": {
+      "google_category": "Other > Tourist > Tourist attraction",
+      "confidence": "high",
+      "tenant_count": 45,
+      "needs_review": false
+    },
+    "Butchers": {
+      "google_category": "Retail & Shopping > Butcher > Butcher shop",
+      "confidence": "medium",
+      "tenant_count": 45,
+      "needs_review": true
+    },
+    "Public toilet": {
+      "google_category": "Food & Drink > Public > Public housing",
+      "confidence": "medium",
+      "tenant_count": 45,
+      "needs_review": true
+    },
+    "Charity": {
+      "google_category": "Other > Charity > Charity",
+      "confidence": "high",
+      "tenant_count": 44,
+      "needs_review": false
+    },
+    "Lighting Shop": {
+      "google_category": "Lighting store",
+      "confidence": "high",
+      "tenant_count": 44,
+      "needs_review": false
+    },
+    "Housing complex": {
+      "google_category": "Other > Housing > Housing complex",
+      "confidence": "high",
+      "tenant_count": 43,
+      "needs_review": false
+    },
+    "Convenience Store": {
+      "google_category": "Convenience store",
+      "confidence": "high",
+      "tenant_count": 43,
+      "needs_review": false
+    },
+    "Property management company": {
+      "google_category": "Professional Services > Property > Property management company",
+      "confidence": "high",
+      "tenant_count": 43,
+      "needs_review": false
+    },
+    "Investment company": {
+      "google_category": "Other > Investment > Investment company",
+      "confidence": "high",
+      "tenant_count": 42,
+      "needs_review": false
+    },
+    "Event management company": {
+      "google_category": "Professional Services > Event > Event management company",
+      "confidence": "high",
+      "tenant_count": 42,
+      "needs_review": false
+    },
+    "Typing Service": {
+      "google_category": "Automotive > Typing > Typing service",
+      "confidence": "high",
+      "tenant_count": 42,
+      "needs_review": false
+    },
+    "Internet marketing service": {
+      "google_category": "Electronics > Internet > Internet marketing service",
+      "confidence": "high",
+      "tenant_count": 42,
+      "needs_review": false
+    },
+    "Chocolate cafe": {
+      "google_category": "Food & Drink > Chocolate > Chocolate cafe",
+      "confidence": "high",
+      "tenant_count": 42,
+      "needs_review": false
+    },
+    "Bedding Shop": {
+      "google_category": "Bedding store",
+      "confidence": "high",
+      "tenant_count": 42,
+      "needs_review": false
+    }
+  }
+}

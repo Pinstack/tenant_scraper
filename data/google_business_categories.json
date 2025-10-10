@@ -1,0 +1,231 @@
+{
+  "version": "1.0",
+  "last_updated": "2025-01-01",
+  "source": "Pleper GBP Categories Tool + Google Product Categories",
+  "description": "Hierarchical mapping of Google Business Profile categories with parent-child relationships",
+  "hierarchy": {
+    "Fashion & Apparel": {
+      "description": "Clothing, accessories, and fashion-related businesses",
+      "children": {
+        "Clothing": {
+          "description": "General clothing and apparel",
+          "children": {
+            "Men's Clothing": ["Men's Clothes Shop", "Men's Clothing Store"],
+            "Women's Clothing": ["Ladies' Clothes Shop", "Women's Clothes Shop", "Women's Clothing Store"],
+            "Children's Clothing": ["Children's Clothes Shop", "Kids Clothes Shop", "Children's Clothing Store"],
+            "Unisex Clothing": ["Clothing Shop", "Fashion Store"],
+            "Sportswear": ["Sportswear Shop", "Athletic Clothing Store"]
+          }
+        },
+        "Fashion Accessories": {
+          "description": "Accessories and complementary fashion items",
+          "children": {
+            "General Accessories": ["Fashion accessories shop", "Accessories Store"],
+            "Jewelry": ["Jewelry Shop", "Jewelry Store"],
+            "Bags": ["Bag shop", "Handbag shop", "Bag Store"],
+            "Watches": ["Watch shop", "Watch Store"],
+            "Shoes": ["Shoe Shop", "Shoe Store"]
+          }
+        },
+        "Footwear": {
+          "description": "Shoes and footwear",
+          "children": {
+            "General Footwear": ["Shoe Shop", "Shoe Store"],
+            "Men's Shoes": ["Men's Shoe Shop"],
+            "Women's Shoes": ["Women's Shoe Shop"],
+            "Children's Shoes": ["Children's Shoe Shop"]
+          }
+        }
+      }
+    },
+    "Food & Drink": {
+      "description": "Restaurants, cafes, and food-related businesses",
+      "children": {
+        "Restaurants": {
+          "description": "Full-service dining establishments",
+          "children": {
+            "General Restaurants": ["Restaurant"],
+            "Fast Food": ["Fast food", "Fast Food Restaurant"],
+            "Pizza": ["Pizza", "Pizza Restaurant", "Pizza Place"],
+            "Burgers": ["Hamburger", "Burger Restaurant"],
+            "Coffee Shops": ["Coffee shop", "Cafe", "Coffee Shop"],
+            "Fine Dining": ["Fine dining", "Fine Dining Restaurant"],
+            "Ethnic Cuisine": ["Turkish", "Italian restaurant", "Chinese restaurant"]
+          }
+        },
+        "Beverages": {
+          "description": "Drinks and beverage-focused businesses",
+          "children": {
+            "Coffee & Tea": ["Coffee shop", "Tea house", "Coffee House"],
+            "Juice Bars": ["Juice shop", "Smoothie shop", "Juice Bar"]
+          }
+        }
+      }
+    },
+    "Beauty & Personal Care": {
+      "description": "Salons, spas, and beauty services",
+      "children": {
+        "Beauty Salons": {
+          "description": "Hair, nail, and beauty services",
+          "children": {
+            "Hair Salons": ["Hair salon", "Barber shop", "Hair Salon"],
+            "Nail Salons": ["Nail salon", "Nail Salon"],
+            "General Beauty": ["Beauty salon", "Beauty Salon"]
+          }
+        },
+        "Cosmetics": {
+          "description": "Cosmetics and beauty products",
+          "children": {
+            "General Cosmetics": ["Cosmetics shop", "Beauty supply store", "Health and beauty shop"],
+            "Perfume": ["Perfume store", "Perfume Shop"]
+          }
+        }
+      }
+    },
+    "Electronics": {
+      "description": "Electronic devices and technology",
+      "children": {
+        "Mobile Phones & Accessories": {
+          "description": "Phones and mobile accessories",
+          "children": {
+            "Phone Sales": ["Mobile Phone Shop", "Phone Store"],
+            "Phone Repair": ["Mobile phone repair shop", "Phone Repair"],
+            "Accessories": ["Mobile Phone Accessory Shop", "Phone Accessories"]
+          }
+        },
+        "Consumer Electronics": {
+          "description": "General electronics",
+          "children": {
+            "General Electronics": ["Electronics Retail and Repair Shop", "Electronics Store"],
+            "Computers": ["Computer shop", "Computer Store"],
+            "Audio": ["Audio equipment shop", "Audio Store"]
+          }
+        }
+      }
+    },
+    "Health & Medical": {
+      "description": "Medical services and health care",
+      "children": {
+        "Medical Clinics": {
+          "description": "Doctor's offices and clinics",
+          "children": {
+            "General Clinics": ["Clinic", "Medical center", "Medical Clinic"],
+            "Dental": ["Dental clinic", "Dental Clinic"],
+            "Specialized": ["Abortion clinic", "Addiction treatment center"]
+          }
+        },
+        "Pharmacies": {
+          "description": "Drug stores and pharmacies",
+          "children": {
+            "General Pharmacies": ["Pharmacy", "Drugstore"]
+          }
+        }
+      }
+    },
+    "Sports & Recreation": {
+      "description": "Sports, fitness, and recreational activities",
+      "children": {
+        "Fitness": {
+          "description": "Gyms and fitness centers",
+          "children": {
+            "Gyms": ["Gym", "Fitness center", "Fitness Center"],
+            "Sports Clubs": ["Sports club", "Sports Club"]
+          }
+        },
+        "Sporting Goods": {
+          "description": "Sports equipment and apparel",
+          "children": {
+            "General Sporting Goods": ["Sportswear Shop", "Sports equipment shop"],
+            "Specialized": ["Football shop", "Basketball equipment"]
+          }
+        }
+      }
+    },
+    "Home & Garden": {
+      "description": "Home improvement and garden supplies",
+      "children": {
+        "Home Furnishings": {
+          "description": "Furniture and home decor",
+          "children": {
+            "General Furnishings": ["Homewares Shop", "Furniture store"],
+            "Kitchen": ["Kitchenware shop", "Kitchen Store"],
+            "Bedroom": ["Bedroom furniture", "Bedroom Furniture"]
+          }
+        },
+        "Home Improvement": {
+          "description": "Tools and home improvement",
+          "children": {
+            "General Improvement": ["Home improvement store"],
+            "Electrical": ["Electrical supply store", "Electrical Store"]
+          }
+        }
+      }
+    },
+    "Automotive": {
+      "description": "Cars, auto services, and transportation",
+      "children": {
+        "Car Dealers": {
+          "description": "Car sales and dealerships",
+          "children": {
+            "General Dealers": ["Car dealer", "Car Dealership"],
+            "Specific Brands": ["BMW dealer", "Mercedes dealer"]
+          }
+        },
+        "Auto Services": {
+          "description": "Car repair and maintenance",
+          "children": {
+            "Repair": ["Auto repair shop", "Car service"],
+            "Parts": ["Auto parts store", "Auto Parts"]
+          }
+        }
+      }
+    }
+  },
+  "direct_mappings": {
+    "Men's Clothes Shop": "Fashion & Apparel > Clothing > Men's Clothing",
+    "Ladies' Clothes Shop": "Fashion & Apparel > Clothing > Women's Clothing",
+    "Women's Clothes Shop": "Fashion & Apparel > Clothing > Women's Clothing",
+    "Children's Clothes Shop": "Fashion & Apparel > Clothing > Children's Clothing",
+    "Clothing Shop": "Fashion & Apparel > Clothing > Unisex Clothing",
+    "Fashion accessories shop": "Fashion & Apparel > Fashion Accessories > General Accessories",
+    "Sportswear Shop": "Sports & Recreation > Sporting Goods > General Sporting Goods",
+    "Pizza": "Food & Drink > Restaurants > Pizza",
+    "Restaurant": "Food & Drink > Restaurants > General Restaurants",
+    "Fast food": "Food & Drink > Restaurants > Fast Food",
+    "Coffee shop": "Food & Drink > Beverages > Coffee & Tea",
+    "Cafe": "Food & Drink > Beverages > Coffee & Tea",
+    "Fine dining": "Food & Drink > Restaurants > Fine Dining",
+    "Turkish": "Food & Drink > Restaurants > Ethnic Cuisine",
+    "Beauty supply store": "Beauty & Personal Care > Cosmetics > General Cosmetics",
+    "Health and beauty shop": "Beauty & Personal Care > Cosmetics > General Cosmetics",
+    "Cosmetics shop": "Beauty & Personal Care > Cosmetics > General Cosmetics",
+    "Perfume store": "Beauty & Personal Care > Cosmetics > Perfume",
+    "Mobile Phone Shop": "Electronics > Mobile Phones & Accessories > Phone Sales",
+    "Electronics Retail and Repair Shop": "Electronics > Consumer Electronics > General Electronics",
+    "Mobile Phone Accessory Shop": "Electronics > Mobile Phones & Accessories > Accessories",
+    "Watch shop": "Fashion & Apparel > Fashion Accessories > Watches",
+    "Homewares Shop": "Home & Garden > Home Furnishings > General Furnishings",
+    "Mathematics school": "Education > Schools > Mathematics School",
+    "Education Centre": "Education > Educational Services > Education Centre",
+    "Shoe Shop": "Fashion & Apparel > Footwear > General Footwear",
+    "Cinema": "Arts & Entertainment > Movies & TV > Cinema",
+    "Bookstore": "Media & Publications > Books > Bookstore",
+    "Jewelry Shop": "Fashion & Apparel > Fashion Accessories > Jewelry",
+    "Optician": "Health & Medical > Eye Care > Optician",
+    "Pharmacy": "Health & Medical > Pharmacies > General Pharmacies",
+    "Bank": "Finance > Banking > Bank",
+    "Supermarket": "Retail > Grocery Stores > Supermarket",
+    "Gym": "Sports & Recreation > Fitness > Gyms",
+    "Hotel": "Travel & Lodging > Hotels & Accommodations > Hotel",
+    "Car dealer": "Automotive > Car Dealers > General Dealers",
+    "Gas station": "Automotive > Fueling > Gas Station",
+    "Hardware store": "Home & Garden > Home Improvement > General Improvement"
+  },
+  "metadata": {
+    "total_categories": 4034,
+    "major_categories": 8,
+    "last_verified": "2025-09-29",
+    "source_tools": ["Pleper GBP Categories", "Google Product Categories"]
+  }
+}
+

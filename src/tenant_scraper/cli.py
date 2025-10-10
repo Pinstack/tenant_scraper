@@ -7,7 +7,7 @@ import csv
 import logging
 import sys
 from pathlib import Path
-from .scraper import TenantScraper
+from .scraper import TenantScraper, mall_logging_context
 
 
 def setup_logging(verbose: bool = False) -> None:
@@ -122,7 +122,7 @@ def main():
         if args.output and args.output.suffix:
             raise SystemExit("When providing multiple URLs, --output must point to a directory")
 
-        base_dir = args.output or Path("tenants_outputs")
+        base_dir = args.output or Path("outputs")
         base_dir.mkdir(parents=True, exist_ok=True)
 
         from urllib.parse import urlparse
@@ -146,10 +146,11 @@ def main():
                 for url, destination in zip(args.urls, output_paths):
                     print(f"Scraping tenants from: {url} (mode: {args.mode})")
                     if args.mode == "directory":
-                        tenants = await scraper._scrape_tenants_from_directory(
-                            url,
-                            fetch_details=args.details,
-                        )
+                        with mall_logging_context(destination.stem):
+                            tenants = await scraper._scrape_tenants_from_directory(
+                                url,
+                                fetch_details=args.details,
+                            )
                     else:
                         tenants = await scraper._scrape_tenants_by_categories(url)
 

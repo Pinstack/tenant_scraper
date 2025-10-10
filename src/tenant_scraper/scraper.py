@@ -1,10 +1,12 @@
 """Main scraper module for extracting tenant information from Google Maps."""
 
 import asyncio
+import contextvars
 import logging
 import re
 import time
 from dataclasses import dataclass, field
+from contextlib import contextmanager
 from typing import Dict, List, Optional, Any, Iterable
 from urllib.parse import urlparse
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
@@ -12,6 +14,36 @@ from playwright.async_api import async_playwright, TimeoutError as PlaywrightTim
 # Use module-level logger with a dedicated trace flag for high-volume debug output
 logger = logging.getLogger(__name__)
 TRACE_BLOCKED_RESOURCES = False
+_mall_context: contextvars.ContextVar[str] = contextvars.ContextVar("tenant_scraper_mall", default="")
+
+
+class MallContextFilter(logging.Filter):
+    """Inject mall identifier into log messages when available."""
+
+    def filter(self, record: logging.LogRecord) -> bool:  # type: ignore[override]
+        mall = _mall_context.get("")
+        if mall and not getattr(record, "_mall_context_applied", False):
+            message = record.getMessage()
+            record.msg = f"[{mall}] {message}"
+            record.args = ()
+            setattr(record, "_mall_context_applied", True)
+        return True
+
+
+if not any(isinstance(flt, MallContextFilter) for flt in logger.filters):
+    logger.addFilter(MallContextFilter())
+
+
+@contextmanager
+def mall_logging_context(label: Optional[str]):
+    """Attach a mall label to log records within the managed scope."""
+
+    token = _mall_context.set(label or "") if label else None
+    try:
+        yield
+    finally:
+        if token is not None:
+            _mall_context.reset(token)
 
 
 class DirectoryTextExtractor:
@@ -824,17 +856,29 @@ class TenantScraper:
             logger.info(f"Using scroll container selector: {container_selector}")
 
             # Optional: derive expected total just for logging/expectation (do not gate scrolling)
+            expected_total = None
             try:
                 category_info = await self._extract_category_info()
                 if category_info:
-                    total_expected = sum(cat.get('count', 0) for cat in category_info if isinstance(cat.get('count'), int))
+                    total_expected = sum(
+                        cat.get('count', 0)
+                        for cat in category_info
+                        if isinstance(cat.get('count'), int)
+                    )
                     if total_expected:
-                        logger.info(f"Category chips indicate ~{total_expected} total tenants (for expectation only)")
+                        expected_total = total_expected
+                        logger.info(
+                            "Category chips indicate ~%d total tenants (used as soft target)",
+                            expected_total,
+                        )
             except Exception as _e:
                 logger.debug(f"Could not derive expected total from categories: {_e}")
 
             # Deterministic scroll without fixed loop counts
-            final_count = await self._scroll_until_done(container_selector, expected_total=None)
+            final_count = await self._scroll_until_done(
+                container_selector,
+                expected_total=expected_total,
+            )
             logger.info(f"Infinite scroll complete: {final_count} total tenants loaded")
             return
 
@@ -918,13 +962,17 @@ class TenantScraper:
         Returns:
             Final visible tenant count
         """
-        start = asyncio.get_event_loop().time()
+        loop = asyncio.get_event_loop()
+        start = loop.time()
         prev_height = -1
         last_change_ts = start
         stable_checks = 0
+        last_growth_ts = start
+        last_count = -1
+        stagnant_checks = 0
 
         while True:
-            now = asyncio.get_event_loop().time()
+            now = loop.time()
             if (now - start) * 1000 > max_duration_ms:
                 logger.warning("Stopping scroll due to overall duration cap")
                 break
@@ -932,6 +980,13 @@ class TenantScraper:
             await self._perform_scroll_step(container_selector)
             current_count = await self._count_visible_tenants()
             logger.info(f"Scrolled: {current_count} tenants visible")
+
+            if current_count > last_count:
+                last_growth_ts = now
+                stagnant_checks = 0
+            else:
+                stagnant_checks += 1
+            last_count = current_count
 
             if expected_total and current_count >= expected_total:
                 logger.info("Reached expected total tenants; stopping scroll")
@@ -968,6 +1023,32 @@ class TenantScraper:
             idle_elapsed = (now - last_change_ts) * 1000
             if end_text_visible or (metrics.get("atBottom") and not loading_visible and stable_checks >= 2 and idle_elapsed >= max_idle_ms):
                 logger.info("Detected end-of-results via stabilization or sentinel text; stopping")
+                break
+
+            no_growth_elapsed = (now - last_growth_ts) * 1000
+            soft_target_reached = (
+                expected_total is not None
+                and current_count >= max(20, int(expected_total * 0.9))
+            )
+
+            if (
+                stagnant_checks >= 5
+                and no_growth_elapsed >= max_idle_ms
+                and (not loading_visible or no_growth_elapsed >= max_idle_ms * 3)
+            ):
+                logger.info(
+                    "Tenant count unchanged for %.1fs across %d checks; assuming end of list",
+                    no_growth_elapsed / 1000,
+                    stagnant_checks,
+                )
+                break
+
+            if soft_target_reached and no_growth_elapsed >= max_idle_ms * 2:
+                logger.info(
+                    "Reached %.0f%% of expected tenants with no growth for %.1fs; stopping",
+                    (current_count / expected_total) * 100 if expected_total else 0,
+                    no_growth_elapsed / 1000,
+                )
                 break
 
         final_count = await self._count_visible_tenants()
