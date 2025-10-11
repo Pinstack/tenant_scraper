@@ -20,6 +20,16 @@ env/
 *.tmp
 *.temp
 
+# API Keys and Secrets
+.env
+.env.local
+.env.*.local
+*.key
+*_API_KEY*
+*API_KEY*
+*_SECRET*
+*SECRET*
+
 # Output files and data
 *.json
 outputs/
