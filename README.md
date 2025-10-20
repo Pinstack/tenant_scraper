@@ -18,6 +18,7 @@ A tool to automatically extract tenant/brand information from shopping mall list
   - Phone number and individual map links
 - ✅ Outputs structured data (JSON/CSV)
 - ✅ Extracts mall business categories and tenant counts
+- ✅ **NEW: FSQ-OS-Places enrichment** - Enrich scraped data with Foursquare's global POI database (100M+ venues)
 
 ## Installation
 
@@ -57,8 +58,13 @@ When providing multiple URLs, the scraper creates an `outputs/` directory and sa
 
 #### Batch Processing (CSV)
 ```bash
-python scripts/scrape_mecsr_csv.py
-python scripts/scrape_mecsr_csv.py custom_malls.csv --output-dir results/
+# Use the unified CLI with --csv
+tenant-scraper --csv data/mecsr_malls_with_google_urls.csv --output outputs/mecsr
+
+# Optionally also write an aggregate file
+tenant-scraper --csv data/mecsr_malls_with_google_urls.csv \
+  --output outputs/mecsr \
+  --aggregate-file outputs/mecsr/tenants_aggregate.json
 ```
 Processes all malls listed in a CSV file with Google Maps URLs. Creates individual files for each mall plus an aggregated results file.
 
@@ -80,20 +86,22 @@ asyncio.run(main())
 
 ## Command Line Options
 
-- `urls`: Google Maps URL(s) for the mall(s) to scrape (**required**, one or more)
-- `-o, --output`: Output file path (for single URL) or directory (for multiple URLs)
+- `urls`: Google Maps URL(s) for the mall(s) to scrape (zero or more)
+- `--csv`: CSV file with `name` and `google_maps_url` columns for batch mode
+- `-o, --output`: Output file (single URL) or directory (multiple URLs or CSV)
+- `--aggregate-file`: When using `--csv`, path to write a combined JSON/CSV file
 - `--format`: Output format (json/csv, auto-detected from file extension)
 - `--headless`: Run in headless mode (default: True)
 - `--no-headless`: Run with visible browser window
 - `--mode`: Extraction mode ('directory' or 'categories', default: 'directory')
-- `--details`: Extract detailed contact info from individual tenant cards
+- `--details`: Temporarily disabled (card-click detail extraction deferred)
 - `--no-block-resources`: Disable resource blocking for debugging
 - `--aggressive-block`: Block additional map-related resources for faster scraping
 - `-v, --verbose`: Enable verbose logging
 
 ### Error Handling
 
-- **No URLs provided**: The scraper requires at least one Google Maps URL
+- **No input provided**: Provide URL(s) or `--csv`
 - **Invalid URL**: Must be a valid Google Maps place URL
 - **Network issues**: Check internet connectivity
 - **Large malls**: May require longer processing time for complete tenant extraction
@@ -157,6 +165,36 @@ The Google Maps anti-automation blocker has been successfully bypassed using use
 - Verify internet connectivity for Google Maps access
 - **For large malls**: The current implementation may miss tenant categories if infinite scroll isn't fully implemented
 
+## FSQ-OS-Places Integration
+
+Enhance your scraped tenant data with Foursquare's comprehensive global POI database:
+
+### Quick Start
+```bash
+# One-command setup with sample data
+python scripts/quickstart_fsq.py
+
+# Enrich your scraped tenants
+python scripts/enrich_tenants_with_fsq.py \
+  --input outputs/mecsr/complete_tenants_aggregate.json \
+  --output outputs/mecsr/tenants_enriched.json
+```
+
+### What You Get
+- **Canonical brand names** and official websites
+- **Contact information** (phone, email)
+- **Category standardization** across data sources
+- **Business verification** and freshness dates
+- **Chain identification** and store counts
+
+### Data Access
+1. **Request access** to FSQ-OS-Places: https://huggingface.co/datasets/foursquare/fsq-os-places
+2. **Download** the 11.3GB parquet dataset
+3. **Load into PostgreSQL** with spatial indexing
+4. **Enrich** your scraped data automatically
+
+See `docs/FSQ_INTEGRATION.md` for complete setup and usage instructions.
+
 ## Contributing
 
 The core scraping functionality is now working! Contributions are welcome for:
@@ -165,6 +203,7 @@ The core scraping functionality is now working! Contributions are welcome for:
 - Performance optimizations
 - Error handling improvements
 - Documentation and testing enhancements
+- FSQ-OS-Places integration improvements
 
 ## License
 

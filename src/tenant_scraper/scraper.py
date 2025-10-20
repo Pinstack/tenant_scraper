@@ -2399,7 +2399,7 @@ class TenantScraper:
                     price_el = card.select_one('.AJB7ye span span:last-of-type')
                     if price_el:
                         price_text = price_el.get_text(strip=True)
-                        if price_text:
+                        if price_text and self._looks_like_price(price_text):
                             tenant['price_range'] = price_text
 
                     detail_block = card.select_one('div.W4Efsd div.W4Efsd')
@@ -2414,7 +2414,7 @@ class TenantScraper:
                     if len(status_block) > 1:
                         status_text = ' '.join(status_block[1].stripped_strings)
                         if status_text:
-                            tenant['status'] = status_text
+                            tenant['status'] = self._normalize_status_ui_text(status_text)
 
                     seen_names.add(name_key)
                     tenants.append(tenant)
@@ -2452,6 +2452,10 @@ class TenantScraper:
         for prefix in prefixes_to_remove:
             name = re.sub(prefix, '', name, flags=re.IGNORECASE).strip()
 
+        # Remove surrounding and embedded double-quote characters (keep apostrophes)
+        # Handles ASCII and common Unicode double-quote variants (e.g., “ ” „ « »)
+        name = re.sub(r'[\"“”„‟«»]+', '', name).strip()
+
         # Remove extra whitespace
         name = re.sub(r'\s+', ' ', name).strip()
 
@@ -2480,6 +2484,71 @@ class TenantScraper:
         category = re.sub(r'^£[\d\-]+', '', category).strip()
 
         return category
+
+    def _looks_like_price(self, text: str) -> bool:
+        """Heuristic to decide if a metadata token is a price range, not a rating blob.
+
+        Accepts typical currency-based ranges (e.g., ££, $$, €€) or price words,
+        and rejects rating-like strings such as "4.7(3,575)".
+        """
+        if not text:
+            return False
+
+        s = text.strip()
+
+        # Reject rating blobs like "4.7(3,575)" or "5.0(4)"
+        if re.match(r'^\d+(?:\.\d+)?\s*\(\d+(?:,\d+)?\)$', s):
+            return False
+
+        # Accept repeated currency signs (e.g., ££, $$, €€)
+        if re.fullmatch(r'[€£$¥₽₹₪₩₺₫₴₦₱]{1,5}', s):
+            return True
+
+        # Accept if it contains any currency symbol
+        if re.search(r'[€£$¥₽₹₪₩₺₫₴₦₱]', s):
+            return True
+
+        # Accept common verbal scales Google sometimes uses
+        if s.lower() in {"inexpensive", "moderate", "expensive"}:
+            return True
+
+        # Otherwise, treat as not a price
+        return False
+
+    def _normalize_status_ui_text(self, text: str) -> str:
+        """Normalize the status line from the UI to a concise phrase.
+
+        Removes phone numbers and keeps the primary status fragment
+        (e.g., "Closed ⋅ Opens 10 am", "Open ⋅ Closes 9 pm", "Temporarily closed").
+        """
+        if not text:
+            return text
+
+        s = text.strip()
+
+        # Prefer well-known phrases bounded before any middle dot delimiter
+        patterns = [
+            r'(Temporarily\s+closed)',
+            r'(Closed\s*⋅\s*Opens[^·]+)',
+            r'(Open\s*⋅\s*Closes[^·]+)',
+            r'(Closes\s+soon)'
+        ]
+
+        for pat in patterns:
+            m = re.search(pat, s, flags=re.IGNORECASE)
+            if m:
+                s = m.group(1).strip()
+                break
+        else:
+            # Fallback: keep text up to the first middle dot '·'
+            if '·' in s:
+                s = s.split('·', 1)[0].strip()
+
+        # Strip any trailing phone number fragments just in case
+        s = re.sub(r'\s*·\s*\+?\d[\d\s\-()]{6,}$', '', s).strip()
+        s = re.sub(r'\s*\+?\d[\d\s\-()]{6,}$', '', s).strip()
+
+        return s
 
     async def _extract_category_info(self) -> List[Dict[str, Any]]:
         """Extract category information using multiple selector strategies."""
