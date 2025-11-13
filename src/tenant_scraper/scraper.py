@@ -8,13 +8,16 @@ import time
 from dataclasses import dataclass, field
 from contextlib import contextmanager
 from typing import Dict, List, Optional, Any, Iterable
-from urllib.parse import urlparse
+from urllib.parse import urlparse, parse_qs, unquote
 from playwright.async_api import async_playwright, TimeoutError as PlaywrightTimeoutError
 
 # Use module-level logger with a dedicated trace flag for high-volume debug output
 logger = logging.getLogger(__name__)
 TRACE_BLOCKED_RESOURCES = False
 _mall_context: contextvars.ContextVar[str] = contextvars.ContextVar("tenant_scraper_mall", default="")
+
+PLUS_CODE_PATTERN = re.compile(r'\b[A-Z0-9]{4}\+[A-Z0-9]{2,3}\b')
+PHONE_PATTERN = re.compile(r'\+?[\d\s\-\(\)]{7,}')
 
 
 class MallContextFilter(logging.Filter):
@@ -1123,136 +1126,98 @@ class TenantScraper:
         """
         logger.info(f"Starting detailed extraction for {len(basic_tenants)} tenants...")
 
-        detailed_tenants = []
+        detailed_lookup: Dict[str, Dict[str, Any]] = {}
 
         # Find all tenant buttons/cards in the directory
         tenant_buttons = await self._find_tenant_buttons()
         logger.info(f"Found {len(tenant_buttons)} tenant buttons to process")
 
-        # NEW APPROACH: Extract business URLs from directory, visit each individually
-        logger.info("🔄 NEW APPROACH: Extracting business URLs for individual page scraping")
-
-        # Extract business URLs/Place IDs from the directory view
+        # First, attempt to gather business URLs and scrape individual pages
+        logger.info("🔄 Collecting business URLs for individual page scraping")
         business_urls = await self._extract_business_urls_from_directory()
         logger.info(f"Found {len(business_urls)} business URLs in directory")
 
         if business_urls:
-            # Visit each business URL individually to get contact details
             logger.info("Visiting individual business pages for contact details...")
             individual_page_tenants = await self._scrape_individual_business_pages(business_urls)
 
-            # Merge individual page data with basic tenant data
             for page_tenant in individual_page_tenants:
-                tenant_name = page_tenant.get('name', '')
-                matching_tenant = self._find_matching_tenant(basic_tenants, tenant_name)
+                tenant_name = page_tenant.get('name')
+                if not tenant_name:
+                    continue
+                key = tenant_name.lower().strip()
+                match = self._find_matching_tenant(basic_tenants, tenant_name)
+                detailed_lookup[key] = {**match, **page_tenant} if match else page_tenant
+                logger.info(f"✓ Recorded details from individual page: {tenant_name}")
 
-                if matching_tenant:
-                    merged_tenant = {**matching_tenant, **page_tenant}
-                    detailed_tenants.append(merged_tenant)
-                    logger.info(f"✓ Enhanced via individual page: {tenant_name}")
-                else:
-                    detailed_tenants.append(page_tenant)
-                    logger.info(f"✓ Added via individual page: {tenant_name}")
-
-        # SIMPLIFIED APPROACH: Extract detailed data for ONLY ONE tenant and STOP on first failure
-        # This follows the user's request to "stop on first failure during detailed tenant extraction"
         if tenant_buttons:
-            logger.info(f"🔄 STOP-ON-FAILURE APPROACH: Processing ONLY first tenant to identify issues...")
+            logger.info("🔄 Processing in-directory tenant cards for detailed information")
 
-            button_info = tenant_buttons[0]  # Only process the first tenant
-            logger.info(f"Processing FIRST tenant only: {button_info['text'][:50]}...")
-
-            try:
+            for idx, button_info in enumerate(tenant_buttons, start=1):
+                text_hint = (button_info.get('text') or '')[:80]
                 button_element = button_info['element']
 
-                # Step 1: Scroll into view
-                logger.info("Step 1: Scrolling button into view...")
-                await button_element.scroll_into_view_if_needed(timeout=5000)
-
-                # Step 2: Hover over button
-                logger.info("Step 2: Hovering over button...")
-                await button_element.hover(timeout=2000)
-
-                # Step 3: Click to open card
-                logger.info("Step 3: Clicking button to open tenant card...")
-                await button_element.click(timeout=5000)
-
-                # Step 4: Wait for card to load
-                logger.info("Step 4: Waiting for tenant card to load...")
-                await asyncio.sleep(3)
-
-                # Step 5: Extract data from this card
-                logger.info("Step 5: Extracting data from tenant card...")
-                card_data = await self._extract_card_details()
-
-                if card_data.get('name'):
-                    logger.info(f"✅ SUCCESS: Extracted card data for '{card_data.get('name')}'")
-                    logger.info(f"   Phone: {card_data.get('phone', 'Not found')}")
-                    logger.info(f"   Website: {card_data.get('website', 'Not found')}")
-                    logger.info(f"   Address: {card_data.get('address', 'Not found')}")
-
-                    # Match with basic tenant data
-                    matching_tenant = self._find_matching_tenant(basic_tenants, card_data.get('name', ''))
-
-                    if matching_tenant:
-                        merged_tenant = {**matching_tenant, **card_data}
-                        detailed_tenants.append(merged_tenant)
-                        logger.info(f"✓ Enhanced: {card_data.get('name')} with detailed info")
-                    else:
-                        detailed_tenants.append(card_data)
-                        logger.info(f"✓ Added: {card_data.get('name')}")
-                else:
-                    logger.warning("❌ FAILURE: No tenant name found in card data")
-                    # Log what we did find
-                    logger.info(f"Card data keys: {list(card_data.keys())}")
-                    for key, value in card_data.items():
-                        logger.info(f"  {key}: {value}")
-
-                # Step 6: Close the card
-                logger.info("Step 6: Closing tenant card...")
-                await self._close_tenant_card()
-
-                logger.info("✅ FIRST TENANT PROCESSING COMPLETE")
-
-            except Exception as e:
-                logger.error(f"❌ FAILURE: Error processing first tenant: {e}")
-                logger.error(f"Error type: {type(e).__name__}")
-                import traceback
-                logger.error(f"Traceback: {traceback.format_exc()}")
-
-                # Take a screenshot for debugging
                 try:
-                    await self.page.screenshot(path="debug_failure_screenshot.png")
-                    logger.info("📸 Screenshot saved: debug_failure_screenshot.png")
-                except Exception:
-                    logger.warning("Could not save debug screenshot")
+                    if await button_element.count() == 0 and text_hint:
+                        fallback = (
+                            self.page.locator("div:has-text('·')")
+                            .filter(has_text=text_hint.split('\n')[0])
+                            .first
+                        )
+                        if await fallback.count() > 0:
+                            button_element = fallback
 
-                # Log current page state
-                try:
-                    current_url = self.page.url
-                    page_title = await self.page.title()
-                    logger.info(f"Current URL: {current_url}")
-                    logger.info(f"Page title: {page_title}")
-                except Exception:
-                    logger.warning("Could not get page state")
+                    if await button_element.count() == 0:
+                        logger.debug(f"[Card {idx}] Locator no longer available; skipping ({text_hint})")
+                        continue
 
-                # STOP HERE as requested by user - do not continue processing
-                logger.info("🛑 STOPPING on first failure as requested")
-                raise e  # Re-raise to stop execution
+                    await button_element.scroll_into_view_if_needed(timeout=5000)
+                    await asyncio.sleep(0.2)
+                    try:
+                        await button_element.hover(timeout=2000)
+                    except Exception:
+                        pass
+                    await button_element.click(timeout=5000)
+                    await asyncio.sleep(2)
 
-            logger.info("Stop-on-failure approach completed: 1 tenant processed (or failed)")
+                    card_data = await self._extract_card_details()
+                except Exception as exc:
+                    logger.warning(f"[Card {idx}] Error extracting tenant card ({text_hint}): {exc}")
+                    card_data = {}
+                finally:
+                    try:
+                        await self._close_tenant_card()
+                    except Exception:
+                        pass
+                    await asyncio.sleep(0.4)
 
-        # Fill in remaining tenants with basic data
+                if not card_data.get('name'):
+                    continue
+
+                tenant_name = card_data['name']
+                match = self._find_matching_tenant(basic_tenants, tenant_name)
+                merged = {**match, **card_data} if match else card_data
+                key = tenant_name.lower().strip()
+                detailed_lookup[key] = merged
+                logger.info(f"[Card {idx}] ✓ Captured details for {tenant_name}")
+
+        # Merge with basic tenants to ensure all entries are present
         for tenant in basic_tenants:
-            tenant_name = tenant.get('name', '')
-            if not any(t.get('name') == tenant_name for t in detailed_tenants):
-                detailed_tenants.append(tenant)
+            name = tenant.get('name')
+            if not name:
+                continue
+            key = name.lower().strip()
+            if key in detailed_lookup:
+                detailed_lookup[key] = {**tenant, **detailed_lookup[key]}
+            else:
+                detailed_lookup[key] = tenant
 
-        logger.info(f"📊 FINAL RESULT: {len(detailed_tenants)} tenants processed")
-        contact_count = sum(1 for t in detailed_tenants if t.get('phone') or t.get('website'))
+        final_tenants = list(detailed_lookup.values())
+        logger.info(f"📊 FINAL RESULT: {len(final_tenants)} tenants processed")
+        contact_count = sum(1 for t in final_tenants if t.get('phone') or t.get('website'))
         logger.info(f"📞 CONTACT DETAILS: {contact_count} tenants have phone/website data")
 
-        return detailed_tenants
+        return final_tenants
 
     async def _find_tenant_buttons(self) -> List[Dict[str, Any]]:
         """Find all tenant buttons/cards in the current directory view.
@@ -1263,6 +1228,25 @@ class TenantScraper:
         tenant_buttons = []
 
         try:
+            # Primary strategy: locate the interactive NV2 card container
+            card_locator = self.page.locator("div.Nv2PK")
+            card_count = await card_locator.count()
+            if card_count:
+                logger.info(f"Primary NV2PK locator found {card_count} elements")
+                for i in range(card_count):
+                    container = card_locator.nth(i)
+                    button = container.locator("button.hfpxzc").first
+                    if await button.count() == 0:
+                        continue
+                    text = ""
+                    try:
+                        text = (await container.inner_text()).strip()
+                    except Exception:
+                        pass
+                    tenant_buttons.append({'element': button, 'text': text})
+                if tenant_buttons:
+                    return tenant_buttons
+
             # Look for elements that contain tenant information
             # In directory view, tenants may be clickable divs or spans rather than buttons
             selectors = [
@@ -1279,6 +1263,7 @@ class TenantScraper:
                 try:
                     elements = self.page.locator(selector)
                     count = await elements.count()
+                    logger.debug(f"Selector '{selector}' matched {count} elements")
 
                     for i in range(count):
                         element = elements.nth(i)
@@ -1405,7 +1390,14 @@ class TenantScraper:
             'hours': None,
             'address': None,
             'rating': None,
-            'review_count': None
+            'review_count': None,
+            'maps_link': None,
+            'maps_url': None,
+            'located_in': None,
+            'plus_code': None,
+            'category': None,
+            'status': None,
+            'popular_times': None,
         }
 
         try:
@@ -1460,6 +1452,25 @@ class TenantScraper:
 
         except Exception as e:
             logger.warning(f"Error extracting card details from element: {e}")
+
+        try:
+            card_html = await card_element.inner_html()
+        except Exception:
+            card_html = None
+
+        parsed = self._parse_card_popout_html(card_html)
+        for key, value in parsed.items():
+            if key == 'popular_times':
+                if value:
+                    details[key] = value
+                continue
+            if value and not details.get(key):
+                details[key] = value
+
+        if details.get('phone'):
+            details['phone'] = self._normalize_phone_number(details['phone'])
+        if details.get('maps_url') and not details.get('maps_link'):
+            details['maps_link'] = details['maps_url']
 
         return details
 
@@ -1589,7 +1600,7 @@ class TenantScraper:
             except Exception as e:
                 logger.debug(f"JavaScript data extraction failed: {e}")
 
-            # Filter to unique URLs and limit to reasonable number
+            # Filter to unique URLs
             unique_urls = list(set(business_urls))
             # Filter out obviously wrong URLs (sign-in pages, etc.)
             filtered_urls = [url for url in unique_urls if
@@ -1598,14 +1609,11 @@ class TenantScraper:
                            'accounts.google' not in url and
                            len(url) > 20]  # Must be a substantial URL
 
-            # Limit to first 20 to avoid excessive processing
-            limited_urls = filtered_urls[:20]
-
-            logger.info(f"Extracted {len(limited_urls)} unique business URLs from directory")
-            for i, url in enumerate(limited_urls[:5]):  # Log first 5 for debugging
+            logger.info(f"Extracted {len(filtered_urls)} unique business URLs from directory")
+            for i, url in enumerate(filtered_urls[:5]):  # Log first 5 for debugging
                 logger.info(f"  URL {i+1}: {url[:80]}...")
 
-            return limited_urls
+            return filtered_urls
 
         except Exception as e:
             logger.error(f"Error extracting business URLs: {e}")
@@ -1693,7 +1701,14 @@ class TenantScraper:
             'website': None,
             'address': None,
             'rating': None,
-            'review_count': None
+            'review_count': None,
+            'maps_link': None,
+            'maps_url': None,
+            'located_in': None,
+            'plus_code': None,
+            'popular_times': None,
+            'status': None,
+            'category': None,
         }
 
         try:
@@ -1763,6 +1778,27 @@ class TenantScraper:
                             break
                 except Exception:
                     continue
+
+            # Parse rendered HTML for additional structured metadata
+            page_html = None
+            try:
+                page_html = await page.content()
+            except Exception:
+                page_html = None
+
+            parsed = self._parse_card_popout_html(page_html)
+            for key, value in parsed.items():
+                if key == 'popular_times':
+                    if value:
+                        details[key] = value
+                    continue
+                if value and not details.get(key):
+                    details[key] = value
+
+            if details.get('maps_url') and not details.get('maps_link'):
+                details['maps_link'] = details['maps_url']
+            if details.get('phone'):
+                details['phone'] = self._normalize_phone_number(details['phone'])
 
         except Exception as e:
             logger.warning(f"Error extracting business details from page: {e}")
@@ -1926,6 +1962,37 @@ class TenantScraper:
                                 break
                     except Exception:
                         continue
+
+            # Parse raw HTML for richer metadata (located in, plus code, maps URL, popular times)
+            card_html = None
+            try:
+                card_container = self.page.locator("div[role='main'][aria-label]").last
+                if await card_container.count() > 0:
+                    card_html = await card_container.inner_html()
+                else:
+                    # Fallback to body HTML if specific container not found
+                    card_html = await self.page.inner_html("body")
+            except Exception:
+                try:
+                    card_html = await self.page.inner_html("body")
+                except Exception:
+                    card_html = None
+
+            parsed = self._parse_card_popout_html(card_html)
+            for key, value in parsed.items():
+                if key == 'popular_times':
+                    if value:
+                        details[key] = value
+                    continue
+
+                if value and not details.get(key):
+                    details[key] = value
+
+            # Ensure phone is normalised consistently
+            if details.get('phone'):
+                details['phone'] = self._normalize_phone_number(details['phone'])
+            if details.get('maps_url') and not details.get('maps_link'):
+                details['maps_link'] = details['maps_url']
 
             logger.info(f"Extracted card details - Name: {details.get('name')}, Phone: {details.get('phone')}, Website: {details.get('website')}")
 
@@ -2381,6 +2448,13 @@ class TenantScraper:
                         'review_count': None,
                         'status': None,
                         'price_range': None,
+                        'phone': None,
+                        'website': None,
+                        'maps_link': None,
+                        'maps_url': None,
+                        'located_in': None,
+                        'plus_code': None,
+                        'popular_times': None,
                     }
 
                     rating_el = card.select_one('[aria-label*="stars" i]')
@@ -2411,10 +2485,62 @@ class TenantScraper:
                             tenant['address'] = parts[1]
 
                     status_block = card.select('div.W4Efsd div.W4Efsd')
-                    if len(status_block) > 1:
-                        status_text = ' '.join(status_block[1].stripped_strings)
-                        if status_text:
+                    for block in status_block:
+                        status_text = ' '.join(block.stripped_strings)
+                        lowered = status_text.lower()
+                        if status_text and any(keyword in lowered for keyword in ['open', 'closed', 'temporarily', 'reopens']):
                             tenant['status'] = self._normalize_status_ui_text(status_text)
+                            break
+
+                    # Additional metadata derived from textual lines
+                    lines = [text.strip() for text in card.stripped_strings if text.strip()]
+
+                    # Attempt to derive category/address from dot-separated lines if still missing
+                    if lines:
+                        for idx, token in enumerate(lines):
+                            if token == '·' and idx > 0 and idx + 1 < len(lines):
+                                prev_val = lines[idx - 1]
+                                next_val = lines[idx + 1]
+                                if not tenant['category']:
+                                    tenant['category'] = self._clean_category(prev_val)
+                                if not tenant['address']:
+                                    tenant['address'] = next_val
+                                break
+
+                    for token in lines[1:]:
+                        lowered = token.lower()
+                        if not tenant['located_in'] and lowered.startswith('located in'):
+                            tenant['located_in'] = token.split(':', 1)[-1].strip() if ':' in token else token
+                        if not tenant['plus_code']:
+                            plus_match = PLUS_CODE_PATTERN.search(token)
+                            if plus_match:
+                                tenant['plus_code'] = plus_match.group(0)
+                        if not tenant['phone']:
+                            normalized = self._normalize_phone_number(token)
+                            if normalized:
+                                tenant['phone'] = normalized
+                        if not tenant['status'] and any(word in lowered for word in ['open', 'closed', 'temporarily', 'reopens']):
+                            tenant['status'] = self._normalize_status_ui_text(token)
+
+                    # Website or phone anchors inside the card snippet (rare)
+                    if not tenant['website'] or not tenant['maps_url']:
+                        for link in card.select('a[href]'):
+                            href = link.get('href') or ''
+                            if not tenant['website'] and href.startswith('http'):
+                                netloc = urlparse(href).netloc
+                                if netloc and 'google.' not in netloc:
+                                    tenant['website'] = href
+                            maps_url = self._normalize_maps_url(href)
+                            if maps_url and not tenant['maps_url']:
+                                tenant['maps_url'] = maps_url
+                                tenant['maps_link'] = maps_url
+                            if tenant['website'] and tenant['maps_url']:
+                                break
+
+                    if not tenant['phone']:
+                        phone_link = card.select_one("a[href^='tel:']")
+                        if phone_link:
+                            tenant['phone'] = self._normalize_phone_number(phone_link.get('href', '')[4:])
 
                     seen_names.add(name_key)
                     tenants.append(tenant)
@@ -2549,6 +2675,203 @@ class TenantScraper:
         s = re.sub(r'\s*\+?\d[\d\s\-()]{6,}$', '', s).strip()
 
         return s
+
+    def _normalize_phone_number(self, raw_value: Optional[str]) -> Optional[str]:
+        """Return a cleaned phone number or None if no plausible digits were found."""
+        if not raw_value:
+            return None
+
+        value = raw_value.strip()
+
+        # If the value contains a tel: prefix, drop it.
+        if value.lower().startswith('tel:'):
+            value = value[4:]
+
+        # Keep digits, plus, parentheses, and spaces/hyphen; remove decorative characters.
+        cleaned = re.sub(r'[^\d\+\s\-\(\)]', '', value)
+        cleaned = re.sub(r'\s{2,}', ' ', cleaned).strip()
+
+        # Ensure at least 7 digits after stripping.
+        digits = re.sub(r'\D', '', cleaned)
+        if len(digits) < 7:
+            return None
+
+        return cleaned
+
+    def _normalize_maps_url(self, href: Optional[str]) -> Optional[str]:
+        """Return a cleaned Maps URL if one can be derived from the provided link."""
+        if not href:
+            return None
+
+        url = href.strip()
+        if not url:
+            return None
+
+        if url.startswith('/maps/'):
+            return f"https://www.google.com{url}"
+
+        if not url.startswith('http'):
+            return None
+
+        parsed = urlparse(url)
+        netloc = (parsed.netloc or '').lower()
+
+        if 'maps.google' in netloc or 'maps.app.goo.gl' in netloc:
+            return url
+
+        if 'google.' not in netloc:
+            return None
+
+        if '/maps/' in parsed.path:
+            return url
+
+        if 'viewer/chooseprovider' in parsed.path:
+            query = parse_qs(parsed.query or '')
+            mid_values = query.get('mid')
+            if mid_values:
+                mid_value = unquote(mid_values[0])
+                return f"https://www.google.com/viewer/chooseprovider?mid={mid_value}"
+            return url
+
+        return None
+
+    def _extract_popular_times_from_soup(self, soup) -> Optional[Dict[str, Any]]:
+        """Parse the popular times chart (if present) from a tenant pop-out."""
+        container = soup.select_one("div.C7xf8b")
+        if not container:
+            return None
+
+        sections = container.select("div.g2BVhd")
+        if not sections:
+            return None
+
+        active_section = next((section for section in sections if section.get("aria-hidden") != "true"), sections[0])
+
+        buckets = []
+        for bar in active_section.select("div.dpoVLd"):
+            label = bar.get("aria-label", "")
+            match = re.match(r"(\d+)% busy at (.+?)\.", label)
+            if not match:
+                continue
+            percent = int(match.group(1))
+            time_label = match.group(2)
+            buckets.append({"time": time_label, "percent": percent})
+
+        if not buckets:
+            return None
+
+        day_label = None
+        day_button = soup.select_one("div.GqEqxf button.e2moi span.uEubGf")
+        if day_button:
+            day_label = day_button.get_text(strip=True)
+
+        return {
+            "day": day_label,
+            "buckets": buckets,
+        }
+
+    def _parse_card_popout_html(self, html: Optional[str]) -> Dict[str, Any]:
+        """Parse detailed tenant data from the pop-out HTML."""
+        data: Dict[str, Any] = {
+            'name': None,
+            'category': None,
+            'address': None,
+            'status': None,
+            'rating': None,
+            'review_count': None,
+            'phone': None,
+            'website': None,
+            'maps_link': None,
+            'maps_url': None,
+            'located_in': None,
+            'plus_code': None,
+            'popular_times': None,
+        }
+
+        if not html:
+            return data
+
+        from bs4 import BeautifulSoup  # Local import to avoid global dependency at module import time
+
+        soup = BeautifulSoup(html, 'html.parser')
+
+        # Name, rating, review count
+        name_el = soup.select_one("h1, h2")
+        if name_el:
+            data['name'] = name_el.get_text(strip=True)
+
+        rating_el = soup.select_one("[role='img'][aria-label*='stars']")
+        if rating_el and rating_el.has_attr('aria-label'):
+            match = re.search(r'([0-9]+(?:\.[0-9]+)?)', rating_el['aria-label'])
+            if match:
+                try:
+                    data['rating'] = float(match.group(1))
+                except ValueError:
+                    pass
+
+        reviews_el = soup.select_one("span[aria-label*='reviews']")
+        if reviews_el and reviews_el.has_attr('aria-label'):
+            match = re.search(r'([0-9,]+)', reviews_el['aria-label'])
+            if match:
+                data['review_count'] = int(match.group(1).replace(',', ''))
+
+        # Collect info rows for address, status, located_in, plus code etc.
+        info_rows: List[str] = []
+        for info in soup.select('.Io6YTe'):
+            text = info.get_text(" ", strip=True)
+            if text:
+                info_rows.append(text)
+        if not info_rows:
+            info_rows = [
+                text.strip()
+                for text in soup.stripped_strings
+                if text and len(text.strip()) > 3
+            ]
+
+        for text in info_rows:
+            lowered = text.lower()
+
+            if (not data['address']
+                    and 'located in' not in lowered
+                    and lowered
+                    and any(fragment in lowered for fragment in (' street', ' road', ' st ', ' rd ', ' avenue', ' square', ' plaza', ' drive'))):
+                data['address'] = text
+
+            if not data['status'] and ('open' in lowered or 'closed' in lowered):
+                data['status'] = self._normalize_status_ui_text(text)
+
+            if not data['located_in'] and 'located in' in lowered:
+                data['located_in'] = text.split(':', 1)[-1].strip() if ':' in text else text
+
+            if not data['plus_code']:
+                plus_match = PLUS_CODE_PATTERN.search(text)
+                if plus_match:
+                    data['plus_code'] = plus_match.group(0)
+
+        # Anchors for website, phone, maps URL
+        for link in soup.select("a[href]"):
+            href = link.get('href') or ''
+
+            if not data['website'] and href.startswith('http'):
+                netloc = urlparse(href).netloc
+                if netloc and 'google.' not in netloc:
+                    data['website'] = href
+
+            if not data['maps_url']:
+                maps_url = self._normalize_maps_url(href)
+                if maps_url:
+                    data['maps_url'] = maps_url
+                    data['maps_link'] = maps_url
+
+        if not data['phone']:
+            phone_link = soup.select_one("a[href^='tel:']")
+            if phone_link:
+                data['phone'] = self._normalize_phone_number(phone_link.get('href', '')[4:])
+
+        # Popular times (without live status)
+        data['popular_times'] = self._extract_popular_times_from_soup(soup)
+
+        return data
 
     async def _extract_category_info(self) -> List[Dict[str, Any]]:
         """Extract category information using multiple selector strategies."""

@@ -76,7 +76,14 @@ from tenant_scraper import TenantScraper
 
 async def main():
     async with TenantScraper(headless=True) as scraper:
-        tenants = await scraper.scrape_tenants("https://maps.app.goo.gl/FsGevWWrjvab4tZ9A")
+        # Directory mode (default) - extracts all tenants from main directory
+        tenants = await scraper.scrape_tenants(
+            "https://maps.app.goo.gl/FsGevWWrjvab4tZ9A",
+            extraction_mode="directory"
+        )
+        
+        # Categories mode - extracts tenants by processing each category
+        # tenants = await scraper.scrape_tenants(url, extraction_mode="categories")
 
         for tenant in tenants:
             print(f"{tenant['name']} - {tenant['category']}")

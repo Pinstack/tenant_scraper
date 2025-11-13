@@ -71,6 +71,12 @@ def main():
         help="Output format (overrides file extension)"
     )
     parser.add_argument(
+        "--aggregate-file",
+        type=Path,
+        default=None,
+        help="When using --csv, optional path to write combined tenants (default inside output dir)",
+    )
+    parser.add_argument(
         "--headless",
         action="store_true",
         default=True,
@@ -116,10 +122,9 @@ def main():
 
     # Temporarily disable details path
     if args.details:
-        logging.getLogger(__name__).warning(
-            "--details requested but per-tenant card clicks are currently disabled; proceeding without details."
+        logging.getLogger(__name__).info(
+            "--details requested; enabling experimental per-tenant extraction (may increase runtime)."
         )
-        args.details = False
 
     # Validate input source
     if not args.urls and not args.csv:
@@ -175,7 +180,7 @@ def main():
                             with mall_logging_context(destination.stem):
                                 tenants = await scraper._scrape_tenants_from_directory(
                                     url,
-                                    fetch_details=False,  # details disabled
+                                    fetch_details=args.details,
                                 )
                         else:
                             tenants = await scraper._scrape_tenants_by_categories(url)
@@ -225,7 +230,7 @@ def main():
                             with mall_logging_context(mall_name):
                                 tenants = await scraper._scrape_tenants_from_directory(
                                     url,
-                                    fetch_details=False,
+                                    fetch_details=args.details,
                                 )
                         except Exception as exc:
                             print(f"  ✗ Failed: {exc}")
@@ -267,9 +272,3 @@ def main():
 
 if __name__ == "__main__":
     main()
-    parser.add_argument(
-        "--aggregate-file",
-        type=Path,
-        default=None,
-        help="When using --csv, optional path to write combined tenants (default inside output dir)",
-    )

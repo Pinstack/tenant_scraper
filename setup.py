@@ -17,7 +17,7 @@ with open('requirements.txt', 'r') as f:
 
 setup(
     name="tenant-scraper",
-    version="0.1.0",
+    version="0.2.0",
     author="Developer",
     description="Extract tenant information from Google Maps mall listings",
     long_description=long_description,
