@@ -198,6 +198,182 @@ Configurable resource blocking to improve performance while preserving functiona
   - Applied to all browser interactions via `_perform_with_retries()`
 - **Timeout Handling:** 30-second default timeouts for page operations
 - **Graceful Degradation:** Falls back to text extraction if DOM fails
+
+## Card Detail Extraction Pipeline
+
+> **Status:** ✅ **IMPLEMENTED** (Story 1.2 Complete)  
+> **Investigation Memo:** [docs/card-behaviour-investigation.md](./card-behaviour-investigation.md)  
+> **Story:** [docs/stories/1-2-card-detail-extraction.md](./stories/1-2-card-detail-extraction.md)
+
+### Overview
+
+The Card Detail Extraction Pipeline enriches basic tenant data (name, category, rating) with detailed information (phone, website, hours) by programmatically interacting with individual tenant cards in the Google Maps directory view using deterministic selectors and timing discovered in Story 1.1.
+
+**Quality Requirement:** Website extraction must achieve 90%+ success rate for businesses with websites listed on Google Maps. This is the most critical field and a key quality metric for the pipeline.
+
+### Architecture Components
+
+**Extraction Flow:**
+```
+scrape_tenants(fetch_details=True)
+    ↓
+_scrape_tenants_from_directory()  [Phase 1: Basic data]
+    ↓
+_extract_detailed_tenant_data()   [Phase 2: Detail enrichment]
+    ↓
+    For each tenant:
+        ├─ _find_tenant_card_locator()      [Find card by name]
+        ├─ _click_card_with_retry()         [Scroll + click + retry]
+        ├─ _wait_for_detail_pane()          [Wait for panel load]
+        ├─ _extract_detail_fields()         [Extract phone, website, etc.]
+        ├─ _navigate_back_to_directory()    [Return to directory view]
+        └─ _throttle_delay()                [Delay between cards]
+    ↓
+Return enriched tenants
+```
+
+### Selector Map
+
+**Directory View:**
+- Tenant cards: `button.hfpxzc` (updated from `a.hfpxzc` in Story 1.3 - Google Maps changed structure)
+- View all button: `button:has-text('View all')`
+
+**Detail Pane:**
+- Container: `div.m6QErb` or `div[role='main']`
+- Phone: `button[data-tooltip='Copy phone number']`
+- Website: `a[data-tooltip='Open website']` (primary selector, with fallbacks for different link structures)
+  - Handles Google redirect URLs (`/url?q=https://...`)
+  - Handles direct URLs (`https://...`)
+  - Fallback to aria-label extraction if href unavailable
+  - **Requirement:** 90%+ extraction rate for businesses with websites listed
+- Address: `button[data-tooltip='Copy address']`
+- Hours: `div[aria-label*='Hours']`
+- Category: `button[jsaction*='category']`
+
+### Timing Requirements
+
+| Action | Wait Time | Purpose |
+|--------|-----------|---------|
+| After card click | 2s | Detail pane rendering |
+| After back navigation | 1s | Directory restore |
+| Between cards | 2s | Throttling mitigation |
+| After scroll into view | 0.5s | Stability |
+
+### Network Observations
+
+**Protocol Buffers:**
+- Google Maps uses protobuf for data transmission
+- Captured 145+ protobuf payloads (175 bytes to 1.6MB)
+- Large payloads contain full directory data
+- Small payloads contain individual tenant details
+
+**Rate Limiting:**
+- No rate limiting observed with 2s inter-card delays
+- No HTTP 429 or 5xx errors detected
+- Realistic user simulation successful
+
+### Error Handling Strategy
+
+```python
+try:
+    await card.click(timeout=5000)
+    await page.wait_for_load_state("domcontentloaded")
+    await asyncio.sleep(2)
+except PlaywrightTimeoutError:
+    logger.warning(f"Timeout clicking card {index}")
+    continue  # Skip to next
+except Exception as e:
+    consecutive_failures += 1
+    if consecutive_failures >= 3:
+        raise  # Abort extraction
+```
+
+**Load State Best Practice:**
+- Use `domcontentloaded` instead of `networkidle`
+- `networkidle` can timeout due to continuous background requests
+- Add explicit delays after load state for rendering
+
+### Configuration
+
+**ScraperSettings Extensions:**
+```python
+enable_detail_extraction: bool = False        # Master toggle
+detail_per_card_delay: float = 2.0           # Inter-card delay (throttling)
+detail_scroll_settle_delay: float = 0.5      # Wait after scroll
+detail_after_click_delay: float = 2.0        # Wait after card click
+detail_after_back_delay: float = 1.0         # Wait after back navigation
+detail_extraction_timeout: float = 5.0       # Timeout for detail pane
+detail_max_failures: int = 3                 # Max consecutive failures before abort
+detail_max_cards: Optional[int] = None       # Optional card limit
+```
+
+**CLI Usage:**
+```bash
+# Enable detail extraction
+tenant-scraper URL --details
+
+# For large malls, consider limiting cards
+# (currently requires code modification of detail_max_cards setting)
+```
+
+### Implementation Status
+
+**✅ Completed (Story 1.2):**
+- Deterministic card iteration using `a.hfpxzc` selector
+- Click/scroll/wait timing based on investigation findings  
+- Detail field extraction using attribute-based selectors
+- Throttling and retry logic with configurable delays
+- Graceful failure handling with consecutive failure limits
+- CLI flag `--details` with updated help text
+
+**🔄 Future Enhancements:**
+- Protobuf parsing for direct data access (bypass UI)
+- Parallel processing with multiple browser contexts
+- Resume capability for large malls (100+ tenants)
+- Enhanced monitoring with timing metrics
+
+### Performance Characteristics
+
+**Time per Tenant:**
+- Scroll + settle: ~0.5s
+- Click + detail pane load: ~2s
+- Extraction: ~0.5s
+- Back navigation: ~1s
+- Throttle delay: ~2s
+- **Total: ~6s per tenant**
+
+**Example Runtimes:**
+- 10 tenants: ~1 minute
+- 50 tenants: ~5 minutes  
+- 100 tenants: ~10 minutes
+
+### Implementation Status (Previous)
+
+**Current State:**
+- `_extract_detailed_tenant_data()` exists but needs enhancement
+- Basic structure in place
+- Investigation complete with definitive findings
+
+**Recommended Next Steps (Story 1.2):**
+1. Implement new helper methods (see investigation memo)
+2. Update `_extract_detailed_tenant_data()` with new strategy
+3. Add configuration options to `ScraperSettings`
+4. Write comprehensive unit tests
+5. Test with real malls (small, medium, large)
+
+**Future Enhancements:**
+- Protobuf decoding (bypass UI, 10x speed improvement)
+- Parallel processing (multiple browser contexts)
+- Resume capability (save progress, resume on failure)
+
+### References
+
+- **Investigation Memo:** [docs/card-behaviour-investigation.md](./card-behaviour-investigation.md)
+- **Captured Data:** `outputs/st-james-quarter/card-investigation/` (145 protobuf files)
+- **Scripts:** `scripts/investigate_card_details.py`, `scripts/investigate_card_behaviour.py`
+
+---
+
 - **Logging:** Context-aware logging with mall identifiers via `MallContextFilter`
 - **Error Recovery:** Batch processing continues on individual failures
 
@@ -393,4 +569,3 @@ See [Development Guide](./development-guide.md) for setup, testing, and contribu
 - **PRD:** [Product Requirements Document](./PRD.md) - Functional and non-functional requirements
 - **Brownfield Documentation:** [Project Index](./index.md) - Comprehensive project documentation
 - **Source Tree:** [Source Tree Analysis](./source-tree-analysis.md) - Directory structure
-

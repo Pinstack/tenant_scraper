@@ -1,173 +1,279 @@
 #!/usr/bin/env python3
-"""
-Network traffic capture script for Google Maps places.
-Captures HTTP requests and responses for analysis of tenant scraping patterns.
-"""
+"""Unified Google Maps network/protobuf capture utility."""
 
-import os
+import argparse
+import asyncio
 import json
-import time
-import requests
-from urllib.parse import urlparse, parse_qs
 import logging
-from datetime import datetime
+import re
 import sys
+import time
+from dataclasses import dataclass
+from pathlib import Path
+from typing import Any, Dict, List, Optional
+from urllib.parse import urlparse
 
-# Set up logging
-logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
+import requests
+from playwright.async_api import async_playwright, Page
+
+
 logger = logging.getLogger(__name__)
 
-class NetworkTrafficCapture:
-    def __init__(self, output_dir):
-        self.output_dir = output_dir
-        self.session = requests.Session()
-        self.captured_requests = []
-        self.start_time = datetime.now()
 
-        # Create output directory if it doesn't exist
-        os.makedirs(output_dir, exist_ok=True)
+def slugify(value: str, fallback: str = "capture") -> str:
+    slug = re.sub(r"[^a-zA-Z0-9]+", "-", value).strip("-")
+    return slug or fallback
 
-    def capture_initial_request(self, url):
-        """Capture the initial HTTP request to Google Maps"""
-        logger.info(f"Capturing initial request to: {url}")
 
+@dataclass
+class CaptureConfig:
+    url: str
+    output_dir: Path
+    headless: bool = True
+    handle_consent: bool = True
+    detect_protobuf: bool = False
+    include_initial_request: bool = True
+    wait_after_load: float = 5.0
+
+
+def write_json(destination: Path, payload: Any) -> None:
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    with destination.open("w", encoding="utf-8") as handle:
+        json.dump(payload, handle, indent=2, ensure_ascii=False)
+
+
+def capture_initial_request(config: CaptureConfig) -> Optional[Dict[str, Any]]:
+    logger.info("Capturing initial HTTP request via requests session")
+    session = requests.Session()
+    try:
+        response = session.get(config.url, timeout=30)
+        response.raise_for_status()
+    except requests.RequestException as exc:  # pragma: no cover - network dependent
+        logger.warning("Initial request failed: %s", exc)
+        return None
+
+    html_snapshot = None
+    if "text/html" in response.headers.get("content-type", ""):
+        html_snapshot = config.output_dir / "initial_page.html"
+        html_snapshot.write_text(response.text, encoding="utf-8")
+        logger.info("Saved initial HTML to %s", html_snapshot)
+
+    record = {
+        "timestamp": time.time(),
+        "url": config.url,
+        "status_code": response.status_code,
+        "request_headers": dict(response.request.headers),
+        "response_headers": dict(response.headers),
+        "response_size": len(response.content),
+        "content_type": response.headers.get("content-type"),
+        "redirect_history": [
+            {"url": r.url, "status_code": r.status_code}
+            for r in response.history
+        ],
+    }
+
+    if html_snapshot:
+        record["html_file"] = html_snapshot.name
+
+    write_json(config.output_dir / "initial_request.json", record)
+    return record
+
+
+async def handle_consent(page: Page) -> None:
+    consent_selectors = [
+        "[aria-label*='Accept' i]",
+        "button:has-text('Accept')",
+        "button:has-text('Agree')",
+        "#introAgreeButton",
+    ]
+    for selector in consent_selectors:
         try:
-            response = self.session.get(url, timeout=30)
-            response.raise_for_status()
+            button = page.locator(selector).first
+            if await button.count() == 0:
+                continue
+            await button.click(timeout=3000)
+            await asyncio.sleep(1)
+            logger.info("Clicked consent element: %s", selector)
+            return
+        except Exception:  # pragma: no cover - UI dependent
+            continue
 
-            request_data = {
-                'timestamp': datetime.now().isoformat(),
-                'url': url,
-                'method': 'GET',
-                'request_headers': dict(response.request.headers),
-                'status_code': response.status_code,
-                'response_headers': dict(response.headers),
-                'response_size': len(response.content),
-                'content_type': response.headers.get('content-type', ''),
-                'redirect_history': [{'url': r.url, 'status_code': r.status_code} for r in response.history]
+
+def looks_like_protobuf(body: bytes, headers: Dict[str, str]) -> bool:
+    if not body or len(body) < 100:
+        return False
+    content_type = headers.get("content-type", "").lower()
+    if "protobuf" in content_type or "octet-stream" in content_type:
+        return True
+    text_preview = body[:512].decode("utf-8", errors="ignore")
+    return "!1m" in text_preview or "!2m" in text_preview
+
+
+async def capture_playwright(config: CaptureConfig) -> Dict[str, Any]:
+    network_requests: List[Dict[str, Any]] = []
+    protobuf_hits: List[Dict[str, Any]] = []
+
+    async with async_playwright() as playwright:
+        browser = await playwright.chromium.launch(headless=config.headless)
+        context = await browser.new_context()
+        page = await context.new_page()
+
+        async def on_request(request):
+            network_requests.append(
+                {
+                    "url": request.url,
+                    "method": request.method,
+                    "headers": dict(request.headers),
+                    "timestamp": time.time(),
+                }
+            )
+
+        async def on_response(response):
+            record = {
+                "url": response.url,
+                "status": response.status,
+                "headers": dict(response.headers),
+                "timestamp": time.time(),
             }
+            if config.detect_protobuf:
+                try:
+                    body = await response.body()
+                except Exception:
+                    body = b""
 
-            # Save HTML content if it's HTML
-            if 'text/html' in response.headers.get('content-type', ''):
-                html_file = os.path.join(self.output_dir, 'page.html')
-                with open(html_file, 'w', encoding='utf-8') as f:
-                    f.write(response.text)
-                logger.info(f"Saved HTML content to: {html_file}")
+                if looks_like_protobuf(body, response.headers):
+                    filename = config.output_dir / f"protobuf_{int(time.time()*1000)}.bin"
+                    filename.write_bytes(body)
+                    record["protobuf_file"] = filename.name
+                    record["size"] = len(body)
+                    protobuf_hits.append(record)
+            return
 
-            # Save request metadata
-            self.captured_requests.append(request_data)
+        page.on("request", on_request)
+        page.on("response", on_response)
 
-            return response
+        logger.info("Navigating to %s", config.url)
+        await page.goto(config.url, wait_until="domcontentloaded")
 
-        except requests.RequestException as e:
-            logger.error(f"Failed to capture initial request: {e}")
-            return None
+        if config.handle_consent:
+            await handle_consent(page)
 
-    def extract_google_maps_data(self, html_content):
-        """Extract relevant Google Maps data from HTML content"""
-        data = {}
+        await page.wait_for_load_state("networkidle")
+        if config.wait_after_load:
+            await asyncio.sleep(config.wait_after_load)
 
-        # Look for Google Maps specific data patterns
-        if 'Ocean Terminal' in html_content:
-            data['location_name'] = 'Ocean Terminal'
+        await browser.close()
 
-        # Extract coordinates from URL parameters
-        parsed_url = urlparse(self.captured_requests[0]['url'] if self.captured_requests else '')
-        if parsed_url.path.startswith('/maps/place/'):
-            path_parts = parsed_url.path.split('/')
-            if len(path_parts) > 3:
-                data['place_name'] = path_parts[3].replace('+', ' ')
+    write_json(config.output_dir / "network_requests.json", network_requests)
+    if protobuf_hits:
+        write_json(config.output_dir / "protobuf_hits.json", protobuf_hits)
 
-        # Look for data attributes or JSON blobs in the HTML
-        import re
+    return {
+        "request_count": len(network_requests),
+        "protobuf_count": len(protobuf_hits),
+    }
 
-        # Look for JSON data in script tags
-        json_pattern = r'<script[^>]*>(.*?)</script>'
-        scripts = re.findall(json_pattern, html_content, re.DOTALL)
 
-        potential_data = []
-        for script in scripts:
-            if 'place' in script.lower() or 'ocean' in script.lower():
-                potential_data.append(script[:500])  # First 500 chars for analysis
+async def run_capture(config: CaptureConfig) -> None:
+    config.output_dir.mkdir(parents=True, exist_ok=True)
 
-        if potential_data:
-            data['potential_data_scripts'] = potential_data
+    summary: Dict[str, Any] = {"url": config.url}
 
-        return data
+    if config.include_initial_request:
+        summary["initial_request"] = capture_initial_request(config)
 
-    def save_metadata(self):
-        """Save all captured request metadata"""
-        metadata_file = os.path.join(self.output_dir, 'network_metadata.json')
+    playwright_summary = await capture_playwright(config)
+    summary.update(playwright_summary)
 
-        metadata = {
-            'capture_session': {
-                'start_time': self.start_time.isoformat(),
-                'end_time': datetime.now().isoformat(),
-                'total_requests': len(self.captured_requests)
-            },
-            'requests': self.captured_requests
-        }
+    write_json(config.output_dir / "capture_summary.json", summary)
+    logger.info(
+        "Captured %d requests%s",
+        playwright_summary["request_count"],
+        f"; protobuf hits: {playwright_summary['protobuf_count']}" if config.detect_protobuf else "",
+    )
 
-        with open(metadata_file, 'w', encoding='utf-8') as f:
-            json.dump(metadata, f, indent=2, ensure_ascii=False)
 
-        logger.info(f"Saved network metadata to: {metadata_file}")
+def default_output_dir(url: str) -> Path:
+    parsed = urlparse(url)
+    slug = slugify(parsed.path or parsed.netloc or "capture")
+    return Path("outputs") / slug / "network-traffic"
 
-    def save_headers(self):
-        """Save HTTP headers separately for analysis"""
-        headers_file = os.path.join(self.output_dir, 'response_headers.txt')
 
-        with open(headers_file, 'w', encoding='utf-8') as f:
-            for i, req in enumerate(self.captured_requests):
-                f.write(f"=== Request {i+1} ===\n")
-                f.write(f"URL: {req['url']}\n")
-                f.write(f"Status: {req['status_code']}\n")
-                f.write("Request Headers:\n")
-                for key, value in req['request_headers'].items():
-                    f.write(f"  {key}: {value}\n")
-                f.write("Response Headers:\n")
-                for key, value in req['response_headers'].items():
-                    f.write(f"  {key}: {value}\n")
-                f.write("\n")
+def build_parser() -> argparse.ArgumentParser:
+    parser = argparse.ArgumentParser(description="Capture Google Maps network/protobuf traffic")
+    parser.add_argument("url", help="Google Maps URL to inspect")
+    parser.add_argument(
+        "--output-dir",
+        type=Path,
+        help="Directory to store capture artifacts (default: derived from URL)",
+    )
+    parser.add_argument(
+        "--headless",
+        action="store_true",
+        default=True,
+        help="Run browser in headless mode (default)",
+    )
+    parser.add_argument(
+        "--no-headless",
+        action="store_false",
+        dest="headless",
+        help="Disable headless mode",
+    )
+    parser.add_argument(
+        "--skip-consent",
+        action="store_true",
+        help="Do not attempt to click consent banners",
+    )
+    parser.add_argument(
+        "--detect-protobuf",
+        action="store_true",
+        help="Persist protobuf-like responses to disk",
+    )
+    parser.add_argument(
+        "--no-initial-request",
+        action="store_true",
+        help="Skip the initial requests-based capture",
+    )
+    parser.add_argument(
+        "--wait",
+        type=float,
+        default=5.0,
+        help="Seconds to wait after network idle before finishing (default: 5)",
+    )
+    parser.add_argument(
+        "-v", "--verbose",
+        action="store_true",
+        help="Enable verbose logging",
+    )
+    return parser
 
-        logger.info(f"Saved headers to: {headers_file}")
 
-def main():
-    if len(sys.argv) != 2:
-        print("Usage: python capture_network_traffic.py <url>")
+def main() -> None:
+    parser = build_parser()
+    args = parser.parse_args()
+
+    logging.basicConfig(
+        level=logging.DEBUG if args.verbose else logging.INFO,
+        format="%(asctime)s - %(levelname)s - %(message)s",
+    )
+
+    output_dir = args.output_dir or default_output_dir(args.url)
+    config = CaptureConfig(
+        url=args.url,
+        output_dir=output_dir,
+        headless=args.headless,
+        handle_consent=not args.skip_consent,
+        detect_protobuf=args.detect_protobuf,
+        include_initial_request=not args.no_initial_request,
+        wait_after_load=args.wait,
+    )
+
+    try:
+        asyncio.run(run_capture(config))
+    except KeyboardInterrupt:
+        print("Capture interrupted", file=sys.stderr)
         sys.exit(1)
 
-    url = sys.argv[1]
-
-    # Create output directory based on URL
-    parsed = urlparse(url)
-    place_name = parsed.path.split('/')[3] if len(parsed.path.split('/')) > 3 else 'unknown_place'
-    output_dir = f"outputs/{place_name.replace('+', '-').lower()}/network-traffic"
-
-    print(f"Capturing network traffic for: {url}")
-    print(f"Output directory: {output_dir}")
-
-    # Initialize capture
-    capture = NetworkTrafficCapture(output_dir)
-
-    # Capture initial request
-    response = capture.capture_initial_request(url)
-
-    if response:
-        # Extract Google Maps specific data
-        maps_data = capture.extract_google_maps_data(response.text)
-
-        # Save extracted data
-        data_file = os.path.join(output_dir, 'extracted_data.json')
-        with open(data_file, 'w', encoding='utf-8') as f:
-            json.dump(maps_data, f, indent=2, ensure_ascii=False)
-        logger.info(f"Saved extracted data to: {data_file}")
-
-    # Save all metadata
-    capture.save_metadata()
-    capture.save_headers()
-
-    print(f"Network traffic capture completed. Files saved in: {output_dir}")
 
 if __name__ == "__main__":
     main()

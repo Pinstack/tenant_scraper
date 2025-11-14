@@ -1,0 +1,95 @@
+<story-context id="tenant-scraper-story-1-2" v="1.0">
+  <metadata>
+    <epicId>1</epicId>
+    <storyId>1.2</storyId>
+    <title>Build Deterministic Card Detail Extraction Pipeline</title>
+    <status>drafted</status>
+    <generatedAt>2025-11-13</generatedAt>
+    <generator>BMAD Story Context (manual execution)</generator>
+    <sourceStoryPath>docs/stories/1-2-card-detail-extraction.md</sourceStoryPath>
+  </metadata>
+
+  <story>
+    <asA>tenant-scraper developer</asA>
+    <iWant>the CLI/API to click each tenant card and capture detailed fields deterministically</iWant>
+    <soThat>`--details` mode returns enriched tenant data backed by the new investigation findings</soThat>
+    <tasks><![CDATA[
+- Wire detail pipeline
+  - Implement card iteration using `a.hfpxzc` locator and new timing helper
+  - Ensure navigation back to directory view and state recovery
+- Extract DOM fields
+  - Map selectors from investigation memo to scraper helpers
+  - Normalise phone, website, status via existing utility functions
+- Parse protobuf payloads (optional enrichment)
+  - Create parser leveraging captured `.bin` samples (document assumptions)
+  - Merge protobuf data into tenant dict when present
+- Throttling & configuration
+  - Add settings knobs for inter-card delay, retry counts, and max cards
+  - Update CLI flag help text to describe runtime impact
+- Tests & docs
+  - Add unit/integration tests consuming stored fixtures
+  - Update README + architecture section with detail-pipeline behaviour
+    ]]></tasks>
+  </story>
+
+  <acceptanceCriteria><![CDATA[
+1. `scrape_tenants(..., fetch_details=True)` iterates cards with documented timing (0.5 s settle, 2 s post-click, 2 s between cards).
+2. Each tenant yields enriched fields (name, category, rating, phone, website, hours, status, maps link) via selectors from the investigation memo, with graceful fallbacks.
+3. Protobuf payloads from `outputs/st-james-quarter/card-investigation/` are parsed when present to enrich canonical contact data.
+4. Throttling mitigations exist (configurable delays, retries, card cap) and are documented.
+5. Regression coverage (fixtures/tests) and README/architecture updates describe the detail extraction workflow.
+  ]]></acceptanceCriteria>
+
+  <artifacts>
+    <docs>
+      <doc title="Card Behaviour Investigation" path="docs/card-behaviour-investigation.md" section="DOM Structure & Selectors" snippet="Tenant cards use selector `a.hfpxzc`; detail panes expose phone, website, hours via attribute-based selectors, and interaction timing requires ~2 s after each click." />
+      <doc title="Architecture – Pending Card Detail Extraction Pipeline" path="docs/architecture.md" section="Card Detail Extraction Pipeline" snippet="This placeholder enumerates the upcoming component responsibilities: deterministic scroll/click sequencing, selector map, protobuf parsing, throttling safeguards." />
+      <doc title="PRD – Growth Features" path="docs/PRD.md" section="Growth Features (Post-MVP)" snippet="Detail extraction features are explicitly blocked until Epic 1 delivers selector/timing notes; story 1.2 fulfils that dependency." />
+      <doc title="Story 1.1 Completion Notes" path="docs/stories/1-1-card-behaviour-discovery.md" section="Completion Notes" snippet="Provides delivery status, file inventory (protobuf captures, investigation scripts) and confirmed timing heuristics for card automation." />
+      <doc title="Sprint Change Proposal" path="docs/sprint-change-proposal-2025-11-13.md" section="Recommended Approach" snippet="Confirms we chose Direct Adjustment: build discovery epic then wire the detail pipeline using the captured selectors/protobuf payloads." />
+    </docs>
+    <code>
+      <file path="src/tenant_scraper/scraper.py" kind="scraper" symbol="TenantScraper._extract_detailed_tenant_data" lines="1118-1400" reason="Existing scaffold for card-click detail extraction; implement using new selectors, waits, and protobuf enrichment." />
+      <file path="src/tenant_scraper/scraper.py" kind="scraper" symbol="TenantScraper._find_tenant_buttons" lines="1222-1320" reason="Currently attempts to find tenant buttons; needs refactor to rely on `a.hfpxzc` and deterministic iteration." />
+      <file path="src/tenant_scraper/cli.py" kind="cli" symbol="--details flag" lines="53-110" reason="Flag wiring for detail scraping; update help text and ensure it surfaces new configuration knobs (delays, card limits)." />
+      <file path="scripts/capture_network_traffic.py" kind="script" symbol="CaptureConfig" lines="1-210" reason="Provides protobuf detection + HAR capture; reuse for fixture generation and debugging detail requests." />
+      <file path="scripts/investigate_card_behaviour.py" kind="script" symbol="main" lines="1-200" reason="Lightweight DOM instrumentation script from Story 1.1; reuse when selectors shift." />
+      <file path="scripts/investigate_card_details.py" kind="script" symbol="main" lines="1-220" reason="Advanced detail-capture tool to prototype scroll/click logic before integrating into scraper." />
+      <file path="tests/test_scraper.py" kind="test" symbol="TenantScraper helper tests" lines="1-120" reason="Add coverage for new throttling settings and protobuf parsing to existing scraper tests." />
+      <file path="tests/test_parser_snapshot.py" kind="test" symbol="snapshot parser" lines="1-60" reason="Extend with fixtures representing detail panes / protobuf outputs to prevent regressions." />
+    </code>
+    <dependencies>
+      <python>
+        <package name="playwright" version=">=1.40.0" reason="Browser automation used for card interaction and waits." />
+        <package name="pandas" version=">=2.0.0" reason="Batch CSV handling; ensure detail outputs remain compatible." />
+        <package name="requests" version=">=2.31.0" reason="Used by capture scripts and protobuf downloads." />
+        <package name="beautifulsoup4" version=">=4.12.0" reason="Fallback HTML parsing when DOM extraction is needed outside Playwright context." />
+        <package name="aiohttp" version=">=3.8.0" reason="Async HTTP utilities leveraged by future enrichment flows." />
+      </python>
+    </dependencies>
+  </artifacts>
+
+  <constraints><![CDATA[
+- Follow investigation guidance: attribute-based selectors (`data-tooltip`, `aria-label`, `jsaction`) are more stable than class names.
+- Load states must use `domcontentloaded` plus explicit sleeps; `networkidle` is unreliable on Google Maps.
+- Maintain 2 s inter-card delay and configurable retries to avoid throttling.
+- Keep `_extract_detailed_tenant_data` modular; avoid further bloat in `scraper.py` by delegating to helper functions if necessary.
+- Preserve baseline directory extraction performance; detail mode must be opt-in via `--details`.
+  ]]></constraints>
+  <interfaces>
+    <interface name="TenantScraper.scrape_tenants" kind="python-method" signature="async scrape_tenants(maps_url: str, extraction_mode='directory', *, fetch_details=False)" path="src/tenant_scraper/scraper.py" />
+    <interface name="CLI --details flag" kind="cli-flag" signature="tenant-scraper ... --details" path="src/tenant_scraper/cli.py" />
+    <interface name="CaptureConfig" kind="dataclass" signature="CaptureConfig(url, output_dir, headless=True, ...)" path="scripts/capture_network_traffic.py" />
+  </interfaces>
+  <tests>
+    <standards><![CDATA[Use pytest with asynchronous helpers; prefer fixture-driven tests that operate on stored HTML/protobuf data rather than live Google Maps requests. Follow existing patterns in tests/test_scraper.py for exercising private helpers.]]></standards>
+    <locations><![CDATA[tests/test_scraper.py; tests/test_parser_snapshot.py; add new fixtures under tests/fixtures/card_details/]]></locations>
+    <ideas><![CDATA[
+- AC1: Fixture-based test ensures `scrape_tenants(..., fetch_details=True)` waits the documented intervals before gathering fields.
+- AC2: Unit test verifies DOM extraction functions pull phone/website/hours from stored HTML snippet referencing selectors in memo.
+- AC3: Parser test loads sample protobuf `.bin` file and asserts canonical phone/website merge into tenant dict.
+- AC4: Configuration test checks adjustable inter-card delay and card cap behave as expected.
+- AC5: CLI integration test confirms `--details` flag writes enriched JSON/CSV without affecting baseline output shape.
+    ]]></ideas>
+  </tests>
+</story-context>

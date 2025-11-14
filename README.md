@@ -10,15 +10,20 @@ A tool to automatically extract tenant/brand information from shopping mall list
 
 - ✅ Automatically handles Google Maps consent pages
 - ✅ Manipulates URLs to access directory view
-- ✅ Scrolls through directory to reveal all individual tenants (**infinite scroll enhancement needed for large malls**)
+- ✅ Scrolls through directory to reveal all individual tenants
 - ✅ Extracts comprehensive tenant information:
   - Name and category
   - Rating and status
   - Floor/unit location
   - Phone number and individual map links
+  - ✅ **NEW: Detail extraction pipeline** - Click each card to extract phone, website, hours, address
+  - Uses deterministic selectors from investigation (Story 1.2)
+  - Configurable throttling and failure handling
+  - **Quality Requirement:** Website extraction must achieve 90%+ success rate (see `docs/WEBSITE_EXTRACTION_REQUIREMENT.md`)
+  - ~6 seconds per tenant (recommended for <50 tenants)
 - ✅ Outputs structured data (JSON/CSV)
 - ✅ Extracts mall business categories and tenant counts
-- ✅ **NEW: FSQ-OS-Places enrichment** - Enrich scraped data with Foursquare's global POI database (100M+ venues)
+- ✅ **FSQ-OS-Places enrichment** - Enrich scraped data with Foursquare's global POI database (100M+ venues)
 
 ## Installation
 
@@ -70,6 +75,8 @@ Processes all malls listed in a CSV file with Google Maps URLs. Creates individu
 
 ### Python API
 
+#### Using Context Manager (Recommended for Multiple Scrapes)
+
 ```python
 import asyncio
 from tenant_scraper import TenantScraper
@@ -82,11 +89,38 @@ async def main():
             extraction_mode="directory"
         )
         
+        # With detail extraction (phone, website, hours)
+        # tenants = await scraper.scrape_tenants(url, fetch_details=True)
+        
         # Categories mode - extracts tenants by processing each category
         # tenants = await scraper.scrape_tenants(url, extraction_mode="categories")
 
         for tenant in tenants:
             print(f"{tenant['name']} - {tenant['category']}")
+            if tenant.get('phone'):
+                print(f"  Phone: {tenant['phone']}")
+
+asyncio.run(main())
+```
+
+#### One-Off Scraping with `scrape_once()`
+
+For single URL scraping, use the convenient `scrape_once()` helper that manages the session lifecycle automatically:
+
+```python
+import asyncio
+from tenant_scraper import TenantScraper
+
+async def main():
+    # Automatically handles session setup and teardown
+    tenants = await TenantScraper.scrape_once(
+        "https://maps.app.goo.gl/FsGevWWrjvab4tZ9A",
+        extraction_mode="directory",
+        headless=True
+    )
+    
+    for tenant in tenants:
+        print(f"{tenant['name']} - {tenant['category']}")
 
 asyncio.run(main())
 ```
@@ -101,10 +135,23 @@ asyncio.run(main())
 - `--headless`: Run in headless mode (default: True)
 - `--no-headless`: Run with visible browser window
 - `--mode`: Extraction mode ('directory' or 'categories', default: 'directory')
-- `--details`: Temporarily disabled (card-click detail extraction deferred)
+- `--details`: **NEW!** Enable per-tenant detail extraction (phone, website, hours, address)
+  - Clicks each card and extracts additional fields
+  - Adds ~2-4 seconds per tenant
+  - Recommended for malls with <50 tenants
 - `--no-block-resources`: Disable resource blocking for debugging
 - `--aggressive-block`: Block additional map-related resources for faster scraping
 - `-v, --verbose`: Enable verbose logging
+
+### Detail Extraction Example
+
+```bash
+# Small mall - extract all details
+tenant-scraper "https://maps.app.goo.gl/..." --details -o output.json
+
+# Watch the browser in action
+tenant-scraper "https://maps.app.goo.gl/..." --details --no-headless -v
+```
 
 ### Error Handling
 

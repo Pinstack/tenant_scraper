@@ -1,0 +1,36 @@
+project: tenant_scraper
+updated: 2025-11-13
+
+status_definitions:
+  backlog: "Story is defined but work has not started"
+  drafted: "Story doc exists"
+  ready: "Context assembled and ready for dev"
+  in-progress: "Work actively happening"
+  review: "Awaiting review/test"
+  done: "Complete"
+  blocked: "Cannot progress due to dependencies"
+
+epics:
+  epic-1:
+    title: Google Maps Card Behaviour Discovery
+    status: done
+    stories:
+      - 1-1-card-behaviour-discovery
+      - 1-2-card-detail-extraction
+      - 1-3-fix-directory-navigation
+
+development_status:
+  1-1-card-behaviour-discovery: done
+  1-2-card-detail-extraction: done
+  1-3-fix-directory-navigation: in-progress
+  
+blockers:
+  - story: 1-2-card-detail-extraction
+    status: resolved
+    issue: "Directory navigation broken - base scraper cannot access tenant cards"
+    details: "Pre-existing bug discovered during Story 1.2 testing. Zero tenant cards found with a.hfpxzc selector."
+    impact: "Cannot test or use detail extraction pipeline end-to-end"
+    resolution: "Story 1.3 fixed by updating selector from a.hfpxzc to button.hfpxzc (Google Maps structure change)"
+    reference: "docs/KNOWN_ISSUES.md"
+    discovered: 2025-11-13
+    resolved: 2025-11-13

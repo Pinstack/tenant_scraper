@@ -26,10 +26,17 @@
 - [Development Guide](./development-guide.md) - Setup, testing, and development workflow
 - [Implementation Readiness Report](./implementation-readiness-report-2025-11-13.md) - Validation of PRD and Architecture alignment
 
+## Status & Issues
+
+- 🔴 **[Known Issues](./KNOWN_ISSUES.md)** - Critical bugs, blockers, and limitations
+- [Sprint Status](./sprint-status.yaml) - Current sprint status and story progress
+- [Epics](./epics.md) - Epic and story tracking
+
 ## Existing Documentation
 
 - [README.md](../README.md) - User-facing documentation and usage guide
 - [FSQ Integration Guide](./FSQ_INTEGRATION.md) - Foursquare OS Places integration
+- [Card Behaviour Investigation](./card-behaviour-investigation.md) - Story 1.1 investigation findings
 
 ## Project Structure
 

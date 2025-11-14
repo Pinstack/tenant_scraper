@@ -43,6 +43,7 @@ The "magic moment" occurs when users can extract complete tenant directories fro
 **User Value:**
 - **Time Savings:** Reduce manual data collection from hours to seconds per mall
 - **Data Completeness:** Extract 90%+ of available tenant data from mall directories
+- **Website Extraction:** Achieve 90%+ website extraction rate for businesses with websites listed on Google Maps (critical quality requirement)
 - **Reliability:** Successfully process 95%+ of valid Google Maps mall URLs
 - **Accuracy:** Maintain 98%+ data accuracy (correct tenant names, categories, locations)
 
@@ -101,6 +102,8 @@ The "magic moment" occurs when users can extract complete tenant directories fro
 
 ### Growth Features (Post-MVP)
 
+> **Dependency Note (Epic 1 – Google Maps Card Behaviour Discovery):** Detailed tenant extraction stories are blocked until the discovery memo documents card selectors, event flow, and network payload structure. All growth features referencing card clicks or per-tenant data must reference the outputs of this investigation once available.
+
 **Enhanced Extraction:**
 
 1. **Improved Infinite Scroll**
@@ -110,7 +113,7 @@ The "magic moment" occurs when users can extract complete tenant directories fro
 
 2. **Additional Data Fields**
    - Business hours
-   - Website URLs
+   - Website URLs (**90%+ extraction rate required** - most important field)
    - Social media links
    - Price range indicators
    - Photos/imagery URLs
@@ -503,4 +506,3 @@ Requirements must be decomposed into epics and bite-sized stories for implementa
 _This PRD captures the essence of Tenant Scraper - transforming manual data collection into automated extraction with intelligent browser automation._
 
 _Created through comprehensive analysis of existing brownfield codebase and documentation._
-

@@ -20,8 +20,7 @@ tenant_scraper/
 ├── scripts/                      # Utility scripts
 │   ├── scrape_mecsr_csv.py      # MECSR CSV batch processing
 │   ├── enrich_tenants_with_fsq.py # FSQ-OS-Places enrichment
-│   ├── capture_network_traffic.py # Network traffic capture
-│   ├── capture_comprehensive_maps.py # Maps data capture
+│   ├── capture_network_traffic.py # Unified network/protobuf capture
 │   └── [other utility scripts]
 │
 ├── docs/                         # Documentation
@@ -160,4 +159,3 @@ This structure is appropriate for a CLI tool with focused functionality.
 
 ### Utilities
 - `scripts/` - Various utility scripts for data processing
-

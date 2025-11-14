@@ -19,6 +19,28 @@ _mall_context: contextvars.ContextVar[str] = contextvars.ContextVar("tenant_scra
 PLUS_CODE_PATTERN = re.compile(r'\b[A-Z0-9]{4}\+[A-Z0-9]{2,3}\b')
 PHONE_PATTERN = re.compile(r'\+?[\d\s\-\(\)]{7,}')
 
+# Selectors from Story 1.2 investigation (docs/card-behaviour-investigation.md)
+# Updated in Story 1.3: Google Maps changed from <a> to <button> elements for tenant cards
+DIRECTORY_SELECTORS = {
+    "view_all_button": "button:has-text('View all')",
+    "tenant_card": "button.hfpxzc",  # Primary selector for tenant cards in directory view (updated from a.hfpxzc)
+    "tenant_card_legacy": "a.hfpxzc",  # Fallback for older Google Maps versions
+    "tenant_name": "div.fontHeadlineSmall",
+    "tenant_rating": "span[role='img'][aria-label*='stars']",
+}
+
+DETAIL_PANE_SELECTORS = {
+    "pane_container": "div.m6QErb",
+    "name": "h1",
+    "category": "button[jsaction*='category']",
+    "phone": "button[data-tooltip='Copy phone number']",
+    "website": "a[aria-label='Open website']",  # FIXED: was data-tooltip, should be aria-label!
+    "website_button": "button[data-tooltip*='website' i]",  # Some sites use button instead of link
+    "address": "button[data-tooltip='Copy address']",
+    "hours": "div[aria-label*='Hours']",
+    "rating": "div[jsaction*='rating'] span[role='img']",
+}
+
 
 class MallContextFilter(logging.Filter):
     """Inject mall identifier into log messages when available."""
@@ -186,6 +208,16 @@ class ScraperSettings:
     )
     action_retries: int = 2
     action_retry_backoff: float = 0.5
+    
+    # Detail extraction settings (from Story 1.2)
+    enable_detail_extraction: bool = False
+    detail_per_card_delay: float = 2.0  # Inter-card delay in seconds
+    detail_scroll_settle_delay: float = 0.5  # Wait after scroll before interaction
+    detail_after_click_delay: float = 2.0  # Wait after clicking card for detail pane to load
+    detail_after_back_delay: float = 1.0  # Wait after navigating back to directory
+    detail_extraction_timeout: float = 5.0  # Timeout for waiting for detail pane
+    detail_max_failures: int = 3  # Max consecutive failures before aborting
+    detail_max_cards: Optional[int] = None  # Optional limit on number of cards to process
 
 
 class TenantScraper:
@@ -214,12 +246,48 @@ class TenantScraper:
 
     async def __aenter__(self):
         """Async context manager entry."""
-        await self._setup_browser()
+        await self.start()
         return self
 
     async def __aexit__(self, exc_type, exc_val, exc_tb):
         """Async context manager exit."""
+        await self.close()
+
+    async def start(self) -> None:
+        """Explicitly start the browser session (normally handled by context manager)."""
+        if self.page is not None:
+            return
+        await self._setup_browser()
+
+    async def close(self) -> None:
+        """Explicitly close Playwright resources."""
         await self._cleanup()
+
+    def _ensure_session_ready(self) -> None:
+        """Ensure Playwright context/page objects exist before scraping."""
+        if self.page is None:
+            raise RuntimeError(
+                "TenantScraper has not been started. Use 'async with TenantScraper(...) as scraper' "
+                "or call 'await scraper.start()' before invoking scrape_tenants()."
+            )
+
+    @classmethod
+    async def scrape_once(
+        cls,
+        maps_url: str,
+        *,
+        extraction_mode: str = "directory",
+        fetch_details: bool = False,
+        **scraper_kwargs,
+    ) -> List[Dict[str, Any]]:
+        """Convenience helper to scrape a single URL without manually managing a session."""
+
+        async with cls(**scraper_kwargs) as scraper:
+            return await scraper.scrape_tenants(
+                maps_url,
+                extraction_mode=extraction_mode,
+                fetch_details=fetch_details,
+            )
 
     async def _setup_browser(self) -> None:
         """Set up Playwright browser with appropriate options."""
@@ -303,12 +371,16 @@ class TenantScraper:
         """Clean up browser resources."""
         if self.page:
             await self.page.close()
+            self.page = None
         if self.context:
             await self.context.close()
+            self.context = None
         if self.browser:
             await self.browser.close()
+            self.browser = None
         if self.playwright:
             await self.playwright.stop()
+            self.playwright = None
 
     async def _handle_consent_page(self) -> bool:
         """Handle Google consent page if encountered.
@@ -445,21 +517,22 @@ class TenantScraper:
         Returns:
             List of tenant dictionaries with extracted information
         """
-        async with self:  # This will setup and cleanup the browser
-            try:
-                logger.info(f"=== STARTING SCRAPE FOR URL: {maps_url} (mode: {extraction_mode}) ===")
 
-                if extraction_mode == "categories":
-                    return await self._scrape_tenants_by_categories(maps_url)
-                else:
-                    return await self._scrape_tenants_from_directory(
-                        maps_url,
-                        fetch_details=fetch_details,
-                    )
+        self._ensure_session_ready()
 
-            except Exception as e:
-                logger.error(f"Error during scraping: {e}")
-                raise
+        try:
+            logger.info(f"=== STARTING SCRAPE FOR URL: {maps_url} (mode: {extraction_mode}) ===")
+
+            if extraction_mode == "categories":
+                return await self._scrape_tenants_by_categories(maps_url)
+            return await self._scrape_tenants_from_directory(
+                maps_url,
+                fetch_details=fetch_details,
+            )
+
+        except Exception as e:
+            logger.error(f"Error during scraping: {e}")
+            raise
 
     async def _scrape_tenants_from_directory(
         self,
@@ -552,6 +625,31 @@ class TenantScraper:
             logger.info("✅ Directory view successfully loaded with individual tenants visible")
         else:
             logger.warning("Directory view loaded but individual tenants not visible yet")
+
+        # Story 1.3: Validate that tenant cards are accessible before proceeding
+        logger.info("Validating tenant card accessibility...")
+        card_count_primary = await self.page.locator(DIRECTORY_SELECTORS["tenant_card"]).count()
+        card_count_legacy = await self.page.locator(DIRECTORY_SELECTORS["tenant_card_legacy"]).count()
+        
+        if card_count_primary > 0:
+            logger.info(f"✅ Found {card_count_primary} tenant cards with primary selector ({DIRECTORY_SELECTORS['tenant_card']})")
+        elif card_count_legacy > 0:
+            logger.info(f"✅ Found {card_count_legacy} tenant cards with legacy selector ({DIRECTORY_SELECTORS['tenant_card_legacy']})")
+            logger.warning("Note: Using legacy selector - Google Maps may have reverted structure")
+        else:
+            logger.error("❌ ZERO tenant cards found with either selector!")
+            logger.error(f"  - Primary selector ({DIRECTORY_SELECTORS['tenant_card']}): {card_count_primary} cards")
+            logger.error(f"  - Legacy selector ({DIRECTORY_SELECTORS['tenant_card_legacy']}): {card_count_legacy} cards")
+            logger.error("  Possible causes:")
+            logger.error("    1. Google Maps changed their card structure again")
+            logger.error("    2. Directory view did not load properly")
+            logger.error("    3. 'View all' button did not expand the directory")
+            logger.error(f"  Current URL: {self.page.url}")
+            logger.error("  Suggested remediation:")
+            logger.error("    1. Check if URL contains '!10e3' parameter (directory view indicator)")
+            logger.error("    2. Try manually inspecting the page at the current URL")
+            logger.error("    3. Update DIRECTORY_SELECTORS if Google Maps structure changed")
+            # Don't fail immediately - continue and let the HTML extraction handle the empty result
 
         # Step 3: Extract the tenant table element directly from DOM
         logger.info("Step 3: Extracting tenant table element from DOM...")
@@ -1116,108 +1214,588 @@ class TenantScraper:
             return 0
 
     async def _extract_detailed_tenant_data(self, basic_tenants: List[Dict[str, Any]]) -> List[Dict[str, Any]]:
-        """Extract detailed information from individual tenant cards by clicking on each one.
-
+        """Extract detailed information by clicking each tenant card using deterministic selectors.
+        
+        This implementation follows Story 1.2 design based on investigation findings:
+        - Uses button.hfpxzc selector for tenant cards (updated in Story 1.3, fallback to a.hfpxzc)
+        - Implements documented timing (0.5s settle, 2s post-click, 2s between cards)
+        - Extracts details using attribute-based selectors from detail pane
+        - Respects throttling and failure limits
+        
         Args:
             basic_tenants: List of tenants with basic information from directory view
 
         Returns:
             List of tenants with detailed information including phone, website, hours
         """
-        logger.info(f"Starting detailed extraction for {len(basic_tenants)} tenants...")
-
+        logger.info(f"Starting deterministic detail extraction for {len(basic_tenants)} tenants...")
+        
         detailed_lookup: Dict[str, Dict[str, Any]] = {}
-
-        # Find all tenant buttons/cards in the directory
-        tenant_buttons = await self._find_tenant_buttons()
-        logger.info(f"Found {len(tenant_buttons)} tenant buttons to process")
-
-        # First, attempt to gather business URLs and scrape individual pages
-        logger.info("🔄 Collecting business URLs for individual page scraping")
-        business_urls = await self._extract_business_urls_from_directory()
-        logger.info(f"Found {len(business_urls)} business URLs in directory")
-
-        if business_urls:
-            logger.info("Visiting individual business pages for contact details...")
-            individual_page_tenants = await self._scrape_individual_business_pages(business_urls)
-
-            for page_tenant in individual_page_tenants:
-                tenant_name = page_tenant.get('name')
-                if not tenant_name:
+        consecutive_failures = 0
+        cards_processed = 0
+        
+        # Get all tenant card elements using the documented selector
+        # Story 1.3: Added fallback for legacy selector (a.hfpxzc -> button.hfpxzc)
+        try:
+            card_locator = self.page.locator(DIRECTORY_SELECTORS["tenant_card"])
+            total_cards = await card_locator.count()
+            selector_used = DIRECTORY_SELECTORS["tenant_card"]
+            
+            # Fallback to legacy selector if no cards found
+            if total_cards == 0:
+                logger.warning(f"No cards found with primary selector '{selector_used}', trying legacy selector...")
+                card_locator = self.page.locator(DIRECTORY_SELECTORS["tenant_card_legacy"])
+                total_cards = await card_locator.count()
+                selector_used = DIRECTORY_SELECTORS["tenant_card_legacy"]
+            
+            logger.info(f"Found {total_cards} tenant cards using selector: {selector_used}")
+            
+            # Apply card limit if configured
+            max_cards = self.settings.detail_max_cards or total_cards
+            cards_to_process = min(total_cards, max_cards)
+            
+            logger.info(f"DEBUG: detail_max_cards={self.settings.detail_max_cards}, total_cards={total_cards}, cards_to_process={cards_to_process}")
+            
+            if cards_to_process < total_cards:
+                logger.info(f"Limiting processing to {cards_to_process} cards (max_cards setting)")
+            
+            # Process each card
+            # IMPORTANT: Google Maps virtualizes the DOM and only keeps ~10 cards visible at a time
+            # We need to scroll through and process cards, skipping ones we've already seen
+            logger.info(f"Starting to process up to {cards_to_process} cards")
+            
+            processed_names = set()  # Track which businesses we've already processed
+            processed_count = 0
+            attempts_without_progress = 0
+            max_attempts = 20  # Stop if we can't find new cards after 20 attempts
+            
+            while processed_count < cards_to_process and attempts_without_progress < max_attempts:
+                # Re-query to get currently visible cards
+                card_locator = self.page.locator(selector_used)
+                current_count = await card_locator.count()
+                
+                if current_count == 0:
+                    logger.warning(f"No cards found in DOM, stopping")
+                    break
+                
+                # Find the first card we haven't processed yet
+                card = None
+                card_index = None
+                for i in range(current_count):
+                    test_card = card_locator.nth(i)
+                    card_name = await test_card.get_attribute('aria-label', timeout=2000)
+                    if card_name and card_name.lower().strip() not in processed_names:
+                        card = test_card
+                        card_index = i
+                        logger.info(f"[Processing {processed_count+1}/{cards_to_process}] Found unprocessed card at index {i}/{current_count}: {card_name[:50]}")
+                        break
+                
+                if not card:
+                    # No new cards found in current view
+                    # Scroll the directory container down to load more cards from virtualized list
+                    logger.info(f"No new cards in current view ({processed_count} processed so far), scrolling directory to load more...")
+                    
+                    # Find and scroll the scrollable directory container, not individual cards
+                    try:
+                        # Scroll the feed/results container that holds all the cards
+                        scroll_container = self.page.locator("div[role='feed']").first
+                        if await scroll_container.count() > 0:
+                            # Scroll down within the container
+                            await scroll_container.evaluate("el => el.scrollTop += 500")
+                            await asyncio.sleep(2)  # Wait for new cards to render
+                        else:
+                            # Fallback: scroll last visible card into view
+                            if current_count > 0:
+                                last_card = card_locator.nth(current_count - 1)
+                                await last_card.scroll_into_view_if_needed(timeout=5000)
+                                await asyncio.sleep(2)
+                    except Exception as e:
+                        logger.debug(f"Error scrolling container: {e}")
+                    
+                    attempts_without_progress += 1
                     continue
-                key = tenant_name.lower().strip()
-                match = self._find_matching_tenant(basic_tenants, tenant_name)
-                detailed_lookup[key] = {**match, **page_tenant} if match else page_tenant
-                logger.info(f"✓ Recorded details from individual page: {tenant_name}")
-
-        if tenant_buttons:
-            logger.info("🔄 Processing in-directory tenant cards for detailed information")
-
-            for idx, button_info in enumerate(tenant_buttons, start=1):
-                text_hint = (button_info.get('text') or '')[:80]
-                button_element = button_info['element']
-
+                
+                attempts_without_progress = 0  # Reset since we found a new card
+                
                 try:
-                    if await button_element.count() == 0 and text_hint:
-                        fallback = (
-                            self.page.locator("div:has-text('·')")
-                            .filter(has_text=text_hint.split('\n')[0])
-                            .first
-                        )
-                        if await fallback.count() > 0:
-                            button_element = fallback
-
-                    if await button_element.count() == 0:
-                        logger.debug(f"[Card {idx}] Locator no longer available; skipping ({text_hint})")
+                    # Verify card still exists
+                    if await card.count() == 0:
+                        logger.warning(f"[Card {processed_count + 1}/{cards_to_process}] Card no longer available; skipping")
                         continue
-
-                    await button_element.scroll_into_view_if_needed(timeout=5000)
-                    await asyncio.sleep(0.2)
+                    
+                    # Step 1: Scroll card into view and wait for settle
+                    await card.scroll_into_view_if_needed(timeout=5000)
+                    await self._throttle_delay(self.settings.detail_scroll_settle_delay)
+                    
+                    # Step 2: Click card with retry logic
+                    click_success = await self._click_card_with_retry(card, processed_count + 1)
+                    if not click_success:
+                        consecutive_failures += 1
+                        if consecutive_failures >= self.settings.detail_max_failures:
+                            logger.error(f"Reached max consecutive failures ({self.settings.detail_max_failures}); aborting detail extraction")
+                            break
+                        continue
+                    
+                    # Step 3: Wait for detail pane to load
+                    pane_loaded = await self._wait_for_detail_pane()
+                    if not pane_loaded:
+                        logger.warning(f"[Card {processed_count + 1}/{cards_to_process}] Detail pane did not load; skipping")
+                        consecutive_failures += 1
+                        if consecutive_failures >= self.settings.detail_max_failures:
+                            logger.error(f"Reached max consecutive failures; aborting detail extraction")
+                            break
+                        await self._navigate_back_to_directory()
+                        continue
+                    
+                    # Step 3.5: Additional wait for detail pane content to fully load
+                    # Some elements (like website links) may load asynchronously after the h1
+                    await asyncio.sleep(1.0)  # Give time for all detail pane elements to render
+                    
+                    # Step 4: Extract detail fields from pane
+                    detail_fields = await self._extract_detail_fields()
+                    
+                    if detail_fields.get('name'):
+                        # Successful extraction - reset failure counter
+                        consecutive_failures = 0
+                        cards_processed += 1
+                        
+                        # Match with basic tenant data
+                        tenant_name = detail_fields['name']
+                        match = self._find_matching_tenant(basic_tenants, tenant_name)
+                        merged = {**match, **detail_fields} if match else detail_fields
+                        
+                        key = tenant_name.lower().strip()
+                        detailed_lookup[key] = merged
+                        processed_names.add(key)  # Mark as processed
+                        
+                        website_status = detail_fields.get('website') or "None"
+                        if website_status != "None":
+                            website_status = website_status[:50] + "..." if len(website_status) > 50 else website_status
+                        logger.info(f"[Card {processed_count + 1}/{cards_to_process}] ✓ {tenant_name} | "
+                                  f"Phone: {bool(detail_fields.get('phone'))} | "
+                                  f"Website: {website_status}")
+                        processed_count += 1
+                    else:
+                        logger.warning(f"[Card {processed_count + 1}/{cards_to_process}] No name extracted from detail pane")
+                        consecutive_failures += 1
+                    
+                    # Step 5: Navigate back to directory view
+                    await self._navigate_back_to_directory()
+                    
+                    # Step 6: Throttle between cards (anti-rate-limiting)
+                    await self._throttle_delay(self.settings.detail_per_card_delay)
+                    
+                except PlaywrightTimeoutError as exc:
+                    logger.warning(f"[Card {processed_count + 1}/{cards_to_process}] Timeout: {exc}")
+                    consecutive_failures += 1
+                    if consecutive_failures >= self.settings.detail_max_failures:
+                        logger.error(f"Reached max consecutive failures; aborting")
+                        break
                     try:
-                        await button_element.hover(timeout=2000)
+                        await self._navigate_back_to_directory()
                     except Exception:
                         pass
-                    await button_element.click(timeout=5000)
-                    await asyncio.sleep(2)
-
-                    card_data = await self._extract_card_details()
                 except Exception as exc:
-                    logger.warning(f"[Card {idx}] Error extracting tenant card ({text_hint}): {exc}")
-                    card_data = {}
-                finally:
+                    logger.warning(f"[Card {processed_count + 1}/{cards_to_process}] Error: {exc}")
+                    consecutive_failures += 1
+                    if consecutive_failures >= self.settings.detail_max_failures:
+                        logger.error(f"Reached max consecutive failures; aborting")
+                        break
                     try:
-                        await self._close_tenant_card()
+                        await self._navigate_back_to_directory()
                     except Exception:
                         pass
-                    await asyncio.sleep(0.4)
-
-                if not card_data.get('name'):
+            
+        except Exception as e:
+            logger.error(f"Failed to locate tenant cards: {e}")
+            logger.info("Falling back to basic tenant data without detail extraction")
+            return basic_tenants
+        
+        # Merge detailed data with basic tenants (if any)
+        # Only merge if we have basic tenants; otherwise use detailed data directly
+        if basic_tenants:
+            for tenant in basic_tenants:
+                name = tenant.get('name')
+                if not name:
                     continue
-
-                tenant_name = card_data['name']
-                match = self._find_matching_tenant(basic_tenants, tenant_name)
-                merged = {**match, **card_data} if match else card_data
-                key = tenant_name.lower().strip()
-                detailed_lookup[key] = merged
-                logger.info(f"[Card {idx}] ✓ Captured details for {tenant_name}")
-
-        # Merge with basic tenants to ensure all entries are present
-        for tenant in basic_tenants:
-            name = tenant.get('name')
-            if not name:
-                continue
-            key = name.lower().strip()
-            if key in detailed_lookup:
-                detailed_lookup[key] = {**tenant, **detailed_lookup[key]}
-            else:
-                detailed_lookup[key] = tenant
-
+                key = name.lower().strip()
+                if key in detailed_lookup:
+                    detailed_lookup[key] = {**tenant, **detailed_lookup[key]}
+                else:
+                    detailed_lookup[key] = tenant
+        
         final_tenants = list(detailed_lookup.values())
-        logger.info(f"📊 FINAL RESULT: {len(final_tenants)} tenants processed")
+        logger.info(f"📊 DETAIL EXTRACTION COMPLETE: {cards_processed} cards processed, {len(final_tenants)} total tenants")
         contact_count = sum(1 for t in final_tenants if t.get('phone') or t.get('website'))
         logger.info(f"📞 CONTACT DETAILS: {contact_count} tenants have phone/website data")
-
+        
         return final_tenants
+
+    async def _click_card_with_retry(self, card_locator, card_index: int, retries: int = 2) -> bool:
+        """Click a tenant card with retry logic.
+        
+        Args:
+            card_locator: Playwright Locator for the card element
+            card_index: Index of the card (for logging)
+            retries: Number of retry attempts
+            
+        Returns:
+            True if click succeeded, False otherwise
+        """
+        for attempt in range(retries + 1):
+            try:
+                await card_locator.click(timeout=5000)
+                await self._throttle_delay(self.settings.detail_after_click_delay)
+                return True
+            except PlaywrightTimeoutError:
+                if attempt < retries:
+                    logger.debug(f"[Card {card_index}] Click attempt {attempt + 1} failed; retrying...")
+                    await asyncio.sleep(self.settings.action_retry_backoff * (attempt + 1))
+                else:
+                    logger.warning(f"[Card {card_index}] Failed to click after {retries + 1} attempts")
+                    return False
+            except Exception as exc:
+                logger.warning(f"[Card {card_index}] Click failed: {exc}")
+                return False
+        return False
+    
+    async def _wait_for_detail_pane(self) -> bool:
+        """Wait for the detail pane to appear and be ready.
+        
+        Returns:
+            True if detail pane loaded successfully, False otherwise
+        """
+        try:
+            # Wait for the h1 (name) element as the primary indicator
+            name_selector = DETAIL_PANE_SELECTORS["name"]
+            await self.page.wait_for_selector(
+                name_selector,
+                state="visible",
+                timeout=self.settings.detail_extraction_timeout * 1000
+            )
+            return True
+        except PlaywrightTimeoutError:
+            logger.debug("Detail pane h1 not found; trying fallback selectors")
+            # Fallback: try container selector
+            try:
+                container_selector = DETAIL_PANE_SELECTORS["pane_container"]
+                await self.page.wait_for_selector(
+                    container_selector,
+                    state="visible",
+                    timeout=2000
+                )
+                return True
+            except PlaywrightTimeoutError:
+                return False
+        except Exception as e:
+            logger.warning(f"Error waiting for detail pane: {e}")
+            return False
+    
+    async def _extract_detail_fields(self) -> Dict[str, Any]:
+        """Extract detail fields from the open detail pane using investigation selectors.
+        
+        Returns:
+            Dictionary with extracted fields (name, phone, website, hours, etc.)
+        """
+        details = {
+            'name': None,
+            'phone': None,
+            'website': None,
+            'hours': None,
+            'address': None,
+            'rating': None,
+            'category': None,
+            'status': None,
+        }
+        
+        try:
+            # Extract name (h1)
+            try:
+                name_elem = self.page.locator(DETAIL_PANE_SELECTORS["name"]).first
+                if await name_elem.count() > 0:
+                    details['name'] = (await name_elem.inner_text()).strip()
+            except Exception:
+                pass
+            
+            # Extract phone number (button with data-tooltip)
+            try:
+                phone_elem = self.page.locator(DETAIL_PANE_SELECTORS["phone"]).first
+                if await phone_elem.count() > 0:
+                    # Try to get the aria-label which contains the phone number
+                    aria_label = await phone_elem.get_attribute('aria-label')
+                    if aria_label:
+                        details['phone'] = self._normalize_phone_number(aria_label)
+                    else:
+                        # Fallback to inner text
+                        phone_text = await phone_elem.inner_text()
+                        if phone_text:
+                            details['phone'] = self._normalize_phone_number(phone_text)
+            except Exception:
+                pass
+            
+            # Extract website (a with data-tooltip)
+            try:
+                website_selector = DETAIL_PANE_SELECTORS["website"]
+                logger.debug(f"  Looking for website with selector: {website_selector}")
+                
+                # Scroll detail pane to ensure all content is loaded
+                # Website link may be below the fold and needs scrolling to load
+                try:
+                    pane_container = self.page.locator(DETAIL_PANE_SELECTORS["pane_container"]).first
+                    if await pane_container.count() > 0:
+                        # Scroll down in the detail pane to load all sections
+                        # Do multiple scrolls to ensure all lazy-loaded content appears
+                        await pane_container.evaluate("el => el.scrollTop = 0")
+                        await asyncio.sleep(0.3)
+                        await pane_container.evaluate("el => el.scrollTop = el.scrollHeight / 3")
+                        await asyncio.sleep(0.5)
+                        await pane_container.evaluate("el => el.scrollTop = (el.scrollHeight * 2) / 3")
+                        await asyncio.sleep(0.5)
+                        await pane_container.evaluate("el => el.scrollTop = el.scrollHeight")
+                        await asyncio.sleep(1)  # Longer wait for content to fully load
+                except Exception as e:
+                    logger.debug(f"  Error scrolling detail pane: {e}")
+                
+                # Try to expand "More info" or similar sections that may contain website
+                try:
+                    # Look for expansion buttons that might reveal website
+                    expand_buttons = [
+                        "button:has-text('More info')",
+                        "button:has-text('Show more')",
+                        "button[aria-label*='more']",
+                        "button[aria-label*='expand']",
+                    ]
+                    for expand_selector in expand_buttons:
+                        expand_btn = self.page.locator(expand_selector).first
+                        if await expand_btn.count() > 0:
+                            logger.debug(f"  Found expansion button: {expand_selector}, clicking it...")
+                            await expand_btn.click()
+                            await asyncio.sleep(1)  # Wait for expansion
+                            break
+                except Exception as e:
+                    logger.debug(f"  Error clicking expansion button: {e}")
+                
+                # Wait a bit for website link to appear (it may load asynchronously)
+                try:
+                    await self.page.wait_for_selector(
+                        website_selector,
+                        state="attached",  # Element exists in DOM (may not be visible)
+                        timeout=3000  # 3 second timeout (increased from 2) - don't fail if no website
+                    )
+                except PlaywrightTimeoutError:
+                    logger.debug(f"  Website link not found within timeout (may not have website)")
+                
+                website_elem = self.page.locator(website_selector).first
+                count = await website_elem.count()
+                logger.debug(f"  Website element count: {count}")
+                
+                if count > 0:
+                    href = await website_elem.get_attribute('href')
+                    logger.debug(f"  Website href attribute: {href}")
+                    
+                    # Try to extract actual URL from Google redirect
+                    actual_url = None
+                    if href:
+                        if href.startswith('http'):
+                            actual_url = href
+                        elif href.startswith('/url?q='):
+                            # Parse Google redirect URL: /url?q=https://example.com&...
+                            try:
+                                parsed = urlparse(href)
+                                query_params = parse_qs(parsed.query)
+                                if 'q' in query_params:
+                                    actual_url = query_params['q'][0]
+                                    logger.debug(f"  Extracted URL from Google redirect: {actual_url}")
+                            except Exception as e:
+                                logger.debug(f"  Error parsing redirect URL: {e}")
+                    
+                    if actual_url and actual_url.startswith('http'):
+                        details['website'] = actual_url
+                        logger.debug(f"  ✓ Website extracted from href: {actual_url}")
+                    else:
+                        # Fallback to aria-label or text
+                        aria_label = await website_elem.get_attribute('aria-label')
+                        text_content = await website_elem.inner_text()
+                        logger.debug(f"  Website aria-label: {aria_label}")
+                        logger.debug(f"  Website text content: {text_content}")
+                        
+                        # Extract domain from aria-label (remove "Website: " prefix if present)
+                        if aria_label:
+                            # Remove "Website: " prefix if present
+                            domain = aria_label.replace('Website:', '').replace('website:', '').strip()
+                            # Construct full URL if we have a domain
+                            if domain and ('.com' in domain or '.co.uk' in domain or '.org' in domain or '.net' in domain):
+                                # Add https:// if not present
+                                if not domain.startswith('http'):
+                                    actual_url = f"https://{domain}"
+                                else:
+                                    actual_url = domain
+                                details['website'] = actual_url
+                                logger.debug(f"  ✓ Website extracted from aria-label: {actual_url}")
+                        elif text_content and ('http' in text_content or '.com' in text_content or '.co.uk' in text_content):
+                            # Extract URL from text if present
+                            url_match = re.search(r'https?://[^\s]+', text_content)
+                            if url_match:
+                                details['website'] = url_match.group(0)
+                                logger.debug(f"  ✓ Website extracted from text: {details['website']}")
+                else:
+                    logger.debug(f"  ✗ No website element found with selector: {website_selector}")
+                    # Try alternative selectors - some businesses may have different link structures
+                    # IMPORTANT: Based on analysis, aria-label is more reliable than data-tooltip!
+                    # Menu links often contain the business website!
+                    alt_selectors = [
+                        "a[aria-label='Open website']",  # Exact match (should have been caught by primary)
+                        "a[aria-label*='Website']",  # Uppercase variant
+                        "a[aria-label*='website']",  # Lowercase variant
+                        "a[aria-label='Open menu link']",  # Menu link (often the website!)
+                        "a[aria-label*='menu']",  # Any menu variant
+                        "a[data-item-id='authority']",  # Website link (seen in analysis)
+                        "button[aria-label*='Website']",  # Button with aria-label
+                        "button[aria-label*='website']",  # Button with aria-label (lowercase)
+                        "button[data-tooltip*='website']",  # Button variant (lowercase)
+                        "a[data-tooltip*='website']",  # Lowercase (less common)
+                        "a[href^='http']:not([href*='google']):not([href*='maps']):not([href*='accounts.google']):not([href*='thefork']):not([href*='reserve'])",
+                    ]
+                    
+                    for alt_sel in alt_selectors:
+                        alt_elem = self.page.locator(alt_sel).first
+                        alt_count = await alt_elem.count()
+                        if alt_count > 0:
+                            logger.debug(f"  Found {alt_count} element(s) with alternative selector: {alt_sel}")
+                            # Try extracting from first alternative
+                            try:
+                                alt_href = await alt_elem.get_attribute('href')
+                                alt_aria = await alt_elem.get_attribute('aria-label')
+                                alt_tooltip = await alt_elem.get_attribute('data-tooltip')
+                                alt_text = await alt_elem.inner_text()
+                                logger.debug(f"    href: {alt_href}, aria-label: {alt_aria}, tooltip: {alt_tooltip}")
+                                
+                                # Extract URL from href (handle redirects)
+                                actual_url = None
+                                if alt_href:
+                                    if alt_href.startswith('http'):
+                                        actual_url = alt_href
+                                    elif alt_href.startswith('/url?q='):
+                                        try:
+                                            parsed = urlparse(alt_href)
+                                            query_params = parse_qs(parsed.query)
+                                            if 'q' in query_params:
+                                                actual_url = query_params['q'][0]
+                                        except Exception:
+                                            pass
+                                
+                                # If no href (e.g., button element), try to extract from aria-label or text
+                                if not actual_url and (alt_aria or alt_text):
+                                    # Remove "Website:" prefix and construct URL
+                                    domain_text = (alt_aria or alt_text).replace('Website:', '').replace('website:', '').strip()
+                                    if domain_text and any(tld in domain_text for tld in ['.com', '.co.uk', '.org', '.net', '.io']):
+                                        if not domain_text.startswith('http'):
+                                            actual_url = f"https://{domain_text}"
+                                        else:
+                                            actual_url = domain_text
+                                
+                                if actual_url and actual_url.startswith('http') and 'google' not in actual_url:
+                                    details['website'] = actual_url
+                                    logger.debug(f"  ✓ Website extracted from alternative selector: {actual_url}")
+                                    break
+                            except Exception as e:
+                                logger.debug(f"    Error extracting from alternative: {e}")
+            except Exception as e:
+                logger.debug(f"  ✗ Exception extracting website: {e}", exc_info=True)
+            
+            # Extract address (button with data-tooltip)
+            try:
+                address_elem = self.page.locator(DETAIL_PANE_SELECTORS["address"]).first
+                if await address_elem.count() > 0:
+                    aria_label = await address_elem.get_attribute('aria-label')
+                    if aria_label:
+                        details['address'] = aria_label.strip()
+                    else:
+                        address_text = await address_elem.inner_text()
+                        if address_text and len(address_text) > 10:
+                            details['address'] = address_text.strip()
+            except Exception:
+                pass
+            
+            # Extract hours (div with aria-label containing 'Hours')
+            try:
+                hours_elem = self.page.locator(DETAIL_PANE_SELECTORS["hours"]).first
+                if await hours_elem.count() > 0:
+                    hours_text = await hours_elem.inner_text()
+                    if hours_text and len(hours_text) > 5:
+                        details['hours'] = hours_text.strip()
+            except Exception:
+                pass
+            
+            # Extract category (button with jsaction containing 'category')
+            try:
+                category_elem = self.page.locator(DETAIL_PANE_SELECTORS["category"]).first
+                if await category_elem.count() > 0:
+                    category_text = await category_elem.inner_text()
+                    if category_text:
+                        details['category'] = category_text.strip()
+            except Exception:
+                pass
+            
+            # Extract rating (div with jsaction containing 'rating')
+            try:
+                rating_elem = self.page.locator(DETAIL_PANE_SELECTORS["rating"]).first
+                if await rating_elem.count() > 0:
+                    aria_label = await rating_elem.get_attribute('aria-label')
+                    if aria_label:
+                        # Parse rating from aria-label like "4.5 stars"
+                        match = re.search(r'(\d+(?:\.\d+)?)', aria_label)
+                        if match:
+                            details['rating'] = float(match.group(1))
+            except Exception:
+                pass
+            
+            # Fallback: Parse additional details from HTML if primary selectors didn't work
+            if not details.get('phone') or not details.get('website'):
+                try:
+                    page_html = await self.page.inner_html("body")
+                    parsed = self._parse_card_popout_html(page_html)
+                    for key in ['phone', 'website', 'address', 'hours']:
+                        if parsed.get(key) and not details.get(key):
+                            details[key] = parsed[key]
+                except Exception:
+                    pass
+            
+            # Get maps link from current URL
+            try:
+                current_url = self.page.url
+                if 'maps' in current_url:
+                    details['maps_link'] = current_url
+            except Exception:
+                pass
+            
+        except Exception as e:
+            logger.warning(f"Error extracting detail fields: {e}")
+        
+        return details
+    
+    async def _navigate_back_to_directory(self) -> None:
+        """Navigate back to the directory view from a detail page."""
+        try:
+            await self.page.go_back(wait_until="domcontentloaded", timeout=5000)
+            await self._throttle_delay(self.settings.detail_after_back_delay)
+        except Exception as e:
+            logger.warning(f"Error navigating back to directory: {e}")
+            # Fallback: try pressing Escape
+            try:
+                await self.page.keyboard.press('Escape')
+                await asyncio.sleep(1)
+            except Exception:
+                pass
+    
+    async def _throttle_delay(self, seconds: float) -> None:
+        """Apply a configurable throttling delay.
+        
+        Args:
+            seconds: Number of seconds to wait
+        """
+        if seconds > 0:
+            await asyncio.sleep(seconds)
 
     async def _find_tenant_buttons(self) -> List[Dict[str, Any]]:
         """Find all tenant buttons/cards in the current directory view.
